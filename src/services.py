@@ -40,9 +40,6 @@ class SessionManager:
             return dict(manifest)
 
     def cleanup_session(self, session_id: str) -> None:
-        session_dir = UPLOAD_DIR / session_id
-        if session_dir.exists():
-            shutil.rmtree(session_dir, ignore_errors=True)
         with self._lock:
             self._manifests.pop(session_id, None)
 

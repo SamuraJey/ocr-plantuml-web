@@ -17,11 +17,6 @@
 {% else %}
 <header class="results-header">
     <h1>Результаты сравнения</h1>
-    {% if session_id %}
-    <a href="/?cleanup={{ session_id }}" class="btn btn-outline">Новое сравнение</a>
-    {% else %}
-    <a href="/" class="btn btn-outline">Новое сравнение</a>
-    {% endif %}
 </header>
 
 <section class="stats-grid" aria-label="Ключевые метрики">

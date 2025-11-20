@@ -28,10 +28,8 @@ templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request, cleanup: Optional[str] = None):
+async def index(request: Request):
     """Главная страница с формой загрузки"""
-    if cleanup:
-        session_manager.cleanup_session(cleanup)
     return templates.TemplateResponse(
         "index.html", {"request": request, "max_upload_size": MAX_UPLOAD_SIZE}
     )
@@ -218,21 +216,6 @@ async def run_comparison(
         "chart_scores": chart_scores,
     }
     session_manager.store_results(session_id, payload)
-    # We don't remove the manifest here immediately if we want to allow re-runs or other ops,
-    # but the original code did pop it. Let's keep it consistent.
-    # session_manager.cleanup_session(session_id) # This would delete files!
-    # The original code only popped the manifest from memory but kept files for results page?
-    # Actually original code: SESSION_MANIFESTS.pop(session_id, None)
-    # But files are needed for results? No, results are stored in results.json.
-    # So we can clear the manifest from memory.
-    # But wait, if we want to re-run or something?
-    # The original code kept files in UPLOAD_DIR / session_id.
-    # cleanup_session removes the directory.
-    # So we should NOT call cleanup_session here.
-    # We just want to clear the manifest from memory if it's no longer needed.
-    # But session_manager.cleanup_session removes the directory too.
-    # So I'll just leave it as is, relying on the user to click "Home" which calls cleanup,
-    # or a background task.
 
     return RedirectResponse(
         url=f"/results/{session_id}", status_code=status.HTTP_303_SEE_OTHER
