@@ -3,6 +3,7 @@
     const $$ = (selector, scope = document) => scope.querySelectorAll(selector);
 
     document.addEventListener('DOMContentLoaded', () => {
+        initModeSelector();
         initAnimations();
         initDropzones();
         initFormSubmit();
@@ -30,11 +31,84 @@
         });
     }
 
+    function initModeSelector() {
+        const modeButtons = $$('[data-mode]');
+        if (!modeButtons.length) return;
+
+        const form = document.getElementById('upload-form');
+        const pumlJsonSection = document.querySelector('[data-dropzone="json"][data-mode="puml-json"]');
+        const pumlPumlSection = document.querySelector('[data-dropzone="puml2"][data-mode="puml-puml"]');
+        const submitHint = document.getElementById('submit-hint');
+        const submitText = document.getElementById('submit-text');
+        const jsonFilesInput = document.getElementById('json_files');
+        const puml2FilesInput = document.getElementById('puml2_files');
+        const pumlFilesInput = document.getElementById('puml_files');
+
+        if (!form) return;
+
+        // Установка начального состояния required для PUML vs JSON режима
+        if (pumlFilesInput) pumlFilesInput.required = true;
+        if (jsonFilesInput) jsonFilesInput.required = true;
+        if (puml2FilesInput) puml2FilesInput.required = false;
+
+        let previousMode = window.CURRENT_MODE || 'puml-json';
+
+        modeButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const mode = this.getAttribute('data-mode');
+
+                // Если режим действительно изменился, очищаем файлы
+                if (mode !== previousMode) {
+                    window.CURRENT_MODE = mode;
+                    previousMode = mode;
+
+                    // Обновляем активную кнопку
+                    modeButtons.forEach(b => b.classList.remove('mode-btn-active'));
+                    this.classList.add('mode-btn-active');
+
+                    // Очищаем файлы при переключении и триггерим change событие
+                    if (pumlFilesInput) {
+                        pumlFilesInput.value = '';
+                        pumlFilesInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                    if (jsonFilesInput) {
+                        jsonFilesInput.value = '';
+                        jsonFilesInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                    if (puml2FilesInput) {
+                        puml2FilesInput.value = '';
+                        puml2FilesInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+
+                    if (mode === 'puml-json') {
+                        if (pumlJsonSection) pumlJsonSection.style.display = 'block';
+                        if (pumlPumlSection) pumlPumlSection.style.display = 'none';
+                        if (pumlFilesInput) pumlFilesInput.required = true;
+                        if (jsonFilesInput) jsonFilesInput.required = true;
+                        if (puml2FilesInput) puml2FilesInput.required = false;
+                        if (submitHint) submitHint.textContent = 'После загрузки вы сможете подтвердить соответствия перед сравнением.';
+                        if (submitText) submitText.textContent = 'Предпросмотр соответствий';
+                        form.action = '/preview';
+                    } else if (mode === 'puml-puml') {
+                        if (pumlJsonSection) pumlJsonSection.style.display = 'none';
+                        if (pumlPumlSection) pumlPumlSection.style.display = 'block';
+                        if (pumlFilesInput) pumlFilesInput.required = true;
+                        if (jsonFilesInput) jsonFilesInput.required = false;
+                        if (puml2FilesInput) puml2FilesInput.required = true;
+                        if (submitHint) submitHint.textContent = 'Загрузите два набора PUML файлов для сравнения.';
+                        if (submitText) submitText.textContent = 'Сравнить PUML файлы';
+                        form.action = '/preview-puml-puml';
+                    }
+                }
+            });
+        });
+    }
+
     function initDropzones() {
         const zones = $$('[data-dropzone]');
         if (!zones.length) return;
 
-        const counts = { puml: 0, json: 0 };
+        const counts = { puml: 0, json: 0, puml2: 0 };
         const mismatch = document.querySelector('[data-mismatch-alert]');
         const mismatchText = mismatch ? mismatch.querySelector('[data-mismatch-text]') : null;
         const submitBtn = document.querySelector('.upload-form button[type="submit"]');
@@ -132,19 +206,38 @@
 
         function updateMismatch() {
             if (!mismatch) return;
-            const { puml, json } = counts;
+
+            // Определяем текущий режим
+            const currentMode = window.CURRENT_MODE || 'puml-json';
+            const { puml, json, puml2 } = counts;
+
             let state = 'ok';
             let message = '';
 
-            if (!puml && !json) {
-                message = 'Добавьте PUML и JSON файлы';
-                state = 'error';
-            } else if (!puml || !json) {
-                message = 'Добавьте недостающие файлы, чтобы пары были полными';
-                state = 'error';
-            } else if (puml !== json) {
-                message = `Количество файлов не совпадает: ${puml} PUML vs ${json} JSON`;
-                state = 'warning';
+            if (currentMode === 'puml-json') {
+                // Режим PUML vs JSON
+                if (!puml && !json) {
+                    message = 'Добавьте PUML и JSON файлы';
+                    state = 'error';
+                } else if (!puml || !json) {
+                    message = 'Добавьте недостающие файлы, чтобы пары были полными';
+                    state = 'error';
+                } else if (puml !== json) {
+                    message = `Количество файлов не совпадает: ${puml} PUML vs ${json} JSON`;
+                    state = 'warning';
+                }
+            } else if (currentMode === 'puml-puml') {
+                // Режим PUML vs PUML
+                if (!puml && !puml2) {
+                    message = 'Добавьте оба набора PUML файлов';
+                    state = 'error';
+                } else if (!puml || !puml2) {
+                    message = 'Добавьте недостающие файлы, чтобы пары были полными';
+                    state = 'error';
+                } else if (puml !== puml2) {
+                    message = `Количество файлов не совпадает: ${puml} первых vs ${puml2} вторых`;
+                    state = 'warning';
+                }
             }
 
             mismatch.hidden = state === 'ok';

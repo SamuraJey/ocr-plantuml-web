@@ -9,16 +9,17 @@
     <a href="/" class="btn btn-outline">Загрузить другие файлы</a>
 </header>
 
-<form action="/upload" method="post" class="preview-form">
+<form action="{% if mode == 'puml-puml' %}/upload-puml-puml{% else %}/upload{% endif %}" method="post"
+    class="preview-form">
     <input type="hidden" name="session_id" value="{{ session_id }}">
     <section class="preview-summary" aria-label="Краткие метрики">
         <article class="summary-card">
             <strong>{{ summary.puml_count }}</strong>
-            <span>PUML файлов</span>
+            <span>{% if mode == 'puml-puml' %}Первых PUML{% else %}PUML{% endif %} файлов</span>
         </article>
         <article class="summary-card">
             <strong>{{ summary.json_count }}</strong>
-            <span>JSON файлов</span>
+            <span>{% if mode == 'puml-puml' %}Вторых PUML{% else %}JSON{% endif %} файлов</span>
         </article>
         <article class="summary-card">
             <strong>{{ summary.paired_count }}</strong>
@@ -32,7 +33,7 @@
 
     {% if unmatched_json %}
     <div class="unmatched-list" role="note">
-        <strong>JSON без пары:</strong>
+        <strong>{% if mode == 'puml-puml' %}Вторые PUML{% else %}JSON{% endif %} без пары:</strong>
         <p>Эти файлы пока ни с чем не сопоставлены и доступны в выпадающем списке.</p>
         <ul>
             {% for json in unmatched_json %}
@@ -46,8 +47,8 @@
         <table class="pairing-table">
             <thead>
                 <tr>
-                    <th scope="col">Эталон (PUML)</th>
-                    <th scope="col">Распознанный JSON</th>
+                    <th scope="col">{% if mode == 'puml-puml' %}Первый{% else %}Эталон{% endif %} (PUML)</th>
+                    <th scope="col">{% if mode == 'puml-puml' %}Второй (PUML){% else %}Распознанный JSON{% endif %}</th>
                     <th scope="col">Статус</th>
                 </tr>
             </thead>

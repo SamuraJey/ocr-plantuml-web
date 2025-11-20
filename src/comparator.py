@@ -383,3 +383,182 @@ def compare_batch(etalon_files: List[str], student_files: List[str]) -> List[Dic
             )
 
     return results
+
+
+def compare_puml_with_puml(
+    etalon_puml_path: str,
+    student_puml_path: str,
+    class_threshold: float = 0.90,
+    attr_threshold: float = 0.85,
+) -> Dict:
+    """
+    Сравнивает две PUML диаграммы
+    Возвращает словарь с результатами сравнения
+    """
+    etalon_classes, _ = parse_puml_file(etalon_puml_path)
+    student_classes, _ = parse_puml_file(student_puml_path)
+
+    if not etalon_classes:
+        return {"error": "Первая диаграмма пустая — нельзя сравнить", "similarity": 1.0}
+
+    if not student_classes:
+        return {
+            "error": "Вторая диаграмма пустая",
+            "similarity": 0.0,
+            "score": 0.0,
+        }
+
+    # === СРАВНЕНИЕ КЛАССОВ ===
+    matched_classes = 0
+    missing_classes = []
+    extra_classes = []
+
+    matched_class_names = set()
+    for etalon_name, etalon_class in etalon_classes.items():
+        best_candidate = None
+        best_ratio = 0.0
+
+        for student_name, student_class in student_classes.items():
+            if student_name in matched_class_names:
+                continue
+
+            similarity = difflib.SequenceMatcher(
+                None, etalon_name, student_name
+            ).ratio()
+            if similarity >= class_threshold and similarity > best_ratio:
+                best_candidate = student_name
+                best_ratio = similarity
+
+        if best_candidate:
+            matched_classes += 1
+            matched_class_names.add(best_candidate)
+        else:
+            missing_classes.append(etalon_name)
+
+    extra_classes = [
+        name for name in student_classes.keys() if name not in matched_class_names
+    ]
+
+    # === ВЫЧИСЛЕНИЕ МЕТРИК ДЛЯ КЛАССОВ ===
+    etalon_class_count = len(etalon_classes)
+    student_class_count = len(student_classes)
+
+    if etalon_class_count > 0 or student_class_count > 0:
+        precision_cls = (
+            matched_classes / student_class_count if student_class_count > 0 else 1.0
+        )
+        recall_cls = (
+            matched_classes / etalon_class_count if etalon_class_count > 0 else 1.0
+        )
+    else:
+        precision_cls = recall_cls = 1.0
+
+    f1_cls = (
+        2 * precision_cls * recall_cls / (precision_cls + recall_cls)
+        if (precision_cls + recall_cls) > 0
+        else 0.0
+    )
+
+    # === СРАВНЕНИЕ АТРИБУТОВ ===
+    total_matched_attrs = 0
+    total_missing_attrs = []
+    total_extra_attrs = []
+    all_attr_diffs = []
+
+    for etalon_name, etalon_class in etalon_classes.items():
+        student_name = None
+        for name in student_classes.keys():
+            if (
+                name in matched_class_names
+                and difflib.SequenceMatcher(None, etalon_name, name).ratio()
+                >= class_threshold
+            ):
+                student_name = name
+                break
+
+        if student_name:
+            student_class = student_classes[student_name]
+            matched, missing, extra = _match_attributes(
+                etalon_class.attributes,
+                student_class.attributes,
+                attr_threshold,
+            )
+            total_matched_attrs += matched
+            total_missing_attrs.extend(missing)
+            total_extra_attrs.extend(extra)
+
+            if missing or extra:
+                all_attr_diffs.append(
+                    {
+                        "etalon_class": etalon_name,
+                        "student_class": student_name,
+                        "missing": missing,
+                        "extra": extra,
+                    }
+                )
+        else:
+            total_missing_attrs.extend(etalon_class.attributes)
+
+    etalon_attr_count = sum(len(c.attributes) for c in etalon_classes.values())
+    student_attr_count = sum(len(c.attributes) for c in student_classes.values())
+
+    if etalon_attr_count > 0 or student_attr_count > 0:
+        precision_attr = (
+            total_matched_attrs / student_attr_count if student_attr_count > 0 else 1.0
+        )
+        recall_attr = (
+            total_matched_attrs / etalon_attr_count if etalon_attr_count > 0 else 1.0
+        )
+    else:
+        precision_attr = recall_attr = 1.0
+
+    f1_attr = (
+        2 * precision_attr * recall_attr / (precision_attr + recall_attr)
+        if (precision_attr + recall_attr) > 0
+        else 0.0
+    )
+
+    # === ИТОГОВАЯ ОЦЕНКА ===
+    overall_precision = (
+        (precision_cls + precision_attr) / 2
+        if (precision_cls + precision_attr) > 0
+        else 1.0
+    )
+    overall_recall = (
+        (recall_cls + recall_attr) / 2 if (recall_cls + recall_attr) > 0 else 1.0
+    )
+    overall_f1 = (
+        2 * overall_precision * overall_recall / (overall_precision + overall_recall)
+        if (overall_precision + overall_recall) > 0
+        else 0.0
+    )
+
+    score = overall_f1 * 100
+
+    return {
+        "similarity": overall_f1,
+        "score": score,
+        "classes": {
+            "precision": precision_cls,
+            "recall": recall_cls,
+            "f1": f1_cls,
+            "etalon_count": etalon_class_count,
+            "student_count": student_class_count,
+            "matched": matched_classes,
+        },
+        "attributes": {
+            "precision": precision_attr,
+            "recall": recall_attr,
+            "f1": f1_attr,
+            "etalon_count": etalon_attr_count,
+            "student_count": student_attr_count,
+            "matched": total_matched_attrs,
+        },
+        "diff": {
+            "classes": {
+                "missing": missing_classes,
+                "extra": extra_classes,
+            },
+            "attributes": all_attr_diffs,
+        },
+    }

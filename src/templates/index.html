@@ -2,13 +2,27 @@
 
 {% block content %}
 <div class="hero-section">
-    <h1 class="hero-title">Сравнение PUML диаграмм с JSON</h1>
-    <p class="hero-subtitle">Загрузите эталонные PUML файлы и результаты OCR в формате JSON для автоматического
-        сравнения</p>
+    <h1 class="hero-title">Сравнение диаграмм</h1>
+    <p class="hero-subtitle">Выберите режим сравнения и загрузите файлы</p>
+</div>
+
+<div class="mode-selector">
+    <div class="mode-buttons">
+        <button type="button" class="mode-btn mode-btn-active" data-mode="puml-json">
+            <span class="mode-icon">📄➜📋</span>
+            <span class="mode-title">PUML vs JSON</span>
+            <span class="mode-desc">Сравнение эталона PUML с результатами OCR</span>
+        </button>
+        <button type="button" class="mode-btn" data-mode="puml-puml">
+            <span class="mode-icon">📄➜📄</span>
+            <span class="mode-title">PUML vs PUML</span>
+            <span class="mode-desc">Сравнение двух PUML диаграмм</span>
+        </button>
+    </div>
 </div>
 
 <div class="upload-section">
-    <form action="/preview" method="post" enctype="multipart/form-data" class="upload-form">
+    <form id="upload-form" action="/preview" method="post" enctype="multipart/form-data" class="upload-form">
         <div class="dropzones">
             <section class="drop-panel" data-dropzone="puml" aria-labelledby="puml-title">
                 <header class="drop-panel-header">
@@ -22,8 +36,8 @@
                     <p class="drop-hint">Бросьте файлы сюда или используйте кнопку ниже</p>
                     <button type="button" class="btn btn-outline" data-drop-trigger>Выбрать PUML файлы</button>
                     <label for="puml_files" class="sr-only">Выбрать PUML файлы</label>
-                    <input type="file" id="puml_files" name="puml_files" accept=".puml" multiple required
-                        class="drop-input" data-file-type="puml">
+                    <input type="file" id="puml_files" name="puml_files" accept=".puml" multiple class="drop-input"
+                        data-file-type="puml">
                 </div>
                 <div class="drop-progress" aria-hidden="true">
                     <div class="drop-progress-bar" id="puml-progress" data-progress-bar></div>
@@ -32,7 +46,7 @@
                 <div class="files-pill-list" id="puml-files" data-file-list aria-live="polite"></div>
             </section>
 
-            <section class="drop-panel" data-dropzone="json" aria-labelledby="json-title">
+            <section class="drop-panel" data-dropzone="json" data-mode="puml-json" aria-labelledby="json-title">
                 <header class="drop-panel-header">
                     <div class="drop-icon" aria-hidden="true">📋</div>
                     <div>
@@ -44,14 +58,37 @@
                     <p class="drop-hint">Поддерживается множественный выбор и drag&drop</p>
                     <button type="button" class="btn btn-outline" data-drop-trigger>Выбрать JSON файлы</button>
                     <label for="json_files" class="sr-only">Выбрать JSON файлы</label>
-                    <input type="file" id="json_files" name="json_files" accept=".json" multiple required
-                        class="drop-input" data-file-type="json">
+                    <input type="file" id="json_files" name="json_files" accept=".json" multiple class="drop-input"
+                        data-file-type="json">
                 </div>
                 <div class="drop-progress" aria-hidden="true">
                     <div class="drop-progress-bar" id="json-progress" data-progress-bar></div>
                 </div>
                 <p class="drop-error" data-file-error hidden></p>
                 <div class="files-pill-list" id="json-files" data-file-list aria-live="polite"></div>
+            </section>
+
+            <section class="drop-panel" data-dropzone="puml2" data-mode="puml-puml" aria-labelledby="puml2-title"
+                style="display: none;">
+                <header class="drop-panel-header">
+                    <div class="drop-icon" aria-hidden="true">📄</div>
+                    <div>
+                        <h3 id="puml2-title">Вторые PUML файлы</h3>
+                        <p>Загрузите второй набор файлов для сравнения</p>
+                    </div>
+                </header>
+                <div class="dropzone" data-drop-target>
+                    <p class="drop-hint">Перетащите .puml файлы или выберите их вручную</p>
+                    <button type="button" class="btn btn-outline" data-drop-trigger>Выбрать PUML файлы</button>
+                    <label for="puml2_files" class="sr-only">Выбрать вторые PUML файлы</label>
+                    <input type="file" id="puml2_files" name="puml2_files" accept=".puml" multiple class="drop-input"
+                        data-file-type="puml2">
+                </div>
+                <div class="drop-progress" aria-hidden="true">
+                    <div class="drop-progress-bar" id="puml2-progress" data-progress-bar></div>
+                </div>
+                <p class="drop-error" data-file-error hidden></p>
+                <div class="files-pill-list" id="puml2-files" data-file-list aria-live="polite"></div>
             </section>
         </div>
 
@@ -61,10 +98,11 @@
         </div>
 
         <div class="submit-section">
-            <p class="submit-hint">После загрузки вы сможете подтвердить соответствия перед сравнением.</p>
-            <button type="submit" class="btn btn-primary btn-large">
+            <p class="submit-hint" id="submit-hint">После загрузки вы сможете подтвердить соответствия перед сравнением.
+            </p>
+            <button type="submit" class="btn btn-primary btn-large" id="submit-btn">
                 <span class="btn-icon">🧪</span>
-                Предпросмотр соответствий
+                <span id="submit-text">Предпросмотр соответствий</span>
             </button>
         </div>
     </form>
@@ -95,5 +133,6 @@
 {% block extra_scripts %}
 <script>
     window.MAX_UPLOAD_SIZE = {{ max_upload_size }};
+    window.CURRENT_MODE = 'puml-json';
 </script>
 {% endblock %}

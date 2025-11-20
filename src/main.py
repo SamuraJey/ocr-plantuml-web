@@ -11,7 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from openpyxl.styles import Alignment, Font, PatternFill
 
-from .comparator import compare_puml_with_json
+from .comparator import compare_puml_with_json, compare_puml_with_puml
 from .config import BASE_DIR, MAX_UPLOAD_SIZE
 from .services import (
     auto_pair_files,
@@ -511,6 +511,223 @@ async def process_comparison(
             "avg_f1_classes": avg_f1_classes,
             "avg_f1_attributes": avg_f1_attributes,
         },
+    )
+
+
+@app.post("/preview-puml-puml", response_class=HTMLResponse)
+async def preview_puml_puml(
+    request: Request,
+    puml_files: List[UploadFile] = File(...),
+    puml2_files: List[UploadFile] = File(...),
+):
+    """Handle initial upload for PUML vs PUML mode."""
+    session_id = session_manager.init_session()
+
+    try:
+        stored_puml1 = [
+            record
+            for upload in puml_files
+            if (record := save_uploaded_file(upload, ".puml", session_id))
+        ]
+        stored_puml2 = [
+            record
+            for upload in puml2_files
+            if (record := save_uploaded_file(upload, ".puml", session_id))
+        ]
+    except HTTPException as exc:
+        session_manager.cleanup_session(session_id)
+        return templates.TemplateResponse(
+            "results.html",
+            {
+                "request": request,
+                "error": exc.detail,
+                "session_id": session_id,
+            },
+            status_code=exc.status_code,
+        )
+
+    if not stored_puml1 or not stored_puml2:
+        session_manager.cleanup_session(session_id)
+        return templates.TemplateResponse(
+            "results.html",
+            {
+                "request": request,
+                "error": "Необходимо загрузить файлы в оба набора",
+                "session_id": session_id,
+            },
+        )
+
+    # Автоматическое заполнение пар: каждому файлу из первого набора подбираем файл из второго
+    # Если файлы совпадают по имени - автоматически, иначе назначаем первый доступный
+    pairings = []
+    used_puml2 = set()
+
+    for puml1 in stored_puml1:
+        match = None
+        # Сначала ищем точное совпадение по имени
+        for puml2 in stored_puml2:
+            if puml2["filename"] in used_puml2:
+                continue
+            if puml1["label"].split(".")[0] == puml2["label"].split(".")[0]:
+                match = puml2
+                used_puml2.add(puml2["filename"])
+                break
+
+        # Если точного совпадения нет, берем первый доступный
+        if not match:
+            for puml2 in stored_puml2:
+                if puml2["filename"] not in used_puml2:
+                    match = puml2
+                    used_puml2.add(puml2["filename"])
+                    break
+
+        pairings.append({"puml": puml1, "json": match})
+
+    unmatched_puml2 = [
+        entry for entry in stored_puml2 if entry["filename"] not in used_puml2
+    ]
+
+    summary = {
+        "puml_count": len(stored_puml1),
+        "json_count": len(stored_puml2),
+        "paired_count": sum(1 for pair in pairings if pair["json"]),
+        "pending_count": sum(1 for pair in pairings if not pair["json"]),
+    }
+
+    return templates.TemplateResponse(
+        "preview.html",
+        {
+            "request": request,
+            "pairings": pairings,
+            "json_options": stored_puml2,
+            "unmatched_json": unmatched_puml2,
+            "summary": summary,
+            "session_id": session_id,
+            "mode": "puml-puml",
+        },
+    )
+
+
+@app.post("/upload-puml-puml", response_class=HTMLResponse)
+async def run_comparison_puml_puml(
+    request: Request,
+    puml_files: Annotated[List[str], Form(...)],
+    json_choices: Annotated[List[str], Form(...)],
+    session_id: Annotated[str, Form(...)],
+):
+    """Execute PUML vs PUML comparison."""
+    if not puml_files:
+        return templates.TemplateResponse(
+            "results.html",
+            {
+                "request": request,
+                "error": "Сессия загрузки не найдена. Пожалуйста, загрузите файлы заново.",
+                "session_id": session_id,
+            },
+        )
+
+    manifest_snapshot = session_manager.get_manifest(session_id)
+    if not manifest_snapshot:
+        session_manager.cleanup_session(session_id)
+        return templates.TemplateResponse(
+            "results.html",
+            {
+                "request": request,
+                "error": "Сессия загрузки не найдена. Пожалуйста, загрузите файлы заново.",
+                "session_id": session_id,
+            },
+        )
+
+    comparisons = []
+    for idx, puml_name in enumerate(puml_files):
+        puml2_name = json_choices[idx] if idx < len(json_choices) else ""
+        puml_label = manifest_snapshot.get(puml_name, puml_name)
+        try:
+            puml_path = session_manager.resolve_path(session_id, puml_name)
+        except FileNotFoundError:
+            comparisons.append(
+                {
+                    "etalon_file": puml_label,
+                    "student_file": "—",
+                    "error": "PUML файл не найден. Загрузите диаграммы заново.",
+                    "similarity": 0.0,
+                    "score": 0.0,
+                }
+            )
+            continue
+
+        if not puml2_name:
+            comparisons.append(
+                {
+                    "etalon_file": puml_label,
+                    "student_file": "Не выбран",
+                    "error": "Для этого PUML файла не выбрано соответствие",
+                    "similarity": 0.0,
+                    "score": 0.0,
+                }
+            )
+            continue
+
+        puml2_label = manifest_snapshot.get(puml2_name, puml2_name)
+        try:
+            puml2_path = session_manager.resolve_path(session_id, puml2_name)
+        except FileNotFoundError:
+            comparisons.append(
+                {
+                    "etalon_file": puml_label,
+                    "student_file": puml2_label,
+                    "error": "Указанный PUML файл не найден",
+                    "similarity": 0.0,
+                    "score": 0.0,
+                }
+            )
+            continue
+
+        try:
+            result = compare_puml_with_puml(str(puml_path), str(puml2_path))
+            result["etalon_file"] = puml_label
+            result["student_file"] = puml2_label
+            comparisons.append(result)
+        except Exception as e:
+            comparisons.append(
+                {
+                    "etalon_file": puml_label,
+                    "student_file": puml2_label,
+                    "error": f"Ошибка при сравнении: {str(e)}",
+                    "similarity": 0.0,
+                    "score": 0.0,
+                }
+            )
+
+    results = normalize_attribute_scores(comparisons)
+
+    total_score = sum(
+        r.get("score", 0) for r in results if "error" not in r or r.get("score", 0) > 0
+    )
+    avg_score = total_score / len(results) if results else 0
+
+    chart_labels = [r.get("etalon_file", "") for r in results]
+    chart_scores = [r.get("score", 0) for r in results]
+
+    stats = {
+        "total_comparisons": len(results),
+        "avg_score": avg_score,
+        "max_score": max(chart_scores) if chart_scores else 0,
+        "min_score": min(chart_scores) if chart_scores else 0,
+        "passed": sum(1 for s in chart_scores if s >= 70),
+        "failed": sum(1 for s in chart_scores if s < 70),
+    }
+
+    payload = {
+        "results": results,
+        "stats": stats,
+        "chart_labels": chart_labels,
+        "chart_scores": chart_scores,
+    }
+    session_manager.store_results(session_id, payload)
+
+    return RedirectResponse(
+        url=f"/results/{session_id}", status_code=status.HTTP_303_SEE_OTHER
     )
 
 
