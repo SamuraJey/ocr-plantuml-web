@@ -1,0 +1,119 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_19.jpg",
+  "entities": [
+    {
+      "name": "no.ntnu.fp.",
+      "type": "class",
+      "attributes": [
+        "storage"
+      ],
+      "methods": [],
+      "confidence": 0.8420535922050476,
+      "bbox": [
+        389.0,
+        15.0,
+        461.0,
+        57.0
+      ]
+    },
+    {
+      "name": "no.ntnu.fp.mo",
+      "type": "class",
+      "attributes": [
+        "del"
+      ],
+      "methods": [],
+      "confidence": 0.59946608543396,
+      "bbox": [
+        20.0,
+        24.0,
+        108.0,
+        58.0
+      ]
+    },
+    {
+      "name": "Person",
+      "type": "class",
+      "attributes": [
+        "name:String",
+        "email:String",
+        "dateOfBirth:Date"
+      ],
+      "methods": [
+        "equals(Object)",
+        "toStringl"
+      ],
+      "confidence": 0.9579164981842041,
+      "bbox": [
+        29.0,
+        78.0,
+        139.0,
+        165.0
+      ]
+    },
+    {
+      "name": "Project",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "addPerson(Person)",
+        "removePerson(Person)"
+      ],
+      "confidence": 0.9372162818908691,
+      "bbox": [
+        155.0,
+        78.0,
+        291.0,
+        135.0
+      ]
+    },
+    {
+      "name": "Storage",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "load(Url)",
+        "save(Url, Project)"
+      ],
+      "confidence": 0.9333334565162659,
+      "bbox": [
+        434.0,
+        93.0,
+        578.0,
+        151.0
+      ]
+    },
+    {
+      "name": "XmlSerlalizer",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "toXml(Project)",
+        "toProject(Document)"
+      ],
+      "confidence": 0.9485427141189575,
+      "bbox": [
+        155.0,
+        150.0,
+        283.0,
+        208.0
+      ]
+    },
+    {
+      "name": "FileStorage",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "getUnFile(File)",
+        "parseDate(Date)"
+      ],
+      "confidence": 0.945568323135376,
+      "bbox": [
+        453.0,
+        204.0,
+        562.0,
+        262.0
+      ]
+    }
+  ]
+}

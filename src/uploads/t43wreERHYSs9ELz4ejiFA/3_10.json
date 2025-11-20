@@ -1,0 +1,165 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_10.png",
+  "entities": [
+    {
+      "name": "Automobile",
+      "type": "class",
+      "attributes": [
+        "String",
+        "model",
+        "String",
+        "void",
+        "drive0",
+        "P!OA",
+        "park0",
+        "void",
+        "reverseO"
+      ],
+      "methods": [],
+      "confidence": 0.9611474871635437,
+      "bbox": [
+        541.0,
+        20.0,
+        760.0,
+        163.0
+      ]
+    },
+    {
+      "name": "ITransportationOfPeople",
+      "type": "class",
+      "attributes": [
+        "void",
+        "driveO",
+        "void",
+        "parko",
+        "void",
+        "reverseO",
+        "numberOfPassengers",
+        "int"
+      ],
+      "methods": [],
+      "confidence": 0.9576842188835144,
+      "bbox": [
+        21.0,
+        30.0,
+        196.0,
+        152.0
+      ]
+    },
+    {
+      "name": "ICargoTransportation",
+      "type": "class",
+      "attributes": [
+        "void",
+        "driveO",
+        "void",
+        "parko",
+        "P!OA",
+        "reverseO",
+        "int",
+        "cargoWeight"
+      ],
+      "methods": [],
+      "confidence": 0.9506023526191711,
+      "bbox": [
+        266.0,
+        30.0,
+        442.0,
+        152.0
+      ]
+    },
+    {
+      "name": "Yanr",
+      "type": "class",
+      "attributes": [
+        "int",
+        "maxCargoWeight",
+        "maxCountOfPassenger",
+        "int"
+      ],
+      "methods": [
+        "Van(String, String)",
+        "drive0",
+        "void",
+        "void",
+        "transportCargod",
+        "void",
+        "transportPeoples(",
+        "checkLoadedValue(int)",
+        "void",
+        "checkPassengersCount(int)",
+        "void",
+        "int",
+        "cargoWeight",
+        "numberOfPassengers",
+        "int"
+      ],
+      "confidence": 0.973362386226654,
+      "bbox": [
+        64.0,
+        207.0,
+        411.0,
+        468.0
+      ]
+    },
+    {
+      "name": "Truck",
+      "type": "class",
+      "attributes": [
+        "int",
+        "maxCargoWeight"
+      ],
+      "methods": [
+        "Truck(String,String)",
+        "driveO",
+        "void",
+        "void",
+        "transportCargoO",
+        "checkLoadedValue(int)",
+        "void",
+        "int",
+        "cargoWeight"
+      ],
+      "confidence": 0.9680200219154358,
+      "bbox": [
+        432.0,
+        254.0,
+        695.0,
+        423.0
+      ]
+    },
+    {
+      "name": "SportCar",
+      "type": "class",
+      "attributes": [
+        "PIOA",
+        "driveQ"
+      ],
+      "methods": [],
+      "confidence": 0.93798828125,
+      "bbox": [
+        714.0,
+        313.0,
+        830.0,
+        365.0
+      ]
+    },
+    {
+      "name": "Main",
+      "type": "class",
+      "attributes": [
+        "void"
+      ],
+      "methods": [
+        "main(String[])"
+      ],
+      "confidence": 0.9228336811065674,
+      "bbox": [
+        21.0,
+        509.0,
+        175.0,
+        563.0
+      ]
+    }
+  ]
+}

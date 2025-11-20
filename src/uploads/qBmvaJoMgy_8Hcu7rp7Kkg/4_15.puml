@@ -1,0 +1,66 @@
+' https://github.com/kukuruza/cmu-bus/blob/master/client/classDiagrams/database.png
+' s
+
+@startuml
+class LocalQuery <<cmu18641.bustracker.ws.local>> {
+  + LocalQuery()
+  + getSchedule()
+}
+
+class RouteQueryManager <<cmu18641.bustracker.ws>> {
+  + RouteQueryManager()
+  + getBusesByStop()
+  + getStopsByCurrentLocation()
+  + getAllStops()
+  + getStopByAddress()
+}
+
+class GlobalManager <<cmu18641.bustracker.ws>> {
+  + timeQueryManager: TimeQueryManager
+  + locationService: LocationService
+  + GlobalManager()
+  + getBusesByStop()
+  + getStopsByCurrentLocation()
+  + getStopByAddress()
+  + killLocationService()
+  + getSchedule()
+  + updateDatabase()
+}
+
+class LocalDatabaseOpenHelper <<cmu18641.bustracker.dblayout>> {
+  + LocalDatabaseOpenHelper()
+  + onCreate()
+  + onUpgrade()
+}
+
+class LocalDatabaseConnector <<cmu18641.bustracker.dblayout>> {
+  DATABASE_NAME: String
+  + LocalDatabaseConnector()
+  + close()
+  + incrementDbVersion()
+  + insertBus()
+  + selectBus()
+  + selectAllBuses()
+  + selectAllBusesByStop()
+  + updateBus()
+  + deleteBus()
+  + insertStop()
+  + selectStop()
+  + selectAllStops()
+  + selectAllStopsByStreet()
+  + updateStop()
+  + deleteStop()
+  + insertRoute()
+  + updateRoute()
+  + deleteRoute()
+  + insertSchedule()
+  + selectScheduleTimes()
+  + updateSchedule()
+  + deleteSchedule()
+}
+
+LocalQuery ..> LocalDatabaseConnector
+RouteQueryManager ..> LocalDatabaseConnector
+GlobalManager ..> LocalDatabaseConnector
+GlobalManager "1" --> "0..1" RouteQueryManager : ~routeQueryManager
+@enduml

@@ -1,0 +1,68 @@
+@startuml
+class Node<E> {
+    - element: E
+    - left: Node<E>
+    - right: Node<E>
+    + Node(E, Node<E>, Node<E>)
+}
+
+class BST {
+    - root: Node<E>
+    + BST()
+}
+
+class TREE {
+}
+
+class FinishedProject {
+    - projectReference: String
+    - projectType: String
+    - completionTime: int
+    - delay: int
+    + FinishedProject(String, String, int, int)
+    + FinishedProject(ArrayList<String>)
+}
+
+class TreeFinishedProject {
+    + TreeFinishedProject()
+    + TreeFinishedProject(String)
+}
+
+class FinishedActivity {
+    - projectReference: String
+    - activityCode: String
+    - activityType: String
+    - duration: int
+    - delay: int
+    + FinishedActivity(String, String, String, int, int)
+}
+
+class TreeFinishedActivity {
+    + TreeFinishedActivity()
+    + TreeFinishedActivity(String)
+}
+
+class ProjectBuild {
+    - projectTree: TreeFinishedProject
+    - activityTree: TreeFinishedActivity
+}
+
+Node <.. TREE
+Node <.. BST: create
+
+BST <|-- TREE
+BST <|-- TreeFinishedProject
+BST <|-- TreeFinishedActivity
+
+Node "1" <--* "1" BST 
+
+TreeFinishedProject "1" <--* "1" ProjectBuild 
+TreeFinishedActivity "1" <--* "1" ProjectBuild 
+
+TreeFinishedProject  <.. ProjectBuild : «create»
+TreeFinishedActivity  <..  ProjectBuild : «create»
+
+FinishedProject  <..  TreeFinishedProject : «create»
+FinishedActivity  <..  TreeFinishedActivity : «create»
+
+@enduml

@@ -1,0 +1,67 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_15.png",
+  "entities": [
+    {
+      "name": "dataTypes",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "addData(String).void",
+        "adiAIColectionString>)void",
+        "wrte(OutputStream):void"
+      ],
+      "confidence": 0.8784929513931274,
+      "bbox": [
+        10.0,
+        41.0,
+        181.0,
+        134.0
+      ]
+    },
+    {
+      "name": "PlainData",
+      "type": "class",
+      "attributes": [
+        "dataTypes",
+        "data:ArrayListString",
+        "size: int"
+      ],
+      "methods": [
+        "PainData()",
+        "addData(Sting):void",
+        "addAKColectionStringp)void",
+        "wrte(OutputStream):void",
+        "getData():ArrayListSting>"
+      ],
+      "confidence": 0.9190810918807983,
+      "bbox": [
+        4.0,
+        141.0,
+        180.0,
+        370.0
+      ]
+    },
+    {
+      "name": "dataTypes",
+      "type": "class",
+      "attributes": [
+        "headers: MapSting,String",
+        "stalus:HipStatusCode"
+      ],
+      "methods": [
+        "HtpData()",
+        "HtpData(HttpStatusCode)",
+        "addHeader(String,String):void",
+        "setStatus(HttpStatusCode):void",
+        "write(HtipServletResporse):void"
+      ],
+      "confidence": 0.9611691832542419,
+      "bbox": [
+        1.0,
+        445.0,
+        190.0,
+        597.0
+      ]
+    }
+  ]
+}

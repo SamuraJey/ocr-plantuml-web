@@ -1,0 +1,62 @@
+@startuml
+package "nl.tudelft.fishy.factories" {
+    class FactoryProducer {
+        -factoryProducer: FactoryProducer
+        +getFactory(String choice): AbstractFactory
+        +getFactoryProducer(): FactoryProducer
+    }
+
+    class AbstractFactory {
+        +makeAnimationTimer(CompositeEnemyFish compositeEnemyFish): AnimationTimer
+        +getEntity(String entityType): Entity
+        +createItem(String itemType, PlayerFish player): Item
+        +makeEventHandler(String buttonString): EventHandler<MouseEvent>
+    }
+
+    class EntityFactory {
+        -entityFactory: EntityFactory
+        +getEntity(String entityType): Entity
+    }
+
+    class ItemFactory {
+        -itemFactory: ItemFactory
+        +createItem(itemType:String, player:PlayerFish): FishBomb
+    }
+
+    class AnimationTimerFactory {
+        -animationTimerFactory: AnimationTimerFactory
+        +makeAnimationTimer(gc:GraphicsContext): AnimationTimer
+    }
+
+    class MainScreenEventHandlerFactory {
+        -mainScreenEHFactory: MainScreenEventHandlerFactory
+        +makeEventHandler(string: String): EventHandler<MouseEvent>
+    }
+
+    class LosingScreenEventHandlerFactory {
+        -losingScreenEHFactory: LosingScreenEventHandlerFactory
+        +makeEventHandler(buttonString: String): EventHandler<MouseEvent>
+    }
+
+    class OptionsScreenEventHandlerFactory {
+        -optionsScreenEventHandlerFactory: OptionsScreenEventHandlerFactory
+        +makeEventHandler(buttonString: String): EventHandler<MouseEvent>
+    }
+
+    class WinningScreenEventHandlerFactory {
+        -winningScreenEventHandlerFactory: WinningScreenEventHandlerFactory
+        +makeEventHandler(buttonString: String): EventHandler<MouseEvent>
+    }
+}
+
+FactoryProducer "1" --> "*" AbstractFactory : produces
+AbstractFactory <|-- EntityFactory
+AbstractFactory <|-- ItemFactory
+AbstractFactory <|-- AnimationTimerFactory
+AbstractFactory <|-- MainScreenEventHandlerFactory
+AbstractFactory <|-- LosingScreenEventHandlerFactory
+AbstractFactory <|-- OptionsScreenEventHandlerFactory
+AbstractFactory <|-- WinningScreenEventHandlerFactory
+
+
+@enduml

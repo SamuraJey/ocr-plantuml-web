@@ -1,0 +1,441 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_8.png",
+  "entities": [
+    {
+      "name": "FactoryConfigLoader",
+      "type": "class",
+      "attributes": [
+        "-config: SafeConfigParser",
+        "-log:Logger",
+        "-statConfigsO:None",
+        "-checkMandatoryValuesQ:None",
+        "-configurationDefaults"
+      ],
+      "methods": [],
+      "confidence": 0.9591584205627441,
+      "bbox": [
+        789.0,
+        9.0,
+        998.0,
+        169.0
+      ]
+    },
+    {
+      "name": "Class_22",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8720883727073669,
+      "bbox": [
+        11.0,
+        11.0,
+        150.0,
+        49.0
+      ]
+    },
+    {
+      "name": "APF",
+      "type": "class",
+      "attributes": [
+        "-t.Factory",
+        "- fc : FactoryConfligLoader",
+        "-args: Type",
+        "1a6607:601-",
+        "- options :",
+        "parser:OptionParser",
+        "+ mainloop0 : None",
+        "- checkrootf: None",
+        "- createconfigO: None",
+        "-setuplogging0:None",
+        "- parseopts0 : None"
+      ],
+      "methods": [],
+      "confidence": 0.9525980353355408,
+      "bbox": [
+        206.0,
+        35.0,
+        410.0,
+        287.0
+      ]
+    },
+    {
+      "name": "Factory",
+      "type": "class",
+      "attributes": [
+        "-fcl:FactoryConfigLoader",
+        "qc:QueueConfigLoader",
+        "-logserver:LogServer",
+        "-proxymanager.ProxyManager",
+        "-wmsmanager. WMSQueuesManager",
+        "log:Logger",
+        "+ mainLoopO : None",
+        "+ updateQ: None"
+      ],
+      "methods": [],
+      "confidence": 0.9426429867744446,
+      "bbox": [
+        450.0,
+        54.0,
+        690.0,
+        254.0
+      ]
+    },
+    {
+      "name": "Class_23",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8361346125602722,
+      "bbox": [
+        10.0,
+        58.0,
+        154.0,
+        95.0
+      ]
+    },
+    {
+      "name": "ConfigLoader",
+      "type": "class",
+      "attributes": [
+        "-config:SafeConfigParser",
+        "Ja6607:601",
+        "+1oadConfigO:None"
+      ],
+      "methods": [],
+      "confidence": 0.9432245492935181,
+      "bbox": [
+        1080.0,
+        98.0,
+        1252.0,
+        214.0
+      ]
+    },
+    {
+      "name": "factory.py",
+      "type": "class",
+      "attributes": [
+        "+ apf. APF",
+        "mainQ : None"
+      ],
+      "methods": [],
+      "confidence": 0.9309640526771545,
+      "bbox": [
+        10.0,
+        110.0,
+        150.0,
+        206.0
+      ]
+    },
+    {
+      "name": "QueueConftgLoader",
+      "type": "class",
+      "attributes": [
+        "config: SafeConfigParser",
+        "-log:Logger",
+        "- statConfigs: None",
+        "-checkMandatoryValuesO:None",
+        "-configurationDefaults",
+        "-validateQueue(:None"
+      ],
+      "methods": [],
+      "confidence": 0.9540441036224365,
+      "bbox": [
+        790.0,
+        185.0,
+        998.0,
+        363.0
+      ]
+    },
+    {
+      "name": "Jebeue wsenendswn",
+      "type": "class",
+      "attributes": [
+        "+ queues : List wMsQueue"
+      ],
+      "methods": [
+        "+ Operation 1 ( arg list ) : retum"
+      ],
+      "confidence": 0.9251958131790161,
+      "bbox": [
+        34.0,
+        364.0,
+        240.0,
+        567.0
+      ]
+    },
+    {
+      "name": "ProxyManager",
+      "type": "class",
+      "attributes": [
+        "-handlers: List of ProxyHandlers",
+        "-pconfig:SafeConfigParser",
+        "-Attribute3:Type",
+        "-Attribute 4:Type"
+      ],
+      "methods": [
+        "+run():None",
+        "+ mainLoopQ: None",
+        "+listNames():ListofStrings",
+        "+ getProxyPath(String name) : String"
+      ],
+      "confidence": 0.9412664771080017,
+      "bbox": [
+        362.0,
+        377.0,
+        588.0,
+        582.0
+      ]
+    },
+    {
+      "name": "ProxyHandler",
+      "type": "class",
+      "attributes": [
+        "-name: String",
+        "-baseProxy:String",
+        "proxyfile : String",
+        "-vorole:Sting",
+        "-usercert Sting",
+        "-Userkey: String",
+        "- lifetime: Int",
+        "checktime: Int",
+        "-mlnlife: Int"
+      ],
+      "methods": [
+        "- generateProxy( arg list): retum",
+        "-getProxyPath0:String",
+        "-handleproxy(): None",
+        "-checktimelefto:None",
+        "+ Operation 4 ( arg list) : retum"
+      ],
+      "confidence": 0.9693361520767212,
+      "bbox": [
+        790.0,
+        380.0,
+        998.0,
+        688.0
+      ]
+    },
+    {
+      "name": "SchedPlugin",
+      "type": "class",
+      "attributes": [
+        "+ calcSubmitNumber 0 : Int"
+      ],
+      "methods": [],
+      "confidence": 0.9545261859893799,
+      "bbox": [
+        420.0,
+        624.0,
+        624.0,
+        752.0
+      ]
+    },
+    {
+      "name": "Schedlnterface",
+      "type": "class",
+      "attributes": [
+        "+calcSubmitNumberO:Int"
+      ],
+      "methods": [],
+      "confidence": 0.9584743976593018,
+      "bbox": [
+        1051.0,
+        644.0,
+        1256.0,
+        769.0
+      ]
+    },
+    {
+      "name": "WMSQueue",
+      "type": "interface",
+      "attributes": [
+        "scheduler:Schedlnterface",
+        "-batchstatus:BatchStatuslnterface",
+        "-batchsubmit:BatchSubmitinterface",
+        "- wmsstatus: WMSStatuslnterface",
+        "-monitor. Monitor",
+        "-dean:CleanCondorLogs",
+        "-log:Logger",
+        "+ runQ : None",
+        "+ refreshQ : None"
+      ],
+      "methods": [
+        "-updatestatus(arg list):None",
+        "-gepluginQ: Class",
+        "- submitpilots(nsub: int : None",
+        "-monitor_shout: None",
+        "- monitor_note(msg: String ) : None",
+        "- Monitor_notify(output Sting): None"
+      ],
+      "confidence": 0.9606842994689941,
+      "bbox": [
+        32.0,
+        656.0,
+        261.0,
+        1005.0
+      ]
+    },
+    {
+      "name": "BatchStatusPlugin",
+      "type": "class",
+      "attributes": [
+        "-info:IntoHandler"
+      ],
+      "methods": [
+        "+ getinfo( maxtime: Int) : Dictionary"
+      ],
+      "confidence": 0.9518939256668091,
+      "bbox": [
+        419.0,
+        763.0,
+        640.0,
+        891.0
+      ]
+    },
+    {
+      "name": "BatchStatuslnterface",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ getnfo(maxtime: Int) :Dictionary"
+      ],
+      "confidence": 0.9478263854980469,
+      "bbox": [
+        1051.0,
+        789.0,
+        1273.0,
+        914.0
+      ]
+    },
+    {
+      "name": "InfoHandler",
+      "type": "class",
+      "attributes": [
+        "+ get(maxtime: Inty : Dictionary",
+        "+ update0"
+      ],
+      "methods": [],
+      "confidence": 0.9663417935371399,
+      "bbox": [
+        751.0,
+        839.0,
+        955.0,
+        977.0
+      ]
+    },
+    {
+      "name": "BatchSubmitPlugln",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ submitPilots( number: Int ) : None",
+        "creatSDFileO:None",
+        "prepareJSDFlleQ: None",
+        "-writeJSDFlleO:None",
+        "submlto: None"
+      ],
+      "confidence": 0.931993305683136,
+      "bbox": [
+        417.0,
+        909.0,
+        637.0,
+        1101.0
+      ]
+    },
+    {
+      "name": "BatchSubmftinterface",
+      "type": "interface",
+      "attributes": [
+        "+submitPilots( number: Inty :None"
+      ],
+      "methods": [],
+      "confidence": 0.9604983329772949,
+      "bbox": [
+        1050.0,
+        941.0,
+        1258.0,
+        1070.0
+      ]
+    },
+    {
+      "name": "WMSStatuslnterface",
+      "type": "class",
+      "attributes": [
+        "+getCloudlnfog:",
+        "+getSitelnfoQ:",
+        "+getQueuelnfog:"
+      ],
+      "methods": [],
+      "confidence": 0.957770586013794,
+      "bbox": [
+        1051.0,
+        1108.0,
+        1256.0,
+        1271.0
+      ]
+    },
+    {
+      "name": "Monitor",
+      "type": "class",
+      "attributes": [
+        "-fid: String",
+        "-crurl: String",
+        "-msgurl:Sting",
+        "-furl:String",
+        "-crllstList ofStrings",
+        "msglist List of Strings",
+        "-json:JsonEncoder",
+        "- buffer: StringlO",
+        "- c: Cur"
+      ],
+      "methods": [
+        "+ notify( nlck String. label:String. outputString ) : None",
+        "+ msg( nick String, label:String, textString) : None",
+        "+ shoutlabel: String, cycleNumber: Int: None",
+        "-signal(url:String.postdata:String): None",
+        "- parse(outputString): List of Strings"
+      ],
+      "confidence": 0.959816575050354,
+      "bbox": [
+        31.0,
+        1111.0,
+        348.0,
+        1418.0
+      ]
+    },
+    {
+      "name": "WMSStatusPlugin",
+      "type": "class",
+      "attributes": [
+        "-info:InfoHandler",
+        "+getCloudinfog:",
+        "+ getSitelnfog:",
+        "+ getQueuelnfog:"
+      ],
+      "methods": [],
+      "confidence": 0.9581893682479858,
+      "bbox": [
+        418.0,
+        1132.0,
+        637.0,
+        1328.0
+      ]
+    },
+    {
+      "name": "InfoHandler",
+      "type": "class",
+      "attributes": [
+        "+ get(maxtime: Int : Dictionary",
+        "+updateO"
+      ],
+      "methods": [],
+      "confidence": 0.9571369290351868,
+      "bbox": [
+        760.0,
+        1208.0,
+        966.0,
+        1350.0
+      ]
+    }
+  ]
+}

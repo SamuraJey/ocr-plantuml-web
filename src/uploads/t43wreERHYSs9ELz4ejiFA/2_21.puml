@@ -1,0 +1,34 @@
+'https://github.com/tmrcs/images/blob/master/UML/Handlers/CategoryHandler.png
+'s
+@startuml
+class CategoryHandler {
+  +CategoryHandler()
+  +get(int) : ArrayList<Category>
+  +exists(int) : boolean
+}
+
+class MemCategoryHandler {
+  -memStruct : MemoryStruct
+  +MemCategoryHandler(MemoryStruct)
+  +add(Entity) : int
+  +getAll() : ArrayList<Entity>
+  +get(int) : ArrayList<Category>
+  +update() : int
+  +remove(String) : boolean
+}
+
+class DbCategoryHandler {
+  -dbutils : DButils
+  -insert : String
+  +DbCategoryHandler(DButils)
+  +add(Entity) : int
+  +getAll() : ArrayList<Entity>
+  +get(int) : ArrayList<Category>
+  +update() : int
+  +remove(String) : boolean
+}
+
+CategoryHandler <|-- MemCategoryHandler
+CategoryHandler <|-- DbCategoryHandler
+
+@enduml

@@ -1,0 +1,79 @@
+' https://github.com/community-ssu/qt-mobility/blob/master/doc/src/images/DialerServiceUML.png
+' s
+@startuml
+class ServiceRegister {
+  + QObject
+  __Methods__
+  registeredServices(): QList<ServiceWrapper*>
+  registerExampleServices(): void
+  unregisterExampleServices(): void
+}
+
+class ServiceWrapper {
+  + QObject
+  __Fields__
+  m_descriptor: QServiceInterfaceDescriptor
+  __Methods__
+  interfaceName(): QString
+  isValid(): bool
+  serviceName(): QString
+  version(): QString
+}
+
+class QServiceManager {
+  + QObject
+}
+
+abstract class QServicePluginInterface {
+  + QObject
+  __Methods__
+  ~QServicePluginInterface()
+  createInstance()
+  installService()
+  uninstallService()
+}
+
+class LandlineDialer {
+  + QObject
+  __Methods__
+  dialNumber
+  hangup
+  state
+  stateChanged
+  __Nested Types__
+  class ConnectionState <<Enum>>
+}
+
+class LandlineDialerPlugin {
+  + QObject
+  + QServicePluginInterface
+  __Methods__
+  createInstance
+}
+
+class VoipDialer {
+  + QObject
+  __Methods__
+  dialNumber
+  hangup
+  state
+  stateChanged
+  __Nested Types__
+  class ConnectionState <<Enum>>
+}
+
+class VoipDialerPlugin {
+  + QObject
+  + QServicePluginInterface
+  __Methods__
+  createInstance
+}
+
+ServiceRegister <-- ServiceWrapper
+QServiceManager --> ServiceRegister
+QServiceManager <-- QServicePluginInterface
+LandlineDialer <-- LandlineDialerPlugin
+VoipDialer --> VoipDialerPlugin
+VoipDialerPlugin --> QServicePluginInterface
+VoipDialerPlugin -- LandlineDialerPlugin
+@enduml

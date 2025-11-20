@@ -1,0 +1,122 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_16.png",
+  "entities": [
+    {
+      "name": "CGlobalManager",
+      "type": "class",
+      "attributes": [
+        "cmu18641.bustacker.ws",
+        "routeQueryManager:RouteQueryManager",
+        "locationServlce:LocationService"
+      ],
+      "methods": [
+        "GlobalManager()",
+        "getBusesByStop()",
+        "getStopsByCurrentLocation()",
+        "getStopByAddress()",
+        "killLocationService()",
+        "getSchedule()",
+        "updateDatabase()"
+      ],
+      "confidence": 0.9612658023834229,
+      "bbox": [
+        205.0,
+        0.0,
+        473.0,
+        215.0
+      ]
+    },
+    {
+      "name": "TlmeQueryManager",
+      "type": "class",
+      "attributes": [
+        "cmu18641.bustracker.ws",
+        "numOut:int"
+      ],
+      "methods": [
+        "TimeQueryManager()",
+        "getSchedule()"
+      ],
+      "confidence": 0.9555243253707886,
+      "bbox": [
+        260.0,
+        258.0,
+        419.0,
+        361.0
+      ]
+    },
+    {
+      "name": "CNetworking",
+      "type": "class",
+      "attributes": [
+        "cmu18641.buslracker.ws.remote"
+      ],
+      "methods": [
+        "Networking()",
+        "isNetworkAvailable()",
+        "askServert)",
+        "requestFile()"
+      ],
+      "confidence": 0.9505348205566406,
+      "bbox": [
+        702.0,
+        393.0,
+        864.0,
+        512.0
+      ]
+    },
+    {
+      "name": "RemoteQuery",
+      "type": "class",
+      "attributes": [
+        "cmu18641.bustracker.wa.remote",
+        "RemoteQueryO"
+      ],
+      "methods": [
+        "getSchedule()"
+      ],
+      "confidence": 0.9449702501296997,
+      "bbox": [
+        476.0,
+        413.0,
+        637.0,
+        497.0
+      ]
+    },
+    {
+      "name": "GLocalQuery",
+      "type": "class",
+      "attributes": [
+        "cmut8641.bustracker.ws.local",
+        "LocalQuery("
+      ],
+      "methods": [
+        "getSchedule()"
+      ],
+      "confidence": 0.9396607875823975,
+      "bbox": [
+        48.0,
+        420.0,
+        196.0,
+        505.0
+      ]
+    },
+    {
+      "name": "OTimeQueryinterface",
+      "type": "interface",
+      "attributes": [
+        "cmu 1864 1.bustracker.ws"
+      ],
+      "methods": [
+        "getSchedule()"
+      ],
+      "confidence": 0.9376844763755798,
+      "bbox": [
+        259.0,
+        429.0,
+        415.0,
+        495.0
+      ]
+    }
+  ]
+}

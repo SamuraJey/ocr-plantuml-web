@@ -1,0 +1,154 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_27.png",
+  "entities": [
+    {
+      "name": "CCommandLineU",
+      "type": "class",
+      "attributes": [
+        "ui",
+        "a kbd Scanner",
+        "CommandLineUk)"
+      ],
+      "methods": [
+        "run():void",
+        "printData(ArrayList<String>,HashMap<String,String>):void",
+        "executeDefautCommand:void",
+        "getinput():String",
+        "toShutDownO:boolean",
+        "getCommandExecuter():CommandExecuter"
+      ],
+      "confidence": 0.956261157989502,
+      "bbox": [
+        719.0,
+        2.0,
+        1025.0,
+        211.0
+      ]
+    },
+    {
+      "name": "DataHandler",
+      "type": "class",
+      "attributes": [
+        "hanelers!"
+      ],
+      "methods": [
+        "add(Entity):int",
+        "getAR):ArrayList<Entity>",
+        "update():int",
+        "remove(Strirg):boolear"
+      ],
+      "confidence": 0.9349958896636963,
+      "bbox": [
+        295.0,
+        27.0,
+        445.0,
+        165.0
+      ]
+    },
+    {
+      "name": "CCommand",
+      "type": "class",
+      "attributes": [
+        "commands",
+        "0 description: String"
+      ],
+      "methods": [
+        "Command(FormatParser,DetaHander,String,String)",
+        "execute(HashMapString,String>):ArrayList<String>",
+        "toStringO:String",
+        "shutdow n():boolean",
+        "gelFormatter(String,String):Formaltter"
+      ],
+      "confidence": 0.9579262733459473,
+      "bbox": [
+        224.0,
+        239.0,
+        509.0,
+        412.0
+      ]
+    },
+    {
+      "name": "CCommandExecuter",
+      "type": "class",
+      "attributes": [
+        "commandUtiks"
+      ],
+      "methods": [
+        "CommandExecuter(UserhHandler,PromotionHandler,Purchaselandler,CategoryHandler)",
+        "CommandExecuter(CommandParser,FormatParser)",
+        "executeCommand(Sting,HashMapString,String):ArrayListStringp",
+        "getCommandParser():CommandParser",
+        "getCurrentCommand):Command"
+      ],
+      "confidence": 0.9690920114517212,
+      "bbox": [
+        649.0,
+        309.0,
+        1091.0,
+        465.0
+      ]
+    },
+    {
+      "name": "KcavaCbss>>",
+      "type": "class",
+      "attributes": [
+        "GcommandParser",
+        "parser"
+      ],
+      "methods": [
+        "CommandParser(CommandExecuter,FormatParser,UserHander,PromotionHander,Furchas eHander,CategoryHander)",
+        "CommandParser)",
+        "addCommands(CommandExecuter,FormatParser,Userandler,Aromotionander,AurchaseHandler):void",
+        "getString,HashMapcString,String>):Command"
+      ],
+      "confidence": 0.9365673065185547,
+      "bbox": [
+        856.0,
+        558.0,
+        1441.0,
+        703.0
+      ]
+    },
+    {
+      "name": "CcavaClass>x",
+      "type": "class",
+      "attributes": [
+        "CFormmatParser"
+      ],
+      "methods": [
+        "FormatPars er(Usert andler,Promotion andler,Purchaselandler,CategoryHandler)",
+        "FormatParser(PathTreesFormatter>)",
+        "get(Shring,String):Formalter"
+      ],
+      "confidence": 0.9602760076522827,
+      "bbox": [
+        367.0,
+        564.0,
+        807.0,
+        703.0
+      ]
+    },
+    {
+      "name": "CcJavaClassx>",
+      "type": "class",
+      "attributes": [
+        "Clisten",
+        "commands",
+        "server.Server"
+      ],
+      "methods": [
+        "Listen(CommandExecuter)",
+        "execute(HashMapString,String>):ArrayListStng",
+        "getCommandExecuter:CommandExecuter",
+        "stopServer).von"
+      ],
+      "confidence": 0.9510642886161804,
+      "bbox": [
+        2.0,
+        564.0,
+        286.0,
+        720.0
+      ]
+    }
+  ]
+}

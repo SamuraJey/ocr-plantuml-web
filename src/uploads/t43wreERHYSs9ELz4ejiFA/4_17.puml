@@ -1,0 +1,37 @@
+' https://github.com/sebastianruder/BART/blob/master/BART/documents/uml1.png
+' o
+
+@startuml
+package pkg {
+  class Entity {
+    - mentions: List<Mention>
+    - disjointMentions: List<Mention>
+    - gender: List<Gender>
+    - animacy: boolean
+    + mergeEntities(Entity: int): Entity
+  }
+
+  interface CorefResolver
+
+  class SieveDecoder {
+    + decodeDocument(mentions: List<Mention>, antecedents: Map<Mention,Mention>): DisjointSet<Mention>
+  }
+
+  abstract class Sieve {
+    - entities: List<Entity>
+    + compareEntities(mentionEntity: Entity, potentialAntecedent: Entity): boolean
+    + processEntities(mentionEntity: Entity, potentialAntecedent: Entity): void
+  }
+
+  class StringMatchSieve {
+    + compareEntities(mentionEntity: Entity, potentialAntecedent: Entity): boolean
+    + processEntities(mentionEntity: Entity, potentialAntecedent: Entity): void
+  }
+
+  class SpeakerIdentificationSieve
+
+  SieveDecoder ..|> CorefResolver
+  Sieve <|-- StringMatchSieve
+  Sieve <|-- SpeakerIdentificationSieve
+}
+@enduml

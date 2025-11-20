@@ -1,0 +1,130 @@
+'https://github.com/RichardvanRijn/GameMinor/blob/master/Game%20Minor%20klassendiagram.jpg
+@startuml
+class GameObject {
+  -obj: gkGameObject*
+  -position: gkVector3
+  +GameObject(object: gkGameObject*)
+  +GameObject(m_scene: gkScene*, p: GameObject*)
+  +GameObject()
+  +setPostion(pos: gkVector3): void
+  +getObjName(): char*
+  +getPosition(): gkVector3
+  +getObj(): gkGameObject*
+  +tick(): void
+}
+
+class Controller {
+  #pathToLevel: char*
+  #m_scene: gkScene*
+  #m_keyboard: gkKeyboard*
+  #m_mouse: gkMouse*
+  +Controller(lvPath: char*)
+  +Controller()
+  +loadLevel(): void
+  #tick(delta: gkScalar): void
+}
+
+class Game {
+  +tick(delta: gkScalar): void
+  +loadLevel(): void
+  +levelName(): char*
+}
+
+class Level {
+  -player: Player*
+  -interactableObjects: InteractableObject*
+  +Level(lvPath: char*)
+  +Level()
+  +tick(delta: gkScalar): void
+  +loadLevel(): void
+}
+
+class InteractableObject {
+  -pickable: bool
+  +InteractableObject(object: gkGameObject*, canBePicked: bool)
+  +InteractableObject()
+  +interact(): void
+  +isPickable(): bool
+}
+
+class Player {
+  -keyboard: gkKeyboard*
+  -moveSpeed: float
+  -itemPosition: gkVector3
+  -view: View*
+  -pickedUpItem: InteractableObject*
+  +Player(object: gkGameObject*, cam: gkCamera*)
+  +Player(object: gkGameObject*, cam: gkCamera*)
+  +setView(cam: gkCamera*): void
+  +setMoveSpeed(speed: float): void
+  +setKeyboard(board: gkKeyboard*): void
+  +setItemUp(item: InteractableObject*): void
+  +setItemHoldPos(position: gkVector3): void
+  +dropItem(): void
+  +isMoveKeyPressed(): bool
+  +move(): void
+  +stopMoving(): void
+  +tick(): void
+  +tick(wantsToUse: bool &): void
+  +getView(): View*
+  +interact(): bool
+}
+
+class View {
+  -viewHeight: float
+  -thresholdUp: float
+  -thresholdDown: float
+  -tick: gkScalar
+  -view: gkCamera*
+  -mouse: gkMouse*
+  +View(viewCam: gkCamera*)
+  +View(viewCam: gkCamera*, viewHeight: float, upThreshold: float, downThreshold: float)
+  +setViewpoint(pos: gkVector3): void
+  +setView(viewCam: gkCamera*): void
+  +setViewControl(mouse: gkMouse*): void
+  +setThreshold(upThreshold: float, downThreshold: float): void
+  +setViewHeight(height: float): void
+  +moveView(): void
+  +mouseIsMoved(): bool
+  +getView(): gkCamera*
+  +getViewDirection(): gkVector3
+  +getViewPosition(): gkVector3
+}
+
+class Raam {
+  -door: gkAnimationPlayer*
+  -isOpened: bool
+  -canBeUsed: bool
+  -blocked: bool
+  +Raam(object: gkGameObject*, pickable: bool, animName: char*)
+  +Raam()
+  +interact(): void
+  +isOpen(): bool
+  +isBlocked(): void
+  +block(): void
+  +unBlock(): void
+}
+
+class Door {
+  -door: gkAnimationPlayer*
+  -isOpened: bool
+  -canBeUsed: bool
+  +Door(object: gkGameObject*, pickable: bool, animName: char*)
+  +Door()
+  +interact(): void
+}
+
+' Inheritance relationships
+Level --|> Game
+Game --|> Controller
+Player --|> GameObject : -player
+InteractableObject --|> GameObject
+Raam --|> InteractableObject : g
+Door --|> InteractableObject
+
+' Composition relationships
+Level  x-->  Player : -player
+Level  x-->  InteractableObject : -interactableObjects
+Player  x--> View : -view
+Player  x-->  InteractableObject : -pickedUpItem
+@enduml

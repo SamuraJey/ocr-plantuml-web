@@ -1,0 +1,303 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_4.png",
+  "entities": [
+    {
+      "name": "Main",
+      "type": "class",
+      "attributes": [
+        "NomMembre",
+        "-NomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.8722550272941589,
+      "bbox": [
+        631.0,
+        2.0,
+        796.0,
+        61.0
+      ]
+    },
+    {
+      "name": "CombatPersonnages",
+      "type": "class",
+      "attributes": [
+        "口",
+        "2",
+        "Personnages",
+        "NomMembre",
+        "Nomhembre"
+      ],
+      "methods": [],
+      "confidence": 0.9123684763908386,
+      "bbox": [
+        988.0,
+        76.0,
+        1154.0,
+        149.0
+      ]
+    },
+    {
+      "name": "VerifCombat",
+      "type": "class",
+      "attributes": [
+        "NomMembre",
+        "verifCase]"
+      ],
+      "methods": [],
+      "confidence": 0.9139450192451477,
+      "bbox": [
+        262.0,
+        102.0,
+        428.0,
+        159.0
+      ]
+    },
+    {
+      "name": "PPersonnages",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.7967742085456848,
+      "bbox": [
+        721.0,
+        155.0,
+        819.0,
+        186.0
+      ]
+    },
+    {
+      "name": "Card",
+      "type": "class",
+      "attributes": [
+        "intFonve",
+        "intIntelligence",
+        "intEndurnce",
+        "intCnrtSeandinmett",
+        "une DBenFne"
+      ],
+      "methods": [],
+      "confidence": 0.9264254570007324,
+      "bbox": [
+        988.0,
+        195.0,
+        1155.0,
+        308.0
+      ]
+    },
+    {
+      "name": "NomMembre",
+      "type": "class",
+      "attributes": [
+        "-NomMembre",
+        "HomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.8479604721069336,
+      "bbox": [
+        517.0,
+        225.0,
+        681.0,
+        283.0
+      ]
+    },
+    {
+      "name": "TriggerControle",
+      "type": "class",
+      "attributes": [
+        "-Nomhembre",
+        "NomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.8679987192153931,
+      "bbox": [
+        12.0,
+        228.0,
+        178.0,
+        285.0
+      ]
+    },
+    {
+      "name": "Mage",
+      "type": "class",
+      "attributes": [
+        "-intmana",
+        "intrivesu"
+      ],
+      "methods": [],
+      "confidence": 0.7294590473175049,
+      "bbox": [
+        1233.0,
+        285.0,
+        1397.0,
+        355.0
+      ]
+    },
+    {
+      "name": "String replique",
+      "type": "class",
+      "attributes": [
+        "-int mordx",
+        "intcoordY"
+      ],
+      "methods": [],
+      "confidence": 0.8895469903945923,
+      "bbox": [
+        757.0,
+        291.0,
+        919.0,
+        381.0
+      ]
+    },
+    {
+      "name": "Fenetreleu",
+      "type": "class",
+      "attributes": [
+        "NanManbre",
+        "-NomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.9110422134399414,
+      "bbox": [
+        262.0,
+        358.0,
+        426.0,
+        416.0
+      ]
+    },
+    {
+      "name": "Personrages",
+      "type": "class",
+      "attributes": [
+        "Soingnam",
+        "-Carrtcarcteristiquo",
+        "ffadw",
+        "NomMenbre"
+      ],
+      "methods": [],
+      "confidence": 0.9393685460090637,
+      "bbox": [
+        988.0,
+        361.0,
+        1154.0,
+        451.0
+      ]
+    },
+    {
+      "name": "Monstreselites",
+      "type": "class",
+      "attributes": [
+        "int xgOannt",
+        "sint aordx",
+        "intmordr",
+        "5trinerepique",
+        "fpDonnce[:]"
+      ],
+      "methods": [],
+      "confidence": 0.9306519031524658,
+      "bbox": [
+        756.0,
+        423.0,
+        919.0,
+        514.0
+      ]
+    },
+    {
+      "name": "Guemier",
+      "type": "class",
+      "attributes": [
+        "-innt niveau"
+      ],
+      "methods": [],
+      "confidence": 0.9192947745323181,
+      "bbox": [
+        1231.0,
+        424.0,
+        1397.0,
+        483.0
+      ]
+    },
+    {
+      "name": "Carte",
+      "type": "class",
+      "attributes": [
+        "-NomMembre",
+        "-NomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.8636765480041504,
+      "bbox": [
+        516.0,
+        506.0,
+        680.0,
+        565.0
+      ]
+    },
+    {
+      "name": "XpPersa",
+      "type": "class",
+      "attributes": [
+        "inkqAct",
+        "int zp f/A mettre dans une DB en",
+        "ne",
+        "tcheckXP(ink apArt, int lvel]",
+        "fsetleve[ot kpAet, intxphoin, int",
+        "kre!)"
+      ],
+      "methods": [],
+      "confidence": 0.9364221692085266,
+      "bbox": [
+        1245.0,
+        532.0,
+        1398.0,
+        656.0
+      ]
+    },
+    {
+      "name": "Controller",
+      "type": "class",
+      "attributes": [
+        "-NomMembre",
+        "-HomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.8550595045089722,
+      "bbox": [
+        13.0,
+        538.0,
+        177.0,
+        596.0
+      ]
+    },
+    {
+      "name": "XpMonstres",
+      "type": "class",
+      "attributes": [
+        "intxpDonnee"
+      ],
+      "methods": [],
+      "confidence": 0.8644589781761169,
+      "bbox": [
+        753.0,
+        591.0,
+        896.0,
+        671.0
+      ]
+    },
+    {
+      "name": "Joueur",
+      "type": "class",
+      "attributes": [
+        "-HorMembre",
+        "NonMembre"
+      ],
+      "methods": [],
+      "confidence": 0.6876935958862305,
+      "bbox": [
+        264.0,
+        627.0,
+        425.0,
+        686.0
+      ]
+    }
+  ]
+}

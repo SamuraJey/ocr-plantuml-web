@@ -1,0 +1,101 @@
+'https://github.com/albertoblaz/Wikious/blob/master/doc/v1-blogsystem/pictures/UML%20General.png
+'o
+@startuml
+class BlogController {
+  Model
+  View
+  Update
+  Remove
+}
+
+class BlogView {
+  Model
+  DOMNode
+  Render
+  Notify
+  CreateDOM
+  Remove
+}
+
+class EntryController {
+  Model
+  View
+  Update
+  Remove
+}
+
+class EntryView {
+  Model
+  DOMNode
+  Render
+  Notify
+  CreateDOM
+  Remove
+}
+
+class CommentController {
+  Model
+  View
+  Update
+  Remove
+}
+
+class CommentView {
+  Model
+  DOMNode
+  Render
+  Notify
+  CreateDOM
+  Remove
+}
+
+class Blog {
+  Blog
+  Name
+  User
+  Entries[]
+}
+
+class Entry {
+  Title
+  Date
+  Content
+  Comments[]
+  Likes
+  Tags
+  Comment
+  Like
+  Update
+  AddObservers
+}
+
+class Comment {
+  User
+  Date
+  Text
+}
+
+class User {
+  Nick
+  Email
+  Age
+  Location
+}
+
+BlogController --> Blog
+BlogView --> Blog
+BlogController --> BlogView
+
+
+EntryController --> EntryView
+EntryController --> Entry
+EntryView --> Entry
+
+CommentController --> CommentView
+CommentController --> Comment
+CommentView --> Comment
+Blog  o--  Entry
+Entry  o--  Comment
+Blog --> User
+Comment --> User
+@enduml

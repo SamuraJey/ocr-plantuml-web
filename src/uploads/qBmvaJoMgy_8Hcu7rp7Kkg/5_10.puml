@@ -1,0 +1,30 @@
+@startuml
+class Activity {
+}
+
+class TimeUnit {
+}
+
+class ActivityType {
+}
+
+class VariableCostActivity {
+}
+
+class FixedCostActivity {
+}
+
+class ActivityRecord {
+}
+
+Activity <|-- VariableCostActivity
+Activity <-- FixedCostActivity
+
+TimeUnit "1" <--* "1" Activity
+ActivityType "1" <--* "1" Activity
+
+ActivityRecord  ..> FixedCostActivity : «create»
+ActivityRecord  ..>  VariableCostActivity : «create»
+ActivityRecord  "1" *--> "*" Activity 
+
+@enduml

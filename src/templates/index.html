@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="hero-title">Сравнение PUML диаграмм с JSON</h1>
+    <p class="hero-subtitle">Загрузите эталонные PUML файлы и результаты OCR в формате JSON для автоматического
+        сравнения</p>
+</div>
+
+<div class="upload-section">
+    <form action="/preview" method="post" enctype="multipart/form-data" class="upload-form">
+        <div class="dropzones">
+            <section class="drop-panel" data-dropzone="puml" aria-labelledby="puml-title">
+                <header class="drop-panel-header">
+                    <div class="drop-icon" aria-hidden="true">📄</div>
+                    <div>
+                        <h3 id="puml-title">Эталонные PUML файлы</h3>
+                        <p>Перетащите .puml файлы или выберите их вручную</p>
+                    </div>
+                </header>
+                <div class="dropzone" data-drop-target>
+                    <p class="drop-hint">Бросьте файлы сюда или используйте кнопку ниже</p>
+                    <button type="button" class="btn btn-outline" data-drop-trigger>Выбрать PUML файлы</button>
+                    <label for="puml_files" class="sr-only">Выбрать PUML файлы</label>
+                    <input type="file" id="puml_files" name="puml_files" accept=".puml" multiple required
+                        class="drop-input" data-file-type="puml">
+                </div>
+                <div class="drop-progress" aria-hidden="true">
+                    <div class="drop-progress-bar" id="puml-progress" data-progress-bar></div>
+                </div>
+                <p class="drop-error" data-file-error hidden></p>
+                <div class="files-pill-list" id="puml-files" data-file-list aria-live="polite"></div>
+            </section>
+
+            <section class="drop-panel" data-dropzone="json" aria-labelledby="json-title">
+                <header class="drop-panel-header">
+                    <div class="drop-icon" aria-hidden="true">📋</div>
+                    <div>
+                        <h3 id="json-title">Распознанные JSON файлы</h3>
+                        <p>Добавьте соответствующие .json файлы от OCR</p>
+                    </div>
+                </header>
+                <div class="dropzone" data-drop-target>
+                    <p class="drop-hint">Поддерживается множественный выбор и drag&drop</p>
+                    <button type="button" class="btn btn-outline" data-drop-trigger>Выбрать JSON файлы</button>
+                    <label for="json_files" class="sr-only">Выбрать JSON файлы</label>
+                    <input type="file" id="json_files" name="json_files" accept=".json" multiple required
+                        class="drop-input" data-file-type="json">
+                </div>
+                <div class="drop-progress" aria-hidden="true">
+                    <div class="drop-progress-bar" id="json-progress" data-progress-bar></div>
+                </div>
+                <p class="drop-error" data-file-error hidden></p>
+                <div class="files-pill-list" id="json-files" data-file-list aria-live="polite"></div>
+            </section>
+        </div>
+
+        <div class="inline-validation" data-mismatch-alert hidden>
+            <span class="validation-icon" aria-hidden="true">⚠️</span>
+            <span data-mismatch-text></span>
+        </div>
+
+        <div class="submit-section">
+            <p class="submit-hint">После загрузки вы сможете подтвердить соответствия перед сравнением.</p>
+            <button type="submit" class="btn btn-primary btn-large">
+                <span class="btn-icon">🧪</span>
+                Предпросмотр соответствий
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="info-section">
+    <div class="info-cards">
+        <div class="info-card">
+            <div class="info-card-icon">📐</div>
+            <h4>Точное сравнение</h4>
+            <p>Алгоритм сравнивает классы, атрибуты и методы с учетом видимости и типов данных</p>
+        </div>
+        <div class="info-card">
+            <div class="info-card-icon">📊</div>
+            <h4>Детальная статистика</h4>
+            <p>Precision, Recall и F1-метрики для оценки качества распознавания</p>
+        </div>
+        <div class="info-card">
+            <div class="info-card-icon">📈</div>
+            <h4>Визуализация</h4>
+            <p>Наглядные графики и таблицы для анализа результатов</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    window.MAX_UPLOAD_SIZE = {{ max_upload_size }};
+</script>
+{% endblock %}

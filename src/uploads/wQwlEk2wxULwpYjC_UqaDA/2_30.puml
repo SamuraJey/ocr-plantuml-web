@@ -1,0 +1,130 @@
+'https://github.com/zr2d2/Blue-Jay/blob/main/UML/JPG/ClassDiagram.jpg
+'o
+@startuml
+class Name {
+  -value
+  +Name()
+  +Name()
+  +Name()
+  +getName()
+  +appendChar()
+  +clear()
+}
+
+class MovingAverage {
+  -name
+  +MovingAverage()
+  +getValueAt()
+  +getCorrelationsFor()
+  +setName()
+  +getName()
+}
+
+class ParticipationMovingAverage {
+  -totalIntensities
+  +ParticipationMovingAverage()
+  +addParticipationInterval()
+  +getValueAt()
+  -getIndexForDate()
+  -getTotalIntensityThroughDate()
+}
+
+class RatingMovingAverage {
+  -ratings
+  -sumRatings
+  -sumSquareRatings
+  +RatingMovingAverage()
+  +addRating()
+  +getValueAt()
+  +getRatings()
+  +getNumRatings()
+  +getLatesRatingDate()
+  -getIndexForDate()
+}
+
+class Candidate {
+  -name
+  -parentNmaes
+  -frequencyEstimators
+  -actualRatingHistory
+  -numRatings
+  -latestRatingTime
+  +Candidate()
+  +Candidate()
+  +addParent()
+  +setName()
+  +getName()
+  +getParentNames()
+  +giveRating()
+  +giveParticipation()
+  +getNumRatingEstimators()
+  +getRatingEstimatorAtIndex()
+  +getNumFrequencyEstimators()
+  +getFrequencyEstimatorAtIndex()
+  +getActualRatingHistory()
+  -initialize()
+}
+
+class Participation {
+  -startTime
+  -endTime
+  -activityName
+  -value
+  +Participation()
+  +setStartTime()
+  +getStartTime()
+  +setEndTime()
+  +getEndTime()
+  +setActivityName()
+  +getActivityName()
+  +setIntensity()
+  +getIntensity()
+}
+
+class DateTime {
+  -value
+  +DateTime()
+  +DateTime()
+  +datePlusDuration()
+  +setComponents()
+  +stringVersion()
+  +timeUntil()
+}
+
+class ScatterPlot {
+  -datapoints
+  -debugHistory
+  -upperChild
+  -lowerChild
+  +ScatterPlot()
+  +addDataPoint()
+  +predict()
+}
+
+class PredictionLink {
+  -inputData
+  -outputData
+  -plot
+  -latestUpdate Time
+  +PredictionLink()
+  +PredictionLink()
+  +update()
+  +guess()
+}
+
+Participation ..> Name : activityname
+Participation ..> DateTime : endTime, startTime
+Candidate ..> Name : name
+Candidate ..> DateTime : latestRatingTime
+Candidate ..> RatingMovingAverage : actualRatingHistory
+MovingAverage ..> Name : name
+PredictionLink ..> MovingAverage : inputData
+PredictionLink ..> RatingMovingAverage : outputData
+PredictionLink ..> ScatterPlot : plot
+PredictionLink ..> DateTime : latestUpdateTime
+ScatterPlot ..> ScatterPlot : lowerChild, upperChild
+
+MovingAverage <|-- ParticipationMovingAverage
+MovingAverage <|-- RatingMovingAverage
+
+@enduml

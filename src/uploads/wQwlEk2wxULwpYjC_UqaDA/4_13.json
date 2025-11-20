@@ -1,0 +1,123 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_13.png",
+  "entities": [
+    {
+      "name": "OStop",
+      "type": "class",
+      "attributes": [
+        "bustracker.app.enties",
+        "CREATOR:Creator<Stop>"
+      ],
+      "methods": [
+        "getName()",
+        "getSteet1()",
+        "getStreet2()",
+        "getAddress()",
+        "getLocation()",
+        "getDistance()",
+        "FstopO",
+        "FstopO",
+        "setDistance()",
+        "getDistanceString()",
+        "getWalkingTlmeSting()",
+        "describeContents()",
+        "writeToParcel)",
+        "stopO"
+      ],
+      "confidence": 0.8818934559822083,
+      "bbox": [
+        617.0,
+        0.0,
+        794.0,
+        322.0
+      ]
+    },
+    {
+      "name": "Stop",
+      "type": "class",
+      "attributes": [
+        "bustracker.app.entities",
+        "SF CREATOR: Creator<Stop>"
+      ],
+      "methods": [],
+      "confidence": 0.9226088523864746,
+      "bbox": [
+        622.0,
+        1.0,
+        793.0,
+        65.0
+      ]
+    },
+    {
+      "name": "GSchedule",
+      "type": "class",
+      "attributes": [
+        "bustracker.app.entites"
+      ],
+      "methods": [
+        "Schedule()",
+        "Schedule()",
+        "Schedule()",
+        "setStop()",
+        "setScheduleltemList()",
+        "getStop()",
+        "getScheduleltemLlstt)",
+        "setinfoSrc()",
+        "getinfoSrc()",
+        "()B0)"
+      ],
+      "confidence": 0.9648447632789612,
+      "bbox": [
+        414.0,
+        42.0,
+        569.0,
+        271.0
+      ]
+    },
+    {
+      "name": "CBus",
+      "type": "class",
+      "attributes": [
+        "bustradkar.app.entites",
+        "CREATOR:Creator<Bus>"
+      ],
+      "methods": [
+        "Bus()",
+        "Bust)",
+        "getName()",
+        "getDirection)",
+        "describeContents()",
+        "writeToParcel",
+        "Bus()"
+      ],
+      "confidence": 0.9535905122756958,
+      "bbox": [
+        0.0,
+        58.0,
+        171.0,
+        252.0
+      ]
+    },
+    {
+      "name": "Scheduteltem",
+      "type": "class",
+      "attributes": [
+        "bustracker.app.entities"
+      ],
+      "methods": [
+        "Scheduleltem()",
+        "setBus()",
+        "setTime()",
+        "getBus()",
+        "getTime()"
+      ],
+      "confidence": 0.9565269947052002,
+      "bbox": [
+        235.0,
+        197.0,
+        355.0,
+        335.0
+      ]
+    }
+  ]
+}

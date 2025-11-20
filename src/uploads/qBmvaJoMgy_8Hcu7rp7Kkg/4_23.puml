@@ -1,0 +1,66 @@
+' https://github.com/Java-Archive/Modules/blob/develop/_deactivated/javafx-filtered-tableview/data/blog/20130906-generic-combobox-cell/uml.png
+' s
+@startuml
+allowmixing
+
+package beans {
+
+}
+
+package scene {
+
+}
+
+package event
+
+  class DefaultProperty {
+    +value(): String
+  }
+
+    class GenericComboBoxCell<RT, VT> {
+    +updateItem(VT, boolean): void
+    +associateWithCol(TableView<RT>, String): void
+    +associate(TableColumn<RT, VT>): void
+    +getComboBoxCellRef(): GenericComboBoxCellRef<RT, VT>
+    +disableComboBox(RT): boolean
+    +createComboBoxValues(RT): List<VT>
+    +workOnRowSelf(RT): void
+    +isReadOnlyView(): boolean
+    +setReadOnlyView(boolean): void
+  }
+
+  class BetragComboBoxCell {
+    +getComboBoxCellRef(): GenericComboBoxCell<TransientDemoDataRow, Double>
+    +disableComboBox(TransientDemoDataRow): boolean
+    +createComboBoxValues(TransientDemoDataRow): List<Double>
+    +workOnRowSelf(TransientDemoDataRow): void
+  }
+
+  class FilteredTableViewDemoPane {
+    +getPaneClass(): Class<FilteredTableViewDemoPane>
+  }
+
+  class FilteredTableViewDemoPaneController {
+    +initialize(URL, ResourceBundle): void
+    +initTable(): void
+    +setI18n(): void
+    +map(String): String
+    +sortTableView(): void
+  }
+
+
+beans .. scene
+DefaultProperty .. scene
+scene *--> scene
+scene *--> scene
+scene ..> event
+event *--> event
+scene *--> event
+FilteredTableViewDemoPane --> scene
+GenericComboBoxCell --> scene
+BetragComboBoxCell --> GenericComboBoxCell
+BetragComboBoxCell <--* FilteredTableViewDemoPaneController
+FilteredTableViewDemoPaneController --> event : create
+
+
+@enduml

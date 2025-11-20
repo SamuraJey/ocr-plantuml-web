@@ -1,0 +1,255 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_16.jpg",
+  "entities": [
+    {
+      "name": "ObjectinScene",
+      "type": "abstract",
+      "attributes": [
+        "Abstract Cass",
+        "Fields",
+        "coordinate",
+        "gameObject",
+        "二",
+        "Properties",
+        "Coordinate",
+        "Methods",
+        "ObjectlnScene"
+      ],
+      "methods": [],
+      "confidence": 0.9444310665130615,
+      "bbox": [
+        461.0,
+        35.0,
+        609.0,
+        256.0
+      ]
+    },
+    {
+      "name": "Entitly",
+      "type": "abstract",
+      "attributes": [
+        "ObjectinScene",
+        "Fields",
+        "grid",
+        "typeOfEntity",
+        "Properties",
+        "Height",
+        "Position",
+        "TypeOfEntity",
+        "Width",
+        "日",
+        "Methods",
+        "CollideEnter",
+        "CollideLeave",
+        "Entity"
+      ],
+      "methods": [],
+      "confidence": 0.9459927678108215,
+      "bbox": [
+        604.0,
+        325.0,
+        753.0,
+        666.0
+      ]
+    },
+    {
+      "name": "Block",
+      "type": "class",
+      "attributes": [
+        "Cats",
+        "ObjectinScene",
+        "Fields",
+        "color",
+        "entities",
+        "Properties",
+        "Color",
+        "Entities",
+        "日",
+        "Methods",
+        "AddEntity",
+        "IsEntityinList",
+        "RemoveEntity"
+      ],
+      "methods": [],
+      "confidence": 0.9596874713897705,
+      "bbox": [
+        270.0,
+        328.0,
+        415.0,
+        630.0
+      ]
+    },
+    {
+      "name": "Exit",
+      "type": "class",
+      "attributes": [
+        "sep",
+        "Entity",
+        "Properties",
+        "Height",
+        "Width",
+        "Methods",
+        "CollideEnter"
+      ],
+      "methods": [],
+      "confidence": 0.9463147521018982,
+      "bbox": [
+        894.0,
+        758.0,
+        1040.0,
+        964.0
+      ]
+    },
+    {
+      "name": "Actvatable",
+      "type": "abstract",
+      "attributes": [
+        "Abstract Class",
+        "Entity",
+        "Methods",
+        "Activatable",
+        "?",
+        "Activote"
+      ],
+      "methods": [],
+      "confidence": 0.9354662895202637,
+      "bbox": [
+        292.0,
+        758.0,
+        440.0,
+        901.0
+      ]
+    },
+    {
+      "name": "Player",
+      "type": "class",
+      "attributes": [
+        "Entity",
+        "Fields",
+        "curentColorBlo..",
+        "perspective",
+        "' Properties",
+        "CurrentColorBl.",
+        "Height",
+        "Perspective",
+        "Width",
+        "Methods",
+        "CheckForActiva...",
+        "Move"
+      ],
+      "methods": [],
+      "confidence": 0.9407137036323547,
+      "bbox": [
+        608.0,
+        759.0,
+        750.0,
+        1078.0
+      ]
+    },
+    {
+      "name": "Lever",
+      "type": "class",
+      "attributes": [
+        "Activatsbla",
+        "Fields",
+        "yrea",
+        "EActivated",
+        "' Properties",
+        "Height",
+        "4IP!M",
+        "Methods",
+        "Activate",
+        "KlnArea",
+        "ScanForAdjace.."
+      ],
+      "methods": [],
+      "confidence": 0.9543171525001526,
+      "bbox": [
+        173.0,
+        999.0,
+        320.0,
+        1300.0
+      ]
+    },
+    {
+      "name": "Telportet",
+      "type": "class",
+      "attributes": [
+        "Activatablo",
+        "Fields",
+        "destination",
+        "properties",
+        "Height",
+        "Width",
+        "日",
+        "Methods",
+        "Activate",
+        "Teleporter"
+      ],
+      "methods": [],
+      "confidence": 0.9536802172660828,
+      "bbox": [
+        390.0,
+        999.0,
+        536.0,
+        1245.0
+      ]
+    },
+    {
+      "name": "Level",
+      "type": "class",
+      "attributes": [
+        "Fields",
+        "entities",
+        "Pu6",
+        "template",
+        "worldRoot",
+        "Properties'",
+        "Grid",
+        "Height",
+        "Terplate",
+        "Width",
+        "Methods",
+        "BuildLeyel",
+        "GetPartOfGrid",
+        "SetCameraPosit.."
+      ],
+      "methods": [],
+      "confidence": 0.9444559216499329,
+      "bbox": [
+        641.0,
+        1344.0,
+        788.0,
+        1708.0
+      ]
+    },
+    {
+      "name": "Coordinates",
+      "type": "class",
+      "attributes": [
+        "Class",
+        "Fields",
+        "xPosition",
+        "XSCALE",
+        "yPosition",
+        "YSCALE",
+        "ZVALUE",
+        "Properties",
+        "Copy",
+        "XPosition",
+        "YPosition",
+        "Methods",
+        "{+..",
+        "GetUnityPosition"
+      ],
+      "methods": [],
+      "confidence": 0.9382450580596924,
+      "bbox": [
+        843.0,
+        1346.0,
+        988.0,
+        1678.0
+      ]
+    }
+  ]
+}

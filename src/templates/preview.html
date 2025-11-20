@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="preview-header">
+    <div>
+        <h1>Предпросмотр соответствий</h1>
+        <p>Проверьте автоматически подобранные пары и отредактируйте их перед запуском сравнения.</p>
+    </div>
+    <a href="/" class="btn btn-outline">Загрузить другие файлы</a>
+</header>
+
+<form action="/upload" method="post" class="preview-form">
+    <input type="hidden" name="session_id" value="{{ session_id }}">
+    <section class="preview-summary" aria-label="Краткие метрики">
+        <article class="summary-card">
+            <strong>{{ summary.puml_count }}</strong>
+            <span>PUML файлов</span>
+        </article>
+        <article class="summary-card">
+            <strong>{{ summary.json_count }}</strong>
+            <span>JSON файлов</span>
+        </article>
+        <article class="summary-card">
+            <strong>{{ summary.paired_count }}</strong>
+            <span>Сопоставлено автоматически</span>
+        </article>
+        <article class="summary-card">
+            <strong>{{ summary.pending_count }}</strong>
+            <span>Требует внимания</span>
+        </article>
+    </section>
+
+    {% if unmatched_json %}
+    <div class="unmatched-list" role="note">
+        <strong>JSON без пары:</strong>
+        <p>Эти файлы пока ни с чем не сопоставлены и доступны в выпадающем списке.</p>
+        <ul>
+            {% for json in unmatched_json %}
+            <li>{{ json.label }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="pairing-table-wrapper">
+        <table class="pairing-table">
+            <thead>
+                <tr>
+                    <th scope="col">Эталон (PUML)</th>
+                    <th scope="col">Распознанный JSON</th>
+                    <th scope="col">Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pair in pairings %}
+                <tr data-pairing-row>
+                    <td>
+                        <div class="pairing-file">{{ pair.puml.label }}</div>
+                        <input type="hidden" name="puml_files" value="{{ pair.puml.filename }}">
+                    </td>
+                    <td>
+                        <div class="pairing-control">
+                            <span class="pairing-selection" data-selection-label>
+                                {{ pair.json.label if pair.json else 'Не выбран' }}
+                            </span>
+                            <button type="button" class="icon-button" data-edit-pairing
+                                aria-label="Изменить соответствие">
+                                ✏️
+                            </button>
+                            <select name="json_choices" class="pairing-dropdown" data-pairing-select>
+                                <option value="">Не сравнивать</option>
+                                {% for option in json_options %}
+                                <option value="{{ option.filename }}" {% if pair.json and
+                                    option.filename==pair.json.filename %}selected{% endif %}>
+                                    {{ option.label }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="status-badge status-{{ 'auto' if pair.json else 'warning' }}">
+                            {{ 'Автовыбор' if pair.json else 'Нужно выбрать' }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="preview-actions">
+        <a href="/" class="btn btn-outline">Назад</a>
+        <button type="submit" class="btn btn-primary">
+            <span class="btn-icon">🚀</span>
+            Запустить сравнение
+        </button>
+    </div>
+</form>
+{% endblock %}

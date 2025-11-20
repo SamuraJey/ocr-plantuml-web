@@ -1,0 +1,34 @@
+'https://github.com/tmrcs/images/blob/master/UML/Formatters/JsonFormatters.png
+'s
+@startuml
+class JsonFormatter {
+  -template : String
+  +JsonFormatter(String)
+}
+
+class JsonPromotionFormatter {
+  +JsonPromotionFormatter()
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+  +formatLocation(ArrayList<Entity>, String) : ArrayList<String>
+  +formatCategory(ArrayList<Entity>, String) : ArrayList<String>
+  +formatStatus(ArrayList<Entity>, String) : ArrayList<String>
+}
+
+class JsonUserFormatter {
+  +JsonUserFormatter()
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+}
+
+class JsonPurchaseFormatter {
+  +JsonPurchas eFormatter()
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+}
+
+JsonFormatter <|-- JsonPromotionFormatter
+JsonFormatter <|-- JsonUserFormatter
+JsonFormatter <|-- JsonPurchaseFormatter
+
+@enduml

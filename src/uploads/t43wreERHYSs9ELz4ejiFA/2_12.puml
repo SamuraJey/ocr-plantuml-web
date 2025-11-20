@@ -1,0 +1,28 @@
+'https://github.com/tmrcs/images/blob/master/UML/Path.png
+'s
+@startuml
+class Path {
+  -fullTemplate : String
+  +Path(String)
+  +getTemplate() : String
+}
+
+class Command {
+  -description : String
+  -handler : DataHandler
+  -formatters : FormatParser
+  +Command(FormatParser, DataHandler, String, String)
+  +execute(HashMap<String, String>) : ArrayList<String>
+  +toString() : String
+  +shutdown() : boolean
+  +getFormatter(String, String) : Formatter
+}
+
+class Formatter {
+  +Formatter(String)
+}
+
+Path <|-- Command
+Path <|-- Formatter
+
+@enduml

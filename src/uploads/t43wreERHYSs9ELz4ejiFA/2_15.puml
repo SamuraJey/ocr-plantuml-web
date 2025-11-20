@@ -1,0 +1,34 @@
+'https://github.com/tmrcs/images/blob/master/UML/DataTypes.png
+'s
+@startuml
+interface DataType {
+  +addData(String) : void
+  +addAII(Collection<String>) : void
+  +write(OutputStream) : void
+}
+
+class PlainData {
+  -data : ArrayList<String>
+  -size : int
+  +PlainData()
+  +addData(String) : void
+  +addAII(Collection<String>) : void
+  +write(OutputStream) : void
+  +getData() : ArrayList<String>
+  +getSize() : int
+}
+
+class HttpData {
+  -headers : Map<String, String>
+  -status : HttpStatusCode
+  +HttpData()
+  +HttpData(HttpStatusCode)
+  +addHeader(String, String) : void
+  +setStatus(HttpStatusCode) : void
+  +write(HttpServletResponse) : void
+}
+
+DataType <|-- PlainData
+PlainData <|-- HttpData
+
+@enduml

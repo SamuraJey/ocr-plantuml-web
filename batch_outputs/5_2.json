@@ -1,0 +1,373 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/5_2.png",
+  "entities": [
+    {
+      "name": "Vigneron",
+      "type": "class",
+      "attributes": [
+        "+nom: string",
+        "+prenom: string",
+        "+email: string",
+        "+tel: integer",
+        "+adresse: string",
+        "+getNom0",
+        "+getPrenomo",
+        "+getEmailo",
+        "+getTetO",
+        "+getAdresseO"
+      ],
+      "methods": [
+        "+modifierCaracteristique(caractenistique, valeur)",
+        "+ajouterCaracteristique(caracteristique, valeur)",
+        "+supprCaracteristique(caracteristique, valeur)"
+      ],
+      "confidence": 0.9367167353630066,
+      "bbox": [
+        1130.0,
+        20.0,
+        1423.0,
+        266.0
+      ]
+    },
+    {
+      "name": "Debourbage",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+getValeurindicateur(indicateur)",
+        "+setValeurlndicateur(indicateur,valeur)"
+      ],
+      "confidence": 0.9404568076133728,
+      "bbox": [
+        871.0,
+        273.0,
+        1115.0,
+        367.0
+      ]
+    },
+    {
+      "name": "Pressurage",
+      "type": "class",
+      "attributes": [
+        "+volume:integer",
+        "+degreOxydation:integer"
+      ],
+      "methods": [
+        "+getValeurlndicateur(indicateur)",
+        "+setValeurlndicateur(indicateur,valeur)"
+      ],
+      "confidence": 0.9250351190567017,
+      "bbox": [
+        1397.0,
+        298.0,
+        1637.0,
+        403.0
+      ]
+    },
+    {
+      "name": "Ferrmentation",
+      "type": "class",
+      "attributes": [
+        "+sucres: integer",
+        "+alcool:integer",
+        "+aciditeVolatile:integer",
+        "+aciditeMalique:integer",
+        "+aciditeTotal:integer",
+        "+pH: integer",
+        "+proteine:integer",
+        "+sc2: integer",
+        "+soutirageo"
+      ],
+      "methods": [
+        "+getValeurtndicateur(indicateur)",
+        "+setValeurindicateur(indicateur,valeur)"
+      ],
+      "confidence": 0.9628521203994751,
+      "bbox": [
+        1542.0,
+        539.0,
+        1784.0,
+        755.0
+      ]
+    },
+    {
+      "name": "Piedvigne",
+      "type": "class",
+      "attributes": [
+        "+xPled: double",
+        "+yPied: double",
+        "+annee: date",
+        "+etatPied: list",
+        "Oxa8+",
+        "+setx0",
+        "+setYO",
+        "+taillage0",
+        "+pliageO"
+      ],
+      "methods": [
+        "+setDateDebutEtape(etape, date)",
+        "+setDateFinEtape(etape, date)",
+        "+ajouterPied(x,y)",
+        "+supprPied(x, y)",
+        "+modifierPiedQ",
+        "+etatPiedO"
+      ],
+      "confidence": 0.9560757875442505,
+      "bbox": [
+        782.0,
+        572.0,
+        993.0,
+        861.0
+      ]
+    },
+    {
+      "name": "Vinification",
+      "type": "class",
+      "attributes": [
+        "+dateFerrmentation:date",
+        "+datePressurage:date",
+        "+dateDebourbage: date",
+        "+dateMiseEnBouteille:date",
+        "+fermentation",
+        "+debourbageQ",
+        "+setAciditeTotal0"
+      ],
+      "methods": [
+        "+setDateDebutEtape(etape, date)",
+        "+setDateFinEtape(etape, date)",
+        "+getDateDebutEtape(etape)",
+        "+getDateFinEtape(etape)",
+        "+getValeurindicateur(indicateur, valeur)",
+        "+getValeurindicateur(etape)",
+        "+miseEnBouteilleD",
+        "Oabenssaid+"
+      ],
+      "confidence": 0.9283318519592285,
+      "bbox": [
+        1146.0,
+        577.0,
+        1388.0,
+        845.0
+      ]
+    },
+    {
+      "name": "Parcelle",
+      "type": "class",
+      "attributes": [
+        "+nomParcelle: string",
+        "+num:",
+        "integer"
+      ],
+      "methods": [],
+      "confidence": 0.9004983901977539,
+      "bbox": [
+        339.0,
+        637.0,
+        469.0,
+        715.0
+      ]
+    },
+    {
+      "name": "Vignoble",
+      "type": "class",
+      "attributes": [
+        "agnopx+",
+        "+y:double"
+      ],
+      "methods": [],
+      "confidence": 0.9040377736091614,
+      "bbox": [
+        298.0,
+        814.0,
+        375.0,
+        891.0
+      ]
+    },
+    {
+      "name": "MiseEnBouteille",
+      "type": "class",
+      "attributes": [
+        "+numBouteille:",
+        "integer"
+      ],
+      "methods": [
+        "+getValeurlndicateur(indicateur, valeur)"
+      ],
+      "confidence": 0.9366293549537659,
+      "bbox": [
+        1429.0,
+        910.0,
+        1671.0,
+        988.0
+      ]
+    },
+    {
+      "name": "calctlDonnees",
+      "type": "class",
+      "attributes": [
+        "+affichero",
+        "+getEtapeCouranteO",
+        "+setEtapeCourante0",
+        "+validerEtapeO",
+        "+comparerDateFermentationQ"
+      ],
+      "methods": [
+        "+calculVolumeTotal(date, date)",
+        "+calculRendementPied0",
+        "+comparerRendement(date, date)",
+        "+comparerDateDebourbage0",
+        "+comparerVentes(date, date)",
+        "+calculNbCommandeO"
+      ],
+      "confidence": 0.9551993608474731,
+      "bbox": [
+        769.0,
+        962.0,
+        997.0,
+        1215.0
+      ]
+    },
+    {
+      "name": "RepresentationDonnees",
+      "type": "class",
+      "attributes": [
+        "+afficherO",
+        "+choisirRepresentation0"
+      ],
+      "methods": [],
+      "confidence": 0.9144058227539062,
+      "bbox": [
+        533.0,
+        968.0,
+        705.0,
+        1046.0
+      ]
+    },
+    {
+      "name": "Ltiisateur",
+      "type": "class",
+      "attributes": [
+        "+nom: string",
+        "+prenom: string",
+        "+email: string",
+        "+tet:integer",
+        "+adresse: string",
+        "+confiance:bool"
+      ],
+      "methods": [],
+      "confidence": 0.9384811520576477,
+      "bbox": [
+        40.0,
+        1040.0,
+        148.0,
+        1177.0
+      ]
+    },
+    {
+      "name": "APICentrale",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9309561848640442,
+      "bbox": [
+        283.0,
+        1049.0,
+        428.0,
+        1143.0
+      ]
+    },
+    {
+      "name": "Administrateur",
+      "type": "class",
+      "attributes": [
+        "Buys :wou+",
+        "+prenom: string",
+        "+email: string",
+        "+tel: integer",
+        "+adresse: string",
+        "+validerCommandeO",
+        "+ajouterUtilisateurO"
+      ],
+      "methods": [
+        "+afficherCaracteristique(caracteristique, valeun)",
+        "+supprCaractenistique(caracteristique, valeur)",
+        "+modifierCaracteristique(caractenistique,valeur)"
+      ],
+      "confidence": 0.95585697889328,
+      "bbox": [
+        405.0,
+        1194.0,
+        696.0,
+        1393.0
+      ]
+    },
+    {
+      "name": "ArchlveCuvee",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+getHistorque(typeHistorique,date)",
+        "date",
+        "+setHistorique(typeHistorique,"
+      ],
+      "confidence": 0.9216951727867126,
+      "bbox": [
+        1147.0,
+        1194.0,
+        1369.0,
+        1275.0
+      ]
+    },
+    {
+      "name": "Stack",
+      "type": "class",
+      "attributes": [
+        "+nomStock: string",
+        "+qtt:integer",
+        "+qttVendu: string"
+      ],
+      "methods": [],
+      "confidence": 0.9320683479309082,
+      "bbox": [
+        913.0,
+        1276.0,
+        1032.0,
+        1383.0
+      ]
+    },
+    {
+      "name": "Commande",
+      "type": "class",
+      "attributes": [
+        "+numCommande:integer",
+        "+qttProduit: integer",
+        "+dateCommande:date",
+        "+retrait: bool"
+      ],
+      "methods": [],
+      "confidence": 0.9316046833992004,
+      "bbox": [
+        427.0,
+        1468.0,
+        586.0,
+        1583.0
+      ]
+    },
+    {
+      "name": "Bouteille",
+      "type": "class",
+      "attributes": [
+        "+numBout:",
+        "integer"
+      ],
+      "methods": [],
+      "confidence": 0.9032862782478333,
+      "bbox": [
+        880.0,
+        1487.0,
+        1000.0,
+        1549.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+' https://github.com/criusmq/woodstock/blob/master/docs/basicuml.png
+' o 
+@startuml
+
+interface Graph
+
+interface PetriNet
+
+class SimplePetriNet
+
+class PetriNetImporter
+
+interface Mutation
+
+class MichaelisMenten
+
+class Plnvariant
+
+class MotifDetection
+
+class App
+
+class WebApp
+
+class GraphRenderer
+
+class WebSocketServer
+
+class WebSocketClient
+
+Graph --o PetriNet
+SimplePetriNet ..|> PetriNet
+PetriNetImporter -- PetriNet
+PetriNet --o App
+PetriNet --o WebApp
+App o-- Mutation
+Mutation <|.. MichaelisMenten
+Mutation <|.. Plnvariant
+Mutation <|.. MotifDetection
+WebApp o-- GraphRenderer
+App o-- WebSocketServer
+WebApp o-- WebSocketClient
+WebSocketClient -- WebSocketServer : Communication channel
+
+@enduml

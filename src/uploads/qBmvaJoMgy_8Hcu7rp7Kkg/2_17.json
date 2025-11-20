@@ -1,0 +1,110 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_17.png",
+  "entities": [
+    {
+      "name": "CListen",
+      "type": "class",
+      "attributes": [
+        "commands",
+        "Dserver:Server"
+      ],
+      "methods": [
+        "Listen(CommandExecuter)",
+        "execute(HashMapcSting,String):ArrayListString",
+        "getCommandExecuter():CommandExecuter",
+        "stopServer:void"
+      ],
+      "confidence": 0.9669035077095032,
+      "bbox": [
+        438.0,
+        2.0,
+        719.0,
+        157.0
+      ]
+    },
+    {
+      "name": "GCommand",
+      "type": "class",
+      "attributes": [
+        "commands",
+        "DdescriptioreString",
+        "hander:DataHander"
+      ],
+      "methods": [
+        "Command(FormatParser,DataHander,String,Sting)",
+        "execute(HashMapString.String):ArayLisf<String>",
+        "toString():String",
+        "shutdow r):boolean",
+        "getFormalter(String,String):Fomatter"
+      ],
+      "confidence": 0.9652361869812012,
+      "bbox": [
+        82.0,
+        208.0,
+        367.0,
+        401.0
+      ]
+    },
+    {
+      "name": "CCommandExecuter",
+      "type": "class",
+      "attributes": [
+        "commandUtils",
+        "d"
+      ],
+      "methods": [
+        "CommandExecuter(UserHarder,AromotiorHander,PurchaseHander,CategoryHander)",
+        "executeCommand(Sting,HashMeapeString,String>):ArrayList<String>",
+        "getCommandParserO:CommandParser",
+        "getCurrentCommand):Comand"
+      ],
+      "confidence": 0.9599025845527649,
+      "bbox": [
+        473.0,
+        234.0,
+        913.0,
+        374.0
+      ]
+    },
+    {
+      "name": "CFommatParser",
+      "type": "class",
+      "attributes": [
+        "parser"
+      ],
+      "methods": [
+        "FormatParser(UserHander,FromoiorHander,AurchaseHander,CategoryHander)",
+        "getString,String):Formalter"
+      ],
+      "confidence": 0.9556429982185364,
+      "bbox": [
+        5.0,
+        520.0,
+        443.0,
+        644.0
+      ]
+    },
+    {
+      "name": "CJavaCasso>",
+      "type": "class",
+      "attributes": [
+        "CCommandParser",
+        "parser",
+        "ser"
+      ],
+      "methods": [
+        "CommardParser(CommandExecuter,FormatParser,Us erHandler,AromotioniHarrdter,PurchaseHandler,CategoryHandler)",
+        "CommandParser()",
+        "addCommanks(CommandExecurer,FormalParser,UserHandler,PromotiorHandler,PurchaseHander):vod",
+        "get(String,HashMapcString,String):CorTnand"
+      ],
+      "confidence": 0.9698782563209534,
+      "bbox": [
+        547.0,
+        521.0,
+        1133.0,
+        660.0
+      ]
+    }
+  ]
+}

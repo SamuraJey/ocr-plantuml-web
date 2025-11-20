@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+{% if error %}
+<section class="error-section">
+    <div class="error-box">
+        <div class="error-icon">⚠️</div>
+        <h2>Ошибка</h2>
+        <p>{{ error }}</p>
+        <a href="/" class="btn btn-primary">Вернуться назад</a>
+    </div>
+</section>
+{% else %}
+<header class="results-header">
+    <h1>Результаты сравнения</h1>
+    {% if session_id %}
+    <a href="/?cleanup={{ session_id }}" class="btn btn-outline">Новое сравнение</a>
+    {% else %}
+    <a href="/" class="btn btn-outline">Новое сравнение</a>
+    {% endif %}
+</header>
+
+<section class="stats-grid" aria-label="Ключевые метрики">
+    <article class="stat-card" aria-label="Всего сравнений">
+        <div class="stat-icon" aria-hidden="true">📝</div>
+        <div class="stat-content">
+            <div class="stat-value">{{ stats.total_comparisons }}</div>
+            <div class="stat-label">Всего сравнений</div>
+        </div>
+    </article>
+    <article class="stat-card stat-primary" aria-label="Средняя оценка">
+        <div class="stat-icon" aria-hidden="true">🎯</div>
+        <div class="stat-content">
+            <div class="stat-value">{{ "%.1f"|format(stats.avg_score) }}%</div>
+            <div class="stat-label">Средняя оценка</div>
+        </div>
+    </article>
+    <article class="stat-card stat-success" aria-label="Успешно">
+        <div class="stat-icon" aria-hidden="true">✅</div>
+        <div class="stat-content">
+            <div class="stat-value">{{ stats.passed }}</div>
+            <div class="stat-label">Успешно (≥70%)</div>
+        </div>
+    </article>
+    <article class="stat-card stat-danger" aria-label="Неудачно">
+        <div class="stat-icon" aria-hidden="true">❌</div>
+        <div class="stat-content">
+            <div class="stat-value">{{ stats.failed }}</div>
+            <div class="stat-label">Неудачно (&lt;70%)</div>
+        </div>
+    </article>
+</section>
+
+<section class="charts-section" aria-label="Диаграммы">
+    <article class="chart-card">
+        <h3>Оценки по файлам</h3>
+        <canvas id="scoresChart" role="img" aria-label="Столбчатая диаграмма оценок"></canvas>
+    </article>
+    <article class="chart-card">
+        <h3>Распределение оценок</h3>
+        <canvas id="distributionChart" role="img" aria-label="Кольцевая диаграмма распределения"></canvas>
+    </article>
+</section>
+
+<section class="results-table-section" aria-label="Детальные результаты">
+    <div class="section-header">
+        <h2>Детальные результаты</h2>
+        <a href="/export/{{ session_id }}" class="btn btn-outline btn-sm">
+            Экспорт в Excel
+        </a>
+    </div>
+    <div class="table-responsive">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Эталон (PUML)</th>
+                    <th scope="col">Распознанный JSON</th>
+                    <th scope="col">Оценка</th>
+                    <th scope="col">Классы F1</th>
+                    <th scope="col">Атрибуты F1</th>
+                    <th scope="col">Детали</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td class="filename">{{ result.etalon_file }}</td>
+                    <td class="filename">{{ result.student_file }}</td>
+                    <td>
+                        {% if result.error and result.score == 0 %}
+                        <span class="badge badge-error">Ошибка</span>
+                        {% else %}
+                        <span
+                            class="score-badge score-{{ 'excellent' if result.score >= 90 else 'good' if result.score >= 70 else 'poor' }}">
+                            {{ "%.1f"|format(result.score) }}%
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if result.classes %}
+                        <span class="metric">{{ "%.3f"|format(result.classes.f1) }}</span>
+                        {% else %}
+                        —
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if result.attributes %}
+                        <span class="metric">{{ "%.3f"|format(result.attributes.f1) }}</span>
+                        {% else %}
+                        —
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if result.error %}
+                        <span class="error-text">{{ result.error }}</span>
+                        {% else %}
+                        <button type="button" class="btn btn-sm btn-outline details-toggle"
+                            data-details-target="details-{{ loop.index0 }}" aria-expanded="false">
+                            Подробнее
+                        </button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% if not result.error %}
+                <tr id="details-{{ loop.index0 }}" class="details-row is-hidden" aria-live="polite">
+                    <td colspan="7">
+                        <div class="details-content">
+                            <div class="details-grid">
+                                <section class="detail-section" aria-label="Классы">
+                                    <h4>Классы</h4>
+                                    <ul class="metrics-list">
+                                        <li><strong>Precision:</strong> {{ "%.3f"|format(result.classes.precision) }}
+                                        </li>
+                                        <li><strong>Recall:</strong> {{ "%.3f"|format(result.classes.recall) }}</li>
+                                        <li><strong>F1:</strong> {{ "%.3f"|format(result.classes.f1) }}</li>
+                                        <li><strong>Эталон:</strong> {{ result.classes.etalon_count }} классов</li>
+                                        <li><strong>Распознанный:</strong> {{ result.classes.student_count }} классов
+                                        </li>
+                                        <li><strong>Совпадений:</strong> {{ result.classes.matched }}</li>
+                                    </ul>
+                                </section>
+                                <section class="detail-section" aria-label="Атрибуты">
+                                    <h4>Атрибуты</h4>
+                                    <ul class="metrics-list">
+                                        <li><strong>Precision:</strong> {{ "%.3f"|format(result.attributes.precision) }}
+                                        </li>
+                                        <li><strong>Recall:</strong> {{ "%.3f"|format(result.attributes.recall) }}</li>
+                                        <li><strong>F1:</strong> {{ "%.3f"|format(result.attributes.f1) }}</li>
+                                        <li><strong>Эталон:</strong> {{ result.attributes.etalon_count }} атрибутов</li>
+                                        <li><strong>Распознанный:</strong> {{ result.attributes.student_count }}
+                                            атрибутов</li>
+                                        <li><strong>Совпадений:</strong> {{ result.attributes.matched }}</li>
+                                    </ul>
+                                </section>
+                            </div>
+                            {% set diff = result.diff if result.diff is defined else None %}
+                            {% if diff and (diff.classes.missing or diff.classes.extra or diff.attributes) %}
+                            <div class="diff-section" aria-label="Несоответствия">
+                                <h4>Несоответствия</h4>
+                                <div class="diff-grid">
+                                    <article class="diff-card" aria-label="Различия классов">
+                                        <h5>Классы</h5>
+                                        {% if not diff.classes.missing and not diff.classes.extra %}
+                                        <p class="diff-empty">Все классы совпадают.</p>
+                                        {% else %}
+                                        {% if diff.classes.missing %}
+                                        <div class="diff-list-title">Отсутствуют в JSON</div>
+                                        <ul class="diff-list">
+                                            {% for name in diff.classes.missing %}
+                                            <li class="diff-item diff-missing">{{ name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endif %}
+                                        {% if diff.classes.extra %}
+                                        <div class="diff-list-title">Лишние в JSON</div>
+                                        <ul class="diff-list">
+                                            {% for name in diff.classes.extra %}
+                                            <li class="diff-item diff-extra">{{ name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endif %}
+                                        {% endif %}
+                                    </article>
+                                    {% if diff.attributes %}
+                                    <article class="diff-card diff-card-wide" aria-label="Различия атрибутов">
+                                        <h5>Атрибуты</h5>
+                                        <div class="diff-attributes">
+                                            {% for entry in diff.attributes %}
+                                            <div class="diff-attribute-group">
+                                                <div class="diff-attribute-title">
+                                                    {{ entry.etalon_class or '—' }} → {{ entry.student_class or '—' }}
+                                                </div>
+                                                <div class="diff-attribute-columns">
+                                                    <div>
+                                                        <div class="diff-list-title">Отсутствуют</div>
+                                                        {% if entry.missing %}
+                                                        <ul class="diff-list">
+                                                            {% for item in entry.missing %}
+                                                            <li class="diff-item diff-missing">{{ item }}</li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        {% else %}
+                                                        <p class="diff-empty">—</p>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div>
+                                                        <div class="diff-list-title">Лишние</div>
+                                                        {% if entry.extra %}
+                                                        <ul class="diff-list">
+                                                            {% for item in entry.extra %}
+                                                            <li class="diff-item diff-extra">{{ item }}</li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        {% else %}
+                                                        <p class="diff-empty">—</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </article>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+{% if not error %}
+<script id="comparison-chart-data" type="application/json">
+    {{ {
+        'labels': chart_labels,
+        'scores': chart_scores
+    } | tojson }}
+</script>
+<script id="results-data" type="application/json">
+    {{ results | tojson }}
+</script>
+{% endif %}
+{% endblock %}

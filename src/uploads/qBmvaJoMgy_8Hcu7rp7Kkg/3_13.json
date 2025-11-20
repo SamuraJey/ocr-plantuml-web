@@ -1,0 +1,193 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_13.png",
+  "entities": [
+    {
+      "name": "BlogView",
+      "type": "class",
+      "attributes": [
+        "Model",
+        "DOMNode",
+        "Render",
+        "Notity",
+        "CreateDOM",
+        "Remove"
+      ],
+      "methods": [],
+      "confidence": 0.9457414746284485,
+      "bbox": [
+        152.0,
+        10.0,
+        253.0,
+        136.0
+      ]
+    },
+    {
+      "name": "EntryView",
+      "type": "class",
+      "attributes": [
+        "Mcdel",
+        "DOMNode",
+        "Render",
+        "Notity",
+        "CreateDOM",
+        "Femove"
+      ],
+      "methods": [],
+      "confidence": 0.9506653547286987,
+      "bbox": [
+        533.0,
+        11.0,
+        632.0,
+        136.0
+      ]
+    },
+    {
+      "name": "CommentVlew",
+      "type": "class",
+      "attributes": [
+        "Mcdel",
+        "DOMNode",
+        "Render",
+        "Notity",
+        "CreateDOM",
+        "Remove"
+      ],
+      "methods": [],
+      "confidence": 0.9484127759933472,
+      "bbox": [
+        844.0,
+        11.0,
+        944.0,
+        136.0
+      ]
+    },
+    {
+      "name": "CommentControler",
+      "type": "class",
+      "attributes": [
+        "Model",
+        "View",
+        "Update",
+        "Hemove"
+      ],
+      "methods": [],
+      "confidence": 0.9500092267990112,
+      "bbox": [
+        674.0,
+        22.0,
+        802.0,
+        123.0
+      ]
+    },
+    {
+      "name": "EntryController",
+      "type": "class",
+      "attributes": [
+        "Model",
+        "View",
+        "Update",
+        "Remove"
+      ],
+      "methods": [],
+      "confidence": 0.9502381086349487,
+      "bbox": [
+        280.0,
+        23.0,
+        381.0,
+        124.0
+      ]
+    },
+    {
+      "name": "BlogController",
+      "type": "class",
+      "attributes": [
+        "Model",
+        "View",
+        "Update",
+        "Henove"
+      ],
+      "methods": [],
+      "confidence": 0.9486232399940491,
+      "bbox": [
+        10.0,
+        23.0,
+        111.0,
+        123.0
+      ]
+    },
+    {
+      "name": "Entry",
+      "type": "class",
+      "attributes": [
+        "Tite",
+        "Date",
+        "Content",
+        "Comments[",
+        "Likes",
+        "Tags",
+        "Comment",
+        "Like",
+        "Update",
+        "AddObservers"
+      ],
+      "methods": [],
+      "confidence": 0.9413896203041077,
+      "bbox": [
+        398.0,
+        150.0,
+        503.0,
+        329.0
+      ]
+    },
+    {
+      "name": "Nama",
+      "type": "class",
+      "attributes": [
+        "User",
+        "Entries"
+      ],
+      "methods": [],
+      "confidence": 0.9343810677528381,
+      "bbox": [
+        71.0,
+        197.0,
+        174.0,
+        282.0
+      ]
+    },
+    {
+      "name": "Comment",
+      "type": "class",
+      "attributes": [
+        "User",
+        "Date"
+      ],
+      "methods": [],
+      "confidence": 0.9381363391876221,
+      "bbox": [
+        755.0,
+        202.0,
+        854.0,
+        279.0
+      ]
+    },
+    {
+      "name": "User",
+      "type": "class",
+      "attributes": [
+        "Nick",
+        "Email",
+        "Age",
+        "Location"
+      ],
+      "methods": [],
+      "confidence": 0.947799026966095,
+      "bbox": [
+        399.0,
+        353.0,
+        500.0,
+        442.0
+      ]
+    }
+  ]
+}

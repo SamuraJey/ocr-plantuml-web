@@ -1,0 +1,70 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_5.png",
+  "entities": [
+    {
+      "name": "LegacyRectangle",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9443601369857788,
+      "bbox": [
+        234.0,
+        20.0,
+        372.0,
+        51.0
+      ]
+    },
+    {
+      "name": "LegacyLine",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9419320225715637,
+      "bbox": [
+        21.0,
+        20.0,
+        123.0,
+        51.0
+      ]
+    },
+    {
+      "name": "Shape",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9376527667045593,
+      "bbox": [
+        144.0,
+        21.0,
+        214.0,
+        50.0
+      ]
+    },
+    {
+      "name": "Rectangle",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9288681745529175,
+      "bbox": [
+        222.0,
+        100.0,
+        316.0,
+        131.0
+      ]
+    },
+    {
+      "name": "Line",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9493666887283325,
+      "bbox": [
+        68.0,
+        101.0,
+        126.0,
+        131.0
+      ]
+    }
+  ]
+}

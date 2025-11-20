@@ -1,0 +1,155 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_18.png",
+  "entities": [
+    {
+      "name": "elkfed.coref",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9143969416618347,
+      "bbox": [
+        553.0,
+        74.0,
+        721.0,
+        151.0
+      ]
+    },
+    {
+      "name": "elkfed.coref.algorithms.sieve",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8970237970352173,
+      "bbox": [
+        822.0,
+        81.0,
+        1154.0,
+        167.0
+      ]
+    },
+    {
+      "name": "elkfed.coref.mentions",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8354881405830383,
+      "bbox": [
+        125.0,
+        91.0,
+        387.0,
+        164.0
+      ]
+    },
+    {
+      "name": "Mention",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ moreRepresentativeThan(m : Mention) : boolean"
+      ],
+      "confidence": 0.9444219470024109,
+      "bbox": [
+        43.0,
+        207.0,
+        502.0,
+        289.0
+      ]
+    },
+    {
+      "name": "CorefResolver",
+      "type": "interface",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.929402768611908,
+      "bbox": [
+        552.0,
+        207.0,
+        710.0,
+        286.0
+      ]
+    },
+    {
+      "name": "Sieve",
+      "type": "abstract",
+      "attributes": [],
+      "methods": [
+        "+runSieve(m:Mention):void"
+      ],
+      "confidence": 0.9509148597717285,
+      "bbox": [
+        938.0,
+        230.0,
+        1651.0,
+        389.0
+      ]
+    },
+    {
+      "name": "Entity",
+      "type": "class",
+      "attributes": [
+        "- id : Integer",
+        "-types : Set",
+        "attributes:Set",
+        "- relations : Set",
+        "corefChain:ArrayList",
+        "-isFirstMention : boolean",
+        "- isProperName : boolean",
+        "- IsRepresentativeMention : boolean"
+      ],
+      "methods": [
+        "+ merge(m : Mention) : void",
+        "+ addMention(m : Mentlon) : vold"
+      ],
+      "confidence": 0.9621016979217529,
+      "bbox": [
+        160.0,
+        319.0,
+        484.0,
+        568.0
+      ]
+    },
+    {
+      "name": "SieveDecoder",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8778493404388428,
+      "bbox": [
+        157.0,
+        587.0,
+        1120.0,
+        676.0
+      ]
+    },
+    {
+      "name": "StringMatchSieve",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ compareEntitites(mentionEntity : Entity. potentialAntecedent : Entity) : boolean",
+        "runSieve(m :Mention) :void",
+        "+"
+      ],
+      "confidence": 0.9525297284126282,
+      "bbox": [
+        760.0,
+        699.0,
+        1476.0,
+        805.0
+      ]
+    },
+    {
+      "name": "SpeakerldentificationSieve",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9307886362075806,
+      "bbox": [
+        1468.0,
+        823.0,
+        1759.0,
+        886.0
+      ]
+    }
+  ]
+}

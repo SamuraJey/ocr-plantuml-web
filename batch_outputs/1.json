@@ -1,0 +1,60 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/1.jpg",
+  "entities": [
+    {
+      "name": "CostAnalyzer.RoomCarpet",
+      "type": "class",
+      "attributes": [
+        "size:RoomDimension",
+        "carpetCost:double"
+      ],
+      "methods": [
+        "RoomCarpet(dlm:RoomDlmenslon,cost:double)",
+        "getTotalCostj:double",
+        "toStringO:String"
+      ],
+      "confidence": 0.9845214486122131,
+      "bbox": [
+        50.0,
+        126.0,
+        331.0,
+        267.0
+      ]
+    },
+    {
+      "name": "CostAnatyzer.CarpetDriver",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "main(args: String)"
+      ],
+      "confidence": 0.9214001893997192,
+      "bbox": [
+        410.0,
+        126.0,
+        582.0,
+        173.0
+      ]
+    },
+    {
+      "name": "CostAnalyzer.RoomDimension",
+      "type": "class",
+      "attributes": [
+        "lengtr:double",
+        "width:double"
+      ],
+      "methods": [
+        "RoomDimension(length:double,width:double)",
+        "getAreaO:double",
+        "toString0:String"
+      ],
+      "confidence": 0.9790077209472656,
+      "bbox": [
+        51.0,
+        337.0,
+        331.0,
+        487.0
+      ]
+    }
+  ]
+}

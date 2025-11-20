@@ -1,0 +1,505 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_24.png",
+  "entities": [
+    {
+      "name": "GameEngine",
+      "type": "class",
+      "attributes": [
+        "Players:Array<Player>",
+        "world : Vord",
+        "spriteUtils:SpriteUtils",
+        "mapView:MapView",
+        "currentPlayer : Player",
+        "currentlySelectedUnit:Unit",
+        "selectedAction : char",
+        "selectedUnit:Unit",
+        "terrainManager:TerrainManager",
+        "niavigationUtils : NavigationUtilities",
+        "combatManager: CombatManager",
+        "turnManager: TurnManager",
+        "moveUnitQ",
+        "setCommando"
+      ],
+      "methods": [
+        "worldlnteraction(MapLocation)",
+        "endTurn"
+      ],
+      "confidence": 0.9528347253799438,
+      "bbox": [
+        958.0,
+        0.0,
+        1207.0,
+        338.0
+      ]
+    },
+    {
+      "name": "Observable",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8800495862960815,
+      "bbox": [
+        1532.0,
+        1.0,
+        1620.0,
+        75.0
+      ]
+    },
+    {
+      "name": "Observer",
+      "type": "interface",
+      "attributes": [
+        "<realize>>"
+      ],
+      "methods": [],
+      "confidence": 0.9049786925315857,
+      "bbox": [
+        332.0,
+        45.0,
+        443.0,
+        120.0
+      ]
+    },
+    {
+      "name": "JPariel",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9007517695426941,
+      "bbox": [
+        442.0,
+        45.0,
+        564.0,
+        120.0
+      ]
+    },
+    {
+      "name": "MouseListener",
+      "type": "interface",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8936570286750793,
+      "bbox": [
+        563.0,
+        46.0,
+        673.0,
+        121.0
+      ]
+    },
+    {
+      "name": "Worid",
+      "type": "class",
+      "attributes": [
+        "map[Jl] :MapTile",
+        "year:Integer",
+        "turnCount : Integer",
+        "units: HashMap<MapLocation_UnitArray>",
+        "cities : HashMap<MapLocation_City>"
+      ],
+      "methods": [
+        "getTile(mapLoaction:MapLocation)",
+        "getCity(mapLoaction: MapLocation)",
+        "getUnit(mapLocation:MapLocation)"
+      ],
+      "confidence": 0.9460156559944153,
+      "bbox": [
+        1476.0,
+        85.0,
+        1730.0,
+        315.0
+      ]
+    },
+    {
+      "name": "UnitType",
+      "type": "class",
+      "attributes": [
+        "TerrainBonusType",
+        "BUFFALO",
+        "AEGIS CRUISER",
+        "ALPINE TROOPS",
+        "COAL",
+        "FISH",
+        "ARCHERS",
+        "FRUIT",
+        "ARMOR",
+        "FURS",
+        "ARTILLERY",
+        "GAME",
+        "AWACS",
+        "BATTLESHIP",
+        "GEMS",
+        "BOMBER",
+        "GOLD",
+        "IRON",
+        "CANNON",
+        "CARAVAN",
+        "IVORY",
+        "OASIS",
+        "CARAVEL",
+        "CARRIER",
+        "OIL",
+        "CATAPULT",
+        "PEAT",
+        "PHEASANT",
+        "CAVALRY",
+        "CHARIOT",
+        "SILK",
+        "SPICE",
+        "CRUISE MISSLE",
+        "WHALE",
+        "CRUISER",
+        "CRUSADERS",
+        "VWHEAT",
+        "DESTROYER",
+        "VVINE",
+        "DIPLOMAT",
+        "DRAGOON",
+        "ELEPHANT",
+        "<<enumeration>>",
+        "ENGINEER",
+        "CityStyle",
+        "EXPLORER",
+        "EUROPEAN",
+        "FANATIC",
+        "CLASSICAL",
+        "FIGHTER",
+        "INDUSTRIAL",
+        "FREIGHT",
+        "MODERN",
+        "FRIGATE",
+        "POSTMODERN",
+        "GALLEON",
+        "ASIAN",
+        "HELCOPTER",
+        "TROPICAL",
+        "HOWITZER",
+        "IRONCLAD",
+        "KNIGHT",
+        "<<enumeration>>",
+        "LEGION",
+        "UnitTravelType",
+        "MARINE",
+        "MECHINFANTRY",
+        "GROUND",
+        "MUSKETEER",
+        "SEA",
+        "NUCLEAR MISSLE",
+        "AIR",
+        "PARATROOPER",
+        "PARTISAN",
+        "PHALANX",
+        "<<enumeration>>",
+        "PIKEMAN",
+        "TerrainType",
+        "RIFLEMAN",
+        "DESERT",
+        "SETTLERS",
+        "FOREST",
+        "SPY",
+        "GLACIER",
+        "STEALTH BOMBER",
+        "GRASSLAND",
+        "STEALTH FIGHTER",
+        "HILLS",
+        "SUBMARINE",
+        "JUNGLE",
+        "TRANSPORT",
+        "MOUNTANS",
+        "TRIENE",
+        "OCEAN",
+        "WARRIORS",
+        "PLAINS",
+        "WORKER",
+        "SWWAMP",
+        "TUNDRA"
+      ],
+      "methods": [],
+      "confidence": 0.6530736684799194,
+      "bbox": [
+        1944.0,
+        89.0,
+        2240.0,
+        1133.0
+      ]
+    },
+    {
+      "name": "MapTile",
+      "type": "class",
+      "attributes": [
+        "type: TerrainType",
+        "location : MapLocation",
+        "bonusType: TerrainBonusType",
+        "roadBuilt:Boolean",
+        "mineBuilt:Boolean",
+        "irrigationBuilt : Boolean"
+      ],
+      "methods": [],
+      "confidence": 0.9359259009361267,
+      "bbox": [
+        67.0,
+        141.0,
+        275.0,
+        317.0
+      ]
+    },
+    {
+      "name": "MapView",
+      "type": "class",
+      "attributes": [
+        "cameraLocation:MapLocation",
+        "gameEngine:GameEngine"
+      ],
+      "methods": [
+        "highlight(sprite : Bufferedlmage,hilightedLocation : MapLocation) : void",
+        "moveCamera(centerLocation:MapLocation] :void",
+        "draw(sprite : Buferedlmage,drawLocation : MapLocation] : void"
+      ],
+      "confidence": 0.9289543032646179,
+      "bbox": [
+        374.0,
+        173.0,
+        788.0,
+        360.0
+      ]
+    },
+    {
+      "name": "CombatManager",
+      "type": "class",
+      "attributes": [
+        "wrorld:Wyorlc"
+      ],
+      "methods": [
+        "collision(attackingUnit : Unit,defendingUnits : Array<Unit>) : void"
+      ],
+      "confidence": 0.9254401922225952,
+      "bbox": [
+        1403.0,
+        333.0,
+        1785.0,
+        457.0
+      ]
+    },
+    {
+      "name": "Unit",
+      "type": "class",
+      "attributes": [
+        "location : MapLocation",
+        "movementRange:Integer",
+        "health : Integer",
+        "baseAttack: Integer",
+        "baseArmor: Integer",
+        "moveQueue:Queue<MapLocation>",
+        "fatigued:Boolean",
+        "isldle:Boolean",
+        "isForntified:Boolean",
+        "movementType:UnitTravelType",
+        "type : UnitType",
+        "remainingMovement : Integer"
+      ],
+      "methods": [],
+      "confidence": 0.9472861289978027,
+      "bbox": [
+        59.0,
+        349.0,
+        317.0,
+        632.0
+      ]
+    },
+    {
+      "name": "City",
+      "type": "class",
+      "attributes": [
+        "mapLocation : MapLocation",
+        "level:Integer",
+        "availableResources:Array<MapLocation>",
+        "owner:Player",
+        "citizens:Integer",
+        "citizenFeelings:Array<lnteger>",
+        "style: CityStyle"
+      ],
+      "methods": [],
+      "confidence": 0.8820511102676392,
+      "bbox": [
+        334.0,
+        371.0,
+        636.0,
+        566.0
+      ]
+    },
+    {
+      "name": "SpriteUtils",
+      "type": "class",
+      "attributes": [
+        "unitSprites:HashlMap<UnitType_Bufferedlmage>",
+        "terrainSprite:HashlMap<String_Bufferedlmage>",
+        "citySprites : HashMap<String_Bufferedlmage>",
+        "getTerrainSprite(mapLocation:MapLocation} : Bufferedlmage"
+      ],
+      "methods": [
+        "getUnitSprite(mapLocation: MapLocation) : Bufferedlmage"
+      ],
+      "confidence": 0.9305629134178162,
+      "bbox": [
+        676.0,
+        421.0,
+        1046.0,
+        603.0
+      ]
+    },
+    {
+      "name": "NavigationVtilities",
+      "type": "class",
+      "attributes": [
+        "world:WVorld"
+      ],
+      "methods": [
+        "findRoute(currentPos:MapLocation,desiredPos:MapLocation):Queue<MapLocation>"
+      ],
+      "confidence": 0.8892095685005188,
+      "bbox": [
+        1393.0,
+        483.0,
+        1909.0,
+        589.0
+      ]
+    },
+    {
+      "name": "TerrainManager",
+      "type": "class",
+      "attributes": [
+        "Word:World",
+        "terrainlnfoMap:HashMap<TerrainType_Terrainlnfo>"
+      ],
+      "methods": [
+        "GetTerrainlnfo(MapTile) : Terrainlnfo"
+      ],
+      "confidence": 0.9285010099411011,
+      "bbox": [
+        1051.0,
+        493.0,
+        1373.0,
+        599.0
+      ]
+    },
+    {
+      "name": "Terrainlnfo",
+      "type": "class",
+      "attributes": [
+        "foodResource:Integer",
+        "productionResource : Integer",
+        "tradeResource:Irteger",
+        "defenseBonus:Integer",
+        "movementCost:Integer"
+      ],
+      "methods": [],
+      "confidence": 0.9286839365959167,
+      "bbox": [
+        329.0,
+        586.0,
+        547.0,
+        754.0
+      ]
+    },
+    {
+      "name": "Player",
+      "type": "class",
+      "attributes": [
+        "id : Integer",
+        "name: String",
+        "nation: String",
+        "gold : Integer",
+        "capital: City",
+        "units:Array<Unit>",
+        "buildingStyle:CityStyle",
+        "flag : Bufferedlmage",
+        "cities:Array<City>",
+        "researchTree:ResearchTree"
+      ],
+      "methods": [],
+      "confidence": 0.9173439741134644,
+      "bbox": [
+        1700.0,
+        618.0,
+        1888.0,
+        890.0
+      ]
+    },
+    {
+      "name": "MapLocation",
+      "type": "class",
+      "attributes": [
+        "x:Integer",
+        "y:Integer"
+      ],
+      "methods": [],
+      "confidence": 0.8922098875045776,
+      "bbox": [
+        199.0,
+        636.0,
+        318.0,
+        735.0
+      ]
+    },
+    {
+      "name": "UnitTravelType",
+      "type": "class",
+      "attributes": [
+        "GROUNO",
+        "SEA",
+        "AIR"
+      ],
+      "methods": [],
+      "confidence": 0.7799357771873474,
+      "bbox": [
+        1940.0,
+        723.0,
+        2079.0,
+        861.0
+      ]
+    },
+    {
+      "name": "ResearchTree",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9027132391929626,
+      "bbox": [
+        1515.0,
+        733.0,
+        1698.0,
+        808.0
+      ]
+    },
+    {
+      "name": "TerrainType",
+      "type": "class",
+      "attributes": [
+        "P",
+        "<<enumeration>>",
+        "P",
+        "R",
+        "DESERT",
+        "FOREST",
+        "GLACIER",
+        "GRASSLAND",
+        "HILLS",
+        "JUNGLE",
+        "TF",
+        "MOUNTAINS",
+        "TF",
+        "OCEAN",
+        "PLAINS",
+        "SWAMP",
+        "TUNDRA"
+      ],
+      "methods": [],
+      "confidence": 0.6691967248916626,
+      "bbox": [
+        1935.0,
+        857.0,
+        2091.0,
+        1141.0
+      ]
+    }
+  ]
+}

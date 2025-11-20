@@ -1,0 +1,86 @@
+'https://github.com/k----n/reflex/blob/master/doc/UML.jpg
+'o
+@startuml
+class StatsManager {
+  load statistics for buzzer and reaction times
+  --
+  +loadReactFile(c:Context,file:String): ArrayList<Long>
+  +loadBuzzFile(c:Context,file:String): ArrayList<String>
+  +saveReactStat(c:Context,file:String,records:ArrayList<Long>): void
+  +saveBuzzStat(c:Context,file:String,records:ArrayList<String>): void
+}
+
+class BuzzerStats {
+  record buzzer presses and how many players
+  --
+  -records: ArrayList<String>
+  -amountPlayers: int
+  -currentPlayer: int
+  --
+  +setCurrentPlayer(currentPlayer:int): void
+  +setAmountPlayers(amountPlayers:int): void
+  +getRecords(): ArrayList<String>
+  +setRecords(records:ArrayList<String>): void
+  +addRecord(): void
+}
+
+class ReactionStats {
+  record valid reaction times
+  --
+  -records: ArrayList<Long>
+  --
+  +getRecords(): ArrayList<Long>
+  +setRecords(records:ArrayList<Long>): void
+  +addRecord(time:long): void
+}
+
+class StatsBuzzerParser {
+  make buzzer data into readable string
+  --
+  +countPlayer(mode:int,player:int,buzz:String,records:ArrayList<String>): String
+}
+
+class ReactionStatsCalc {
+  calculate the data for reaction times
+  --
+  +getMin(records:ArrayList<Long>): long
+  +getMax(records:ArrayList<Long>): long
+  +getAvg(records:ArrayList<Long>): double
+  +getMedian(records:ArrayList<Long>): long
+}
+
+class ReactionWatch {
+  instances of reaction time game, checks reaction time validity and generates random times
+  --
+  -timeStart: long
+  -lowerRange: long
+  -upperRange: long
+  -r: Random
+  -timeElapsed: long
+  -randomTime: long
+  --
+  +getReactionTime(): long
+  +getRandomTime(): long
+  +start(): void
+  +reset(): void
+  +check(): Boolean
+}
+
+class StatsReactionParser {
+  get the last10 and last100 of reaction data, make reaction time data into readable strings
+  --
+  +getLast10Records(records:ArrayList<Long>): ArrayList<Long>
+  +getLast100Records(records:ArrayList<Long>): ArrayList<Long>
+  +minTime(lastTime:String,min:long): String
+  +maxTime(lastTime:String,max:long): String
+  +avgTime(lastTime:String,avg:double): String
+  +medianTime(lastTime:String,median:long): String
+}
+
+StatsManager "0.." o-- "1" BuzzerStats
+StatsManager "0.." o-- "1" ReactionStats
+BuzzerStats "1" --o "0..*" StatsBuzzerParser
+ReactionStats "1" --o "0..*" StatsReactionParser
+ReactionWatch "1" --o "1" ReactionStats
+ReactionStatsCalc -- StatsReactionParser
+@enduml

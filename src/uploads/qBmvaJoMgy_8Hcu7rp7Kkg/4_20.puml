@@ -1,0 +1,61 @@
+' https://github.com/DDuarte/PetriNetsVDM/blob/master/report/class_diagram_full.png
+@startuml
+class Arc {
+  + isEnabled(markings) : bool
+  + trigger(markings) : marking
+}
+
+class Place {
+  + label: seq of char
+  + capacity: nat
+}
+
+class Transition {
+  + label: seq of char
+}
+
+class PetriNet {
+  + marking: map Place to nat
+  + executeStep(transition) : void
+  + isReachable(markings) : bool
+  + getAllSequences(markings) : set of seq of transition
+}
+
+class InputArc
+
+class ResetArc
+
+class WeightedInputArc {
+  + weight: nat
+}
+
+class InhibitorArc
+
+class OutputArc
+
+class WeightedOutputArc {
+  + weight: nat
+}
+
+Arc <|-- InputArc
+Arc <|-- OutputArc
+InputArc <|-- ResetArc
+InputArc <|-- WeightedInputArc
+InputArc <|-- InhibitorArc
+OutputArc <|-- WeightedOutputArc
+
+Place "1" *-- "*" Arc : place
+Transition "1" *-- "*" Arc : transitions
+
+note right of Arc : Arcs between places and transitions
+note right of Place : Place of a petri net with a maximum capacity
+note right of Transition : transition from input arcs to output arcs of a petri net
+note right of PetriNet : This class represents petri nets with places, transitions and multiple types of arcs
+note right of InputArc : Arcs from a place to a transition
+note right of ResetArc : Input arc that consumes all tokens at its place
+note right of WeightedInputArc : Input arc with weight
+note right of InhibitorArc : Input arc that is enabled if its place has no tokens
+note right of OutputArc : Arcs from a transition to a place
+note right of WeightedOutputArc : Output arc with weight
+
+@enduml

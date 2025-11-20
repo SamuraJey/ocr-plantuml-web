@@ -1,0 +1,124 @@
+@startuml
+'https://github.com/bcwaters/javaGifEncoderDecoder/blob/master/Documents/InitialDiagram.png
+'o
+package "pkg" {
+  class "Gif" {
+    - byteData: GifData
+    - global: GlobalData
+    + Gif()
+    - loadFile(fileName: String): void
+  }
+
+  class "GifData" {
+    - data: byte[]
+    - index: int
+    + GifData(_data: byte[])
+    + getNextByte(): byte
+    + peek(): byte
+  }
+
+  class "GlobalData" {
+    - Header: byte[]
+    - GlobalColorTable: ColorTable
+    - screenDescriptor: LogicalScreenDescriptor
+    + getGlobalColorTable(): ColorTable
+  }
+
+  class "LocalData" {
+    - DataBlocks: ArrayList
+    - GlobalDataReference: GlobalData
+    - byteData: GifData
+  }
+
+  class "ImageData" {
+    - LocalColorTable: ColorTable
+    - LZW_Minimum: byte
+    - compressionBytes: ArrayList
+  }
+
+  class "ImageDescriptor" {
+    - imageLeft: short
+    - imageTop: short
+    - imageWidth: short
+    - imageHeight: short
+    - localTableFlag: boolean
+    - interlaceFlag: boolean
+    - sortFlag: boolean
+    - tableSize: int
+    + ImageDescriptor()
+  }
+
+  class "Extension" {
+    - graphicControlLabel: byte
+    + Extension()
+  }
+
+  class "ApplicationExtension" {
+  }
+
+  class "CommentExtension" {
+  }
+
+  class "PlainTextExtension" {
+  }
+
+  class "GraphicControlExtension" {
+    - disposalMethod: int
+    - userInputFlag: boolean
+    - delayTime: int
+    - transparentColorIndex: byte
+    + GraphicControlExtension(packedField: byte, delayBytes: short, transparentByte: byte)
+  }
+
+  class "ColorTable" {
+    - colors: Color[]
+    + ColorTable(data: byte[])
+  }
+
+  class "Color" {
+    - red: byte
+    - green: byte
+    - blue: byte
+    + Color(_red: byte, _green: byte, _blue: byte)
+    + getRed(red: byte): byte
+    + getBlue(): byte
+    + getGreen(): byte
+  }
+
+  class "LogicalScreenDescriptor" {
+    - data: GifData[]
+    + LogicalScreenDescriptor(data: byte[])
+    + getCanvasWidth(): int
+    + getCanvasHeight(): int
+    + getGlobalTableFlag(): boolean
+    + getColorResolution(): int
+    + getSortFlag(): boolean
+    + getGlobalColorTableSize(): int
+  }
+
+  class "ValidData" {
+    - byteData: GifData
+    + encode(): byte[]
+  }
+
+  "Gif" *-- "GlobalData"
+  "Gif" *-- "LocalData"
+
+  "GlobalData" o-- "ColorTable"
+  "GlobalData" *-- "LogicalScreenDescriptor"
+
+  "LocalData" *-- "ValidData"
+
+  "ImageData" --|> "ValidData"
+  "ImageDescriptor" --|> "ValidData"
+  "Extension" --|> "ValidData"
+
+  "Extension" <|-- "ApplicationExtension"
+  "Extension" <|-- "CommentExtension"
+  "Extension" <|-- "PlainTextExtension"
+  "Extension" <|-- "GraphicControlExtension"
+
+  "ColorTable" *-- "Color"
+}
+
+@enduml

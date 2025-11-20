@@ -1,0 +1,117 @@
+'https://github.com/cawthorna/as1/blob/master/doc/Class%20Diagram.png
+@startuml
+class MainActivity {
+  +NEW_FUEL_ENTRY_OBJECT: static final int = 1
+  +EDIT_FUEL_ENTRY_OBJECT: static final int = 2
+  +FUEL_LOG_STORE: final static String = fuel_log_store
+  +INTENT_DATA: final static String = FuelLogEntry
+  +REQUEST_CODE: final static String = requestCode
+  +FUEL_LOG_LIST_POSITION: final static String = fuelLogListPosition
+  +DEVELOPER: static final boolean = false
+  #fuelLogList: ArrayList<FuelLogEntry>
+  #adapter: ListViewArrayAdapter
+  #listView: ListView
+  #totalCost: long
+  #totalAmount: int
+  +onCreate(savedInstanceState: Bundle)
+  +onStart()
+  +onStop()
+  +onCreateOptionsMenu(menu: Menu): boolean
+  +onOptionsItemSelected(item: MenuItem): boolean
+  +onActivityResult(requestCode: int, resultCode: int, data: Intent)
+  +onClearFileDialogPositiveClick(dialogFragment: DialogFragment)
+  +onClearFileDialogNegativeClick(dialogFragment: DialogFragment)
+  +listItemClicked(position: int)
+  #loadFuelLog()
+  #saveFuelLog()
+  #updateHeader()
+  #addSampleData()
+  #sortFuelLog()
+}
+
+class Activity {
+  Default android Activity Class
+}
+
+class editEntry {
+  -fuelLogEntry: FuelLogEntry
+  -position: int
+  -dateCode: int = 1
+  +onCreate(savedInstanceState: Bundle)
+  +onBackPressed()
+  +showDatePickerDialog(view: View)
+  +confirmAddition(view: View)
+  +cancelAddition(view: View)
+  +onDateSet(view: DatePicker, year: int, month: int, day: int)
+}
+
+class FuelDatePickerFragment {
+  +onCreateDialog(savedInstanceState: Bundle): Dialog
+}
+
+class DatePicker {
+  Built in Android DatePicker
+}
+
+interface ClearFileDialogListener {
+  +onClearFileDialogPositiveClick(dialogFragment: DialogFragment)
+  +onClearFileDialogNegativeClick(dialogFragment: DialogFragment)
+}
+
+class ClearFileDialogFragment {
+  +clearFileDialogListener: ClearFileDialogListener
+  +onAttach(activity: Activity)
+  +onCreateDialog(savedInstanceState: Bundle): Dialog
+}
+
+class FuelLogEntry {
+  -year: int
+  -month: int
+  -day: int
+  -station: String
+  -odometer: int
+  -grade: String
+  -amount: long
+  -unitCost: int
+  -cost: long
+  +FuelLogEntry(year: int, month: int, day: int, station: String, odometer: double, grade: String, amount: double, unitCost: double): FuelLogEntry
+  +setDate(year: int, month: int, day: int): int
+  +setYear(year: int): boolean
+  +setMonth(month: int): boolean
+  +setDay(day: int): boolean
+  +setStation(station: String): boolean
+  +setOdometer(odometer: double): boolean
+  +setGrade(grade: String): boolean
+  +setAmount(amount: double): boolean
+  +setUnitCost(unitCost: double): boolean
+  +getYear(): int
+  +getMonth(): int
+  +getDay(): int
+  +getDate(): String
+  +getStation(): String
+  +getFormattedOdometer(): String
+  +getOdometer(): String
+  +getGrade(): String
+  +getFormattedAmount(): String
+  +getAmount(): String
+  +getLongAmount(): long
+  +getFormattedUnitCost(): String
+  +getUnitCost(): String
+  +getCost(): String
+  +getLongCost(): long
+  +updateCost()
+  +checkCost()
+  +compareTo(fuelLogEntry: FuelLogEntry): int
+  +equals(object: Object): boolean
+}
+
+MainActivity --|> Activity
+editEntry -- Activity
+FuelDatePickerFragment <|-- DatePicker
+FuelDatePickerFragment --o editEntry
+
+ClearFileDialogFragment o-- ClearFileDialogListener
+MainActivity "0..*" --> "1" FuelLogEntry : Has
+MainActivity  <...  ClearFileDialogListener
+editEntry "1" --> "1" FuelLogEntry : Editing
+@enduml

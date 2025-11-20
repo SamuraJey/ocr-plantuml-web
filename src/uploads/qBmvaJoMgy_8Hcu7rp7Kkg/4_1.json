@@ -1,0 +1,208 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_1.png",
+  "entities": [
+    {
+      "name": "FILENAME: String = reactionTimerStats",
+      "type": "class",
+      "attributes": [
+        "+sortStats:SortStats",
+        "-FILENAME: String = reactionTimerStats",
+        "- BUZzERFILENAME: String = buzzerStats",
+        "+oldwinnersList: HaswhMap<String.ArrayList>",
+        "+oldTimesArray:Arraylist<Long",
+        "+results: ArrayList<Long>",
+        "+players2: ArrayList:",
+        "+players3: ArrayList:",
+        "+players4: ArrayList"
+      ],
+      "methods": [
+        "+getstatistics():StringBuilder",
+        "+composeEmail(subject:String,info:String,)",
+        "+makeStartList:(context:Context)",
+        "+saveStuff()",
+        "+saveBuzzerStuff()",
+        "+loadFromFile(context:Context)",
+        "+loadFronBuzzerFi le(context:Context)",
+        "+displayBuzzerStats()",
+        "+displayStats( results:ArrayListdLong>)",
+        "+saveInFile(context:Context)",
+        "+saveInBuzzerFile(context:Context)"
+      ],
+      "confidence": 0.9227399826049805,
+      "bbox": [
+        410.0,
+        0.0,
+        782.0,
+        363.0
+      ]
+    },
+    {
+      "name": "Sortstats",
+      "type": "class",
+      "attributes": [
+        "+max10: Long",
+        "+min10:Long",
+        "+avg10: Long",
+        "+med10:Long",
+        "+avg100: Long",
+        "+maxl00:Long",
+        "+minloo:Long",
+        "+med100: Long",
+        "+avgAll: Long",
+        "+maxAll: Long",
+        "+minAll: Long",
+        "+medAll: Long",
+        "+results: Array ist<Long>"
+      ],
+      "methods": [
+        "+sortIt(stats:ArrayList):ArrayList<Long>",
+        "+sortAll(all:ArrayList)",
+        "+sortioo(lastloo:ArrayList)",
+        "+sortlo(lastlo:ArrayList)",
+        "tcalculateAverage(list:List)"
+      ],
+      "confidence": 0.9370297193527222,
+      "bbox": [
+        1.0,
+        12.0,
+        335.0,
+        352.0
+      ]
+    },
+    {
+      "name": "Reaction",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+getTime():",
+        "Long"
+      ],
+      "confidence": 0.9417616724967957,
+      "bbox": [
+        1431.0,
+        256.0,
+        1667.0,
+        317.0
+      ]
+    },
+    {
+      "name": "ActivityChoice",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+goToPlayerSelection(view: View)",
+        "+goToReactionTimer(view:View)",
+        "+goToDisplayStats(view:View)"
+      ],
+      "confidence": 0.9482026696205139,
+      "bbox": [
+        959.0,
+        296.0,
+        1213.0,
+        391.0
+      ]
+    },
+    {
+      "name": "Multiplayer",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+goTo2Player(view:View)",
+        "+goTo3Player(view:View)",
+        "+goTo4player(view:View)"
+      ],
+      "confidence": 0.9488853216171265,
+      "bbox": [
+        783.0,
+        478.0,
+        990.0,
+        572.0
+      ]
+    },
+    {
+      "name": "time:Long",
+      "type": "class",
+      "attributes": [
+        "-time:Long",
+        "+stat: Statistics"
+      ],
+      "methods": [
+        "+setTime(time:Long)",
+        "+getTime () : Long.",
+        "+preReaction()",
+        "+di splayPeactionTime(begin:long,timer:Timer)",
+        "+reactionTimerPopup(totalTime: Long)",
+        "+resetIt()",
+        "+complain()"
+      ],
+      "confidence": 0.9596552848815918,
+      "bbox": [
+        1385.0,
+        509.0,
+        1733.0,
+        698.0
+      ]
+    },
+    {
+      "name": "WinningPlayer",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+popupBox(activity:Activity,winner:String)"
+      ],
+      "confidence": 0.9354009628295898,
+      "bbox": [
+        298.0,
+        516.0,
+        630.0,
+        582.0
+      ]
+    },
+    {
+      "name": "+showwinner",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "(view:View)"
+      ],
+      "confidence": 0.9331232309341431,
+      "bbox": [
+        997.0,
+        630.0,
+        1180.0,
+        691.0
+      ]
+    },
+    {
+      "name": "Players2",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "(view:View)",
+        "+showwinner"
+      ],
+      "confidence": 0.9332988858222961,
+      "bbox": [
+        585.0,
+        632.0,
+        767.0,
+        693.0
+      ]
+    },
+    {
+      "name": "Class_9",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+showwinner(view: View)"
+      ],
+      "confidence": 0.9315865635871887,
+      "bbox": [
+        794.0,
+        640.0,
+        976.0,
+        700.0
+      ]
+    }
+  ]
+}

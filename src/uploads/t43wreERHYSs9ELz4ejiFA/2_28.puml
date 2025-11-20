@@ -1,0 +1,21 @@
+'https://github.com/mgarzon/Thesis_DefensePresentation---v2/blob/master/Figures/uml3.png
+'o
+@startuml
+class Person {
+  +name : String
+}
+
+class Mentor {
+}
+
+class Student {
+  +id : Integer
+  +isActive : Boolean
+  MAX_PER_GROUP : Integer
+}
+
+Person <|-- Mentor
+Person <|-- Student
+Student "students*" --> "mentor 0..1" Mentor
+
+@enduml

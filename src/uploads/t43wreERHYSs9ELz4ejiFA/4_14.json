@@ -1,0 +1,71 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_14.png",
+  "entities": [
+    {
+      "name": "CGlobalManager",
+      "type": "class",
+      "attributes": [
+        "cmu18641.buatacker.ws",
+        "tmeQueryManager: TimeQueryManager",
+        "locationService:LocationService"
+      ],
+      "methods": [
+        "GlobalManager()",
+        "getBusesByStop()",
+        "getStopsByCurrentlocation()",
+        "getStopByAddress()",
+        "killLocationSerrice()",
+        "getSchedule()",
+        "updateDatabase()"
+      ],
+      "confidence": 0.9746672511100769,
+      "bbox": [
+        0.0,
+        0.0,
+        251.0,
+        214.0
+      ]
+    },
+    {
+      "name": "CRouteQueryManager",
+      "type": "class",
+      "attributes": [
+        "cmu18641.bustracker.ws",
+        "RouteQueryManagerQ"
+      ],
+      "methods": [
+        "getBusesByStop()",
+        "getStopsByCurrentLocation()",
+        "getAlStops()",
+        "getStopByAddress()"
+      ],
+      "confidence": 0.9690155386924744,
+      "bbox": [
+        35.0,
+        282.0,
+        215.0,
+        422.0
+      ]
+    },
+    {
+      "name": "DRouteQuerylnterface",
+      "type": "class",
+      "attributes": [
+        "cmu18641.bustacker.m"
+      ],
+      "methods": [
+        "getBusesByStop()",
+        "getStopsByCurrentLocation()",
+        "getStopByAddress()",
+        "getAlIStops()"
+      ],
+      "confidence": 0.9448104500770569,
+      "bbox": [
+        285.0,
+        293.0,
+        470.0,
+        416.0
+      ]
+    }
+  ]
+}

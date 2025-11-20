@@ -1,0 +1,25 @@
+
+'https://github.com/itgkarl/SeleniPo/blob/master/Files/VisualPara/UMLet%20ansicht.jpg
+@startuml
+class PageObject1 {
+  -p1input1: id1
+  -p1input2: id2
+  +b1button1(): id1()
+}
+
+class PageObject2 {
+  -p2input1: id1
+  -p2input2: id2
+  +b2button1(): id1()
+}
+
+class PageObject3 {
+  -p3input1: id1
+  -p3input2: id2
+  +b3button1(): id1()
+}
+
+PageObject1 ..> PageObject2 : b1->PO2
+PageObject3 ..> PageObject2 : b3->PO2
+PageObject2 ..> PageObject3 : b2->PO3
+@enduml

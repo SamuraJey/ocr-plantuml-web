@@ -1,0 +1,201 @@
+' https://github.com/edquist/autopyfactory/blob/osg-rpm/ClassDiagram.png
+' s
+@startuml factory_diagram
+class "factory (init)" {
+}
+
+class "/bin/factory (script)" {
+}
+
+class "factory.py" {
+  + apf: APF
+  + main(): None
+}
+
+class APF <<entity>> {
+  - f: Factory
+  - fc: FactoryConfigLoader
+  - args: Type
+  - log: Logger
+  - options:
+  - parser: OptionParser
+  + mainloop(): None
+  + checkroot(): None
+  + createconfig(): None
+  + setuplogging(): None
+  + parseopts(): None
+}
+
+class Factory <<entity>> {
+  - fcl: FactoryConfigLoader
+  - qcl: QueueConfigLoader
+  - logserver: LogServer
+  - proxymanager: ProxyManager
+  - wmsmanager: WMSQueuesManager
+  - log: Logger
+  + mainLoop(): None
+  + update(): None
+}
+
+class FactoryConfigLoader <<boundary>> {
+  - config: SafeConfigParser
+  - log: Logger
+  - statConfigs(): None
+  - checkMandatoryValues(): None
+  - configurationDefaults
+}
+
+class QueueConfigLoader <<boundary>> {
+  - config: SafeConfigParser
+  - log: Logger
+  - statConfigs(): None
+  - checkMandatoryValues(): None
+  - configurationDefaults
+  - validateQueue(): None
+}
+
+class ConfigLoader <<Interface>> {
+  - config: SafeConfigParser
+  - log: Logger
+  + loadConfig(): None
+}
+
+class WMSQueuesManager <<control>> {
+  + queues: List WMSQueue
+  + Operation 1 (arg list): return
+}
+
+class WMSQueue <<entity>> {
+  - scheduler: SchedInterface
+  - batchstatus: BatchStatusInterface
+  - batchsubmit: BatchSubmitInterface
+  - wmsstatus: WMSStatusInterface
+  - monitor: Monitor
+  - clean: CleanCondorLogs
+  - log: Logger
+  + run(): None
+  + refresh(): None
+  + updatestatus( arg list): None
+  - getplugin: Class
+  - submitpilots(nsub: int): None
+  - monitor_shout(): None
+  - monitor_note(msg: String): None
+  - monitor_notify(output: String): None
+}
+
+class Monitor <<entity>> {
+  - fid: String
+  - crurl: String
+  - msgurl: String
+  - furl: String
+  - crlist: List of Strings
+  - msglist: List of Strings
+  - json: JsonEncoder
+  - buffer: StringIO
+  - c: Curl
+  + notify( nick:String, label:String, output:String): None
+  + msg( nick: String, label:String, text:String): None
+  + shout(label: String, cycleNumber: Int): None
+  + signal(url:String, postdata:String): None
+  + parse(output:String): List of Strings
+}
+
+class ProxyManager <<entity>> {
+  - handlers: List of ProxyHandlers
+  - pconfig: SafeConfigParser
+  - Attribute 3: Type
+  - Attribute 4: Type
+  + run(): None
+  + mainLoop(): None
+  + listNames(): List of Strings
+  + getProxyPath(String name): String
+}
+
+class ProxyHandler <<entity>> {
+  - name: String
+  - baseProxy: String
+  - proxyfile: String
+  - vorole: String
+  - usercert: String
+  - userkey: String
+  - lifetime: Int
+  - checktime: Int
+  - minlife: Int
+  - generateProxy( arg list): return
+  - getProxyPath(): String
+  - handleproxy(): None
+  - checktimeleft(): None
+  + Operation 4 (arg list): return
+}
+
+class SchedPlugin <<entity>> {
+  + calcSubmitNumber(): Int
+}
+
+class SchedInterface <<Interface>> {
+  + calcSubmitNumber(): Int
+}
+
+class BatchStatusPlugin <<entity>> {
+  - info: InfoHandler
+  + getInfo( maxtime: Int): Dictionary
+}
+
+class BatchStatusInterface <<Interface>> {
+  + getInfo( maxtime: Int): Dictionary
+}
+
+class BatchSubmitPlugin <<entity>> {
+  + submitPilots( number: Int): None
+  - createJSDFile(): None
+  - prepareJSDFile(): None
+  - writeJSDFile(): None
+  - submit(): None
+}
+
+class BatchSubmitInterface <<Interface>> {
+  +submitPilots( number: Int): None
+}
+
+class WMSStatusPlugin <<entity>> {
+  - info: InfoHandler
+  +getCloudInfo():
+  +getSiteInfo():
+  +getQueueInfo():
+}
+
+class WMSStatusInterface <<Interface>> {
+  +getCloudInfo():
+  +getSiteInfo():
+  +getQueueInfo():
+}
+
+class InfoHandler <<entity>> {
+  + get(maxtime: Int): Dictionary
+  + update()
+}
+
+"factory.py" --> "APF" : apf
+"APF" --> "Factory" : f
+"Factory" *-- "FactoryConfigLoader" : fcl
+"Factory" *-- "QueueConfigLoader" : qcl
+"Factory" *-- "ProxyManager" : proxymanager
+"Factory" *-- "WMSQueuesManager" : wmsmanager
+"WMSQueuesManager" o-- "WMSQueue" : queues
+"WMSQueue" *-- "Monitor" : monitor
+"WMSQueue" *-- "SchedPlugin" : scheduler
+"WMSQueue" *-- "BatchStatusPlugin" : batchstatus
+"WMSQueue" *-- "BatchSubmitPlugin" : batchsubmit
+"ProxyManager" o-- "ProxyHandler" : handlers
+"BatchStatusPlugin" *-- "InfoHandler" : info
+"WMSStatusPlugin" *-- "InfoHandler" : info
+"FactoryConfigLoader" ..|> "ConfigLoader"
+"QueueConfigLoader" ..|> "ConfigLoader"
+"SchedPlugin" --|> "SchedInterface"
+"BatchStatusPlugin" --|> "BatchStatusInterface"
+"BatchSubmitPlugin" --|> "BatchSubmitInterface"
+"WMSStatusPlugin" --|> "WMSStatusInterface"
+
+"factory (init)" -- "/bin/factory (script)"
+"/bin/factory (script)" --  "factory.py"
+@enduml

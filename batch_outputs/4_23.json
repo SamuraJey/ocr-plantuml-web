@@ -1,0 +1,87 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_23.png",
+  "entities": [
+    {
+      "name": "DefaultProperty",
+      "type": "class",
+      "attributes": [
+        "Stin",
+        "ueh",
+        "V8"
+      ],
+      "methods": [],
+      "confidence": 0.6055716276168823,
+      "bbox": [
+        125.0,
+        24.0,
+        242.0,
+        59.0
+      ]
+    },
+    {
+      "name": "Pactage event",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8454833626747131,
+      "bbox": [
+        526.0,
+        33.0,
+        625.0,
+        58.0
+      ]
+    },
+    {
+      "name": "@ Package beans",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8359324336051941,
+      "bbox": [
+        261.0,
+        33.0,
+        365.0,
+        57.0
+      ]
+    },
+    {
+      "name": "a Package scene",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.848365068435669,
+      "bbox": [
+        254.0,
+        128.0,
+        358.0,
+        154.0
+      ]
+    },
+    {
+      "name": "GanesicComboBoxCell",
+      "type": "class",
+      "attributes": [
+        "LpdateltamVT, boolaan)",
+        "amocintmWithCol[TableViewcRT>, Saring)",
+        "amocintm{TablColumn:cRT, VT>)",
+        "GamicCombeBoxCallRT, VT*",
+        "gatComboBcmCallRaf)"
+      ],
+      "methods": [
+        "disableComboBox(RT)",
+        "cmnComboBaxValu(RT)",
+        "LiKVTx",
+        "wodtOnRowtismlf[RT]",
+        "isRandOnlyViaw",
+        "setRaadOnlyVimw(boolatn)"
+      ],
+      "confidence": 0.9477320313453674,
+      "bbox": [
+        346.0,
+        222.0,
+        700.0,
+        441.0
+      ]
+    }
+  ]
+}

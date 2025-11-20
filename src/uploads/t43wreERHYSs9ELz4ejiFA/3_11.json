@@ -1,0 +1,152 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_11.png",
+  "entities": [
+    {
+      "name": "Profile",
+      "type": "class",
+      "attributes": [
+        "-id",
+        "name"
+      ],
+      "methods": [],
+      "confidence": 0.9452970623970032,
+      "bbox": [
+        217.0,
+        0.0,
+        339.0,
+        64.0
+      ]
+    },
+    {
+      "name": "Customer",
+      "type": "class",
+      "attributes": [
+        "-d",
+        "oountry",
+        "-operationAres",
+        "-project"
+      ],
+      "methods": [],
+      "confidence": 0.9468219876289368,
+      "bbox": [
+        560.0,
+        54.0,
+        681.0,
+        161.0
+      ]
+    },
+    {
+      "name": "Project",
+      "type": "class",
+      "attributes": [
+        "id",
+        "name",
+        "tello_board",
+        "users",
+        "sprinty"
+      ],
+      "methods": [],
+      "confidence": 0.9474528431892395,
+      "bbox": [
+        383.0,
+        74.0,
+        506.0,
+        192.0
+      ]
+    },
+    {
+      "name": "Session",
+      "type": "class",
+      "attributes": [
+        "-id",
+        "LSan&me",
+        "login_date"
+      ],
+      "methods": [],
+      "confidence": 0.9448782205581665,
+      "bbox": [
+        21.0,
+        82.0,
+        143.0,
+        179.0
+      ]
+    },
+    {
+      "name": "User",
+      "type": "class",
+      "attributes": [
+        "-id",
+        "name",
+        "usename",
+        "password",
+        "profile"
+      ],
+      "methods": [],
+      "confidence": 0.9457117915153503,
+      "bbox": [
+        217.0,
+        99.0,
+        339.0,
+        222.0
+      ]
+    },
+    {
+      "name": "SessionManager",
+      "type": "class",
+      "attributes": [
+        "getSession",
+        "-qeateSessionD",
+        "-removeSessionD",
+        "-is_there_a_valid_session0"
+      ],
+      "methods": [],
+      "confidence": 0.961524486541748,
+      "bbox": [
+        0.0,
+        240.0,
+        168.0,
+        336.0
+      ]
+    },
+    {
+      "name": "Sprint",
+      "type": "class",
+      "attributes": [
+        "- id",
+        "-id_project",
+        "-start_date",
+        "-end_date",
+        "points_estimated",
+        "-points_delivered",
+        "-number_of_tests",
+        "-date_scanned",
+        "-id_user"
+      ],
+      "methods": [],
+      "confidence": 0.9429945349693298,
+      "bbox": [
+        382.0,
+        248.0,
+        506.0,
+        408.0
+      ]
+    },
+    {
+      "name": "Cryptutils",
+      "type": "class",
+      "attributes": [
+        "Kax-",
+        "Ddloua-",
+        "-deaypt"
+      ],
+      "methods": [],
+      "confidence": 0.9495125412940979,
+      "bbox": [
+        221.0,
+        287.0,
+        342.0,
+        388.0
+      ]
+    }
+  ]
+}

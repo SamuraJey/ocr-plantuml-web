@@ -1,0 +1,85 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_12.png",
+  "entities": [
+    {
+      "name": "ArduinoReceiver",
+      "type": "class",
+      "attributes": [
+        "- potMeterVal : int",
+        "- lightMeterVal : int",
+        "- tempMeterVal : int",
+        "- buttonStates : boolean[4]",
+        "P!oA : (dmes +"
+      ],
+      "methods": [
+        "+ draw() : void"
+      ],
+      "confidence": 0.9571385383605957,
+      "bbox": [
+        92.0,
+        177.0,
+        311.0,
+        365.0
+      ]
+    },
+    {
+      "name": "Runnable",
+      "type": "interface",
+      "attributes": [],
+      "methods": [
+        "+ run():void"
+      ],
+      "confidence": 0.9335681200027466,
+      "bbox": [
+        625.0,
+        179.0,
+        754.0,
+        280.0
+      ]
+    },
+    {
+      "name": "SerialReceiver",
+      "type": "class",
+      "attributes": [
+        "myPort: Serial",
+        "-buffer: ArrayList<Integer>",
+        "-listeners:ArrayList<SerialEvent>",
+        "- nextMsgld : int",
+        "- running : boolean"
+      ],
+      "methods": [
+        "+ SerialReceiver() : void",
+        "+addSerialEventListeners(e:SerialEvent):boolean",
+        "+removeSerialEventListeners(e:SerialEvent):boolean",
+        "+ stop() : void",
+        "- doValidation(s: int) : boolean",
+        "+ convertintegersfintegers : int<Integer>) : int",
+        "+ toUnsigned(b : int) : int"
+      ],
+      "confidence": 0.9597728252410889,
+      "bbox": [
+        472.0,
+        375.0,
+        912.0,
+        683.0
+      ]
+    },
+    {
+      "name": "Ksinterface>>",
+      "type": "interface",
+      "attributes": [
+        "SeriatEvent"
+      ],
+      "methods": [
+        "+ serialMessageReceived(data : intD) : void"
+      ],
+      "confidence": 0.9343830347061157,
+      "bbox": [
+        34.0,
+        471.0,
+        372.0,
+        579.0
+      ]
+    }
+  ]
+}

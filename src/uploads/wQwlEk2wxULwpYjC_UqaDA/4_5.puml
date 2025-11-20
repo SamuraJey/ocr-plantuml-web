@@ -1,0 +1,37 @@
+' https://github.com/criusmq/woodstock/blob/master/docs/graphuml.png
+' o
+@startuml
+
+' Define Legend (not rendered in PlantUML, but for reference)
+' dependency: ..>
+' realization: ..|>
+' association: --
+
+' Classes and Interfaces
+interface Edge
+interface Node
+interface Graph
+interface TransactionGraph
+class SimpleGraph
+class RedisGraph
+class SimpleTransactionGraph
+class RedisTransactionGraph
+class Redis
+
+' Relationships
+' Association
+Edge -- Graph
+Node -- Graph
+
+' Realization
+SimpleGraph ..|> Graph
+RedisGraph ..|> Graph
+SimpleTransactionGraph ..|> TransactionGraph
+RedisTransactionGraph ..|> TransactionGraph
+
+' Dependency
+Graph ..|> TransactionGraph
+RedisGraph ..> Redis
+RedisTransactionGraph ..> Redis
+
+@enduml

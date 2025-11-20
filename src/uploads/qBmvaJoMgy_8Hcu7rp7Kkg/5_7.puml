@@ -1,0 +1,127 @@
+@startuml
+    class Aparelho {
+        - nome: String
+        - id: int
+        - potenciaMaxima: double
+        + Aparelho(String, int, double)
+        + Aparelho(String, int)
+        + getNome(): String
+        + setNome(String): void
+        + getId(): int
+        + setId(int): void
+        + getPotenciaMaxima(): double
+        + setPotenciaMaxima(double): void
+        + toString(): String
+    }
+
+    class AparelhoPotenciaVariavel {
+        + AparelhoPotenciaVariavel(String, int)
+    }
+
+    class AparelhoPotenciaFixa {
+        + AparelhoPotenciaFixa(String, int, double)
+        + AparelhoPotenciaFixa(String, int)
+    }
+
+    class MicroOndas {
+        + MicroOndas(String, int)
+        + toString(): String
+        + liga(): void
+        + desliga(): void
+        + estaLigado(): boolean
+        + aumentar(int): void
+        + diminuir(int): void
+    }
+
+    class Lampada {
+        + Lampada(String, int, double)
+        + Lampada(String, int)
+        + toString(): String
+        + liga(): void
+        + desliga(): void
+        + estaLigado(): boolean
+        + potenciaMaxima(): double
+        + potenciaAtual(): double
+    }
+
+    class Torradeira {
+        + Torradeira(String, int)
+        + toString(): String
+        + liga(): void
+        + desliga(): void
+        + estaLigado(): boolean
+    }
+
+
+    interface Ligavel {
+        + liga(): void
+        + desliga(): void
+        + estaLigado(): boolean
+    }
+
+    interface Variavel {
+        + aumentar(int): void
+        + diminuir(int): void
+    }
+
+
+
+    class Relogio {
+        - counter: int
+        + Relogio()
+        + getInstanceUnica(): Relogio
+        + tique(): void
+        + getCounter(): int
+        + setCounter(int): void
+    }
+
+    class Tomada {
+        + Tomada()
+    }
+
+    class Instalacao {
+        - tomada: String
+        + Instalacao(String)
+        + Instalacao()
+        + novaLinha(String, int): void
+        + ligaAparelho(String, Lâmpada): void
+        + getInstanciaUnica(): Instalacao
+        + getTomadaLivre(String): String
+        + potenciaNaLinha(String): double
+        + ligaAparelhoATomadaLivre(String, Torradeira): void
+        + ligaAparelhoATomadaLivre(String, MicroOndas): void
+        + ligaAparelhoATomadaLivre(String, Lâmpada): void
+        + getAparelho(String): Aparelho
+    }
+
+    class Linha {
+        + Linha()
+    }
+
+
+
+    class TesteLampada {
+        + TesteLampada()
+        + preparacaoInicial(): void
+        + preparacaoDeTeste(): void
+        + testaAtributos(): void
+        + testaAcender(): void
+        + testaApagar(): void
+    }
+
+
+Aparelho <|-- AparelhoPotenciaVariavel
+Aparelho <|-- AparelhoPotenciaFixa
+AparelhoPotenciaVariavel <|-- MicroOndas
+AparelhoPotenciaFixa <|-- Lampada
+AparelhoPotenciaFixa <|-- Torradeira
+
+Aparelho ..|> Ligavel
+AparelhoPotenciaVariavel ..|> Variavel
+
+Relogio  --> "0..1" Relogio : -instance
+Instalacao  --> "0..1" Aparelho : -aparelho
+Lampada "0..1" <--  TesteLampada : -lampada
+
+
+@enduml

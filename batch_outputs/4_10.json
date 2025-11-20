@@ -1,0 +1,114 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_10.png",
+  "entities": [
+    {
+      "name": "CGetDatabaseServlet",
+      "type": "class",
+      "attributes": [
+        "bustracker.sener.servets",
+        "GetDatabaseServlet)",
+        "doGett"
+      ],
+      "methods": [],
+      "confidence": 0.9410519003868103,
+      "bbox": [
+        12.0,
+        3.0,
+        171.0,
+        86.0
+      ]
+    },
+    {
+      "name": "GQueryServlet",
+      "type": "class",
+      "attributes": [
+        "bustacker.server.sevlets",
+        "△_parameterMap: Map<String,String",
+        "△ _stopName: String",
+        "busNames:ArayList<String>",
+        "_busDirs:ArayList<String>",
+        "QuerySeMetl)"
+      ],
+      "methods": [],
+      "confidence": 0.9703324437141418,
+      "bbox": [
+        432.0,
+        4.0,
+        665.0,
+        163.0
+      ]
+    },
+    {
+      "name": "CDatabaseConnector",
+      "type": "class",
+      "attributes": [
+        "bustrackar.sever.dbhelpers",
+        "DatabaseConnector("
+      ],
+      "methods": [
+        "getDbPath()",
+        "getSchedule()",
+        "getAlIStops()",
+        "getStopsByStreet)",
+        "getBusesForStopl)",
+        "coseConnection()"
+      ],
+      "confidence": 0.9514219760894775,
+      "bbox": [
+        12.0,
+        137.0,
+        174.0,
+        314.0
+      ]
+    },
+    {
+      "name": "CDbTime",
+      "type": "class",
+      "attributes": [
+        "bustacker.sorver.dbhalpam",
+        "So",
+        "DeepNight:int",
+        "_calendar:Calendar"
+      ],
+      "methods": [
+        "DbTime()",
+        "DbTime(",
+        "setTime()",
+        "getMinutesTotal()",
+        "toString()",
+        "getCurrentDbTime()",
+        "getWeekDay()"
+      ],
+      "confidence": 0.9522091746330261,
+      "bbox": [
+        258.0,
+        229.0,
+        399.0,
+        441.0
+      ]
+    },
+    {
+      "name": "CDbStructure",
+      "type": "class",
+      "attributes": [
+        "bustracker.sermer.dbhelpera"
+      ],
+      "methods": [
+        "DbStructure()",
+        "allStopsRequestString",
+        "stopsByStreetRequestStringl",
+        "busesRequestString0",
+        "scheduleRequestString0",
+        "scheduleRequestString0",
+        "scheduleRequestString"
+      ],
+      "confidence": 0.9647021293640137,
+      "bbox": [
+        5.0,
+        403.0,
+        190.0,
+        571.0
+      ]
+    }
+  ]
+}

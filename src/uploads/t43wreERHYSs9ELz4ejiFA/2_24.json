@@ -1,0 +1,84 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_24.png",
+  "entities": [
+    {
+      "name": "GJsonformatter",
+      "type": "class",
+      "attributes": [
+        "forrmatters",
+        "template:String"
+      ],
+      "methods": [
+        "JsonFormatter(String)"
+      ],
+      "confidence": 0.9545072913169861,
+      "bbox": [
+        416.0,
+        2.0,
+        547.0,
+        103.0
+      ]
+    },
+    {
+      "name": "KcJavaClass>>",
+      "type": "class",
+      "attributes": [
+        "CJsonPromotionFormatter",
+        "formatters"
+      ],
+      "methods": [
+        "JsonPromotionFormatter()",
+        "formatOne(ArrayListEntity>):ArrayList<Sting",
+        "formatAKArrayListEntily>):ArrayListString",
+        "formatLocationArrayListEntity>,String):ArrayLislString",
+        "fermatCategory(ArTayListEntty>,Sting):ATayList<String",
+        "formatStalus(ArayList<Entity>,String):ArrayList<String"
+      ],
+      "confidence": 0.9763297438621521,
+      "bbox": [
+        0.0,
+        180.0,
+        317.0,
+        356.0
+      ]
+    },
+    {
+      "name": "CJsonUserformatter",
+      "type": "class",
+      "attributes": [
+        "formmartters"
+      ],
+      "methods": [
+        "JsonUserFormatter()",
+        "formatOne(ArrayListEntly>):ArrayListString>",
+        "formatAKArrayListErtty>)ArayListeString"
+      ],
+      "confidence": 0.9683407545089722,
+      "bbox": [
+        352.0,
+        182.0,
+        611.0,
+        302.0
+      ]
+    },
+    {
+      "name": "CJsonPurchaseFormmatter",
+      "type": "class",
+      "attributes": [
+        "formatters"
+      ],
+      "methods": [
+        "JsonPurchaseFormaltter()",
+        "formatOne(ArrayListEntity>):ArrayListeSting",
+        "formatA[ArrayList<Entity>)ArayListeStrig"
+      ],
+      "confidence": 0.9660114645957947,
+      "bbox": [
+        647.0,
+        182.0,
+        908.0,
+        302.0
+      ]
+    }
+  ]
+}

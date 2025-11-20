@@ -1,0 +1,46 @@
+'https://github.com/alihitawala/DesignPatterns/blob/master/src/main/java/com/learning/patterns/behavioral/command/UML-Command.png
+'o
+@startuml
+class StockTrade {
+  +buy() void
+  +sell() void
+}
+
+class Order {
+  +execute() void
+}
+
+class SellStockOrder {
+  -stockMarket StockTrade
+  +execute() void
+}
+
+class BuyStockOrder {
+  -stockMarket StockTrade
+  +execute() void
+}
+
+class Invoker {
+  -orders List<Order>
+  +addOrder(Order) void
+  +placeOrder() void
+}
+
+class Runner {
+  +main(String[]) void
+}
+
+Order <|-- SellStockOrder
+Order <|-- BuyStockOrder
+
+SellStockOrder "1" --> "1" StockTrade
+BuyStockOrder "1" --> "1" StockTrade
+Invoker "1" --> "*" Order
+Invoker "1" --> "1" Order
+
+Runner ..> SellStockOrder : <<create>>
+Runner ..> BuyStockOrder : <<create>>
+Runner ..> Invoker : <<create>>
+Runner ..> StockTrade : <<create>>
+
+@enduml

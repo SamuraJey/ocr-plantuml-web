@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="hero-title">Сравнение подходов</h1>
+    <p class="hero-subtitle">Загрузите 3 XLSX файла с результатами для сравнения эффективности разных подходов</p>
+</div>
+
+<div class="upload-section">
+    <form action="/compare" method="post" enctype="multipart/form-data" class="upload-form">
+        <div class="approaches-grid">
+            {% for i in range(1, 4) %}
+            <section class="drop-panel approach-panel" data-dropzone="approach">
+                <header class="drop-panel-header">
+                    <div class="drop-icon" aria-hidden="true">📊</div>
+                    <div>
+                        <h3>Подход {{ i }}</h3>
+                        <input type="text" name="name_{{ i }}" value="Подход {{ i }}" class="approach-name-input"
+                            placeholder="Название подхода">
+                    </div>
+                </header>
+                <div class="dropzone" data-drop-target>
+                    <p class="drop-hint">XLSX файл</p>
+                    <button type="button" class="btn btn-outline btn-sm" data-drop-trigger>Выбрать файл</button>
+                    <input type="file" name="file_{{ i }}" accept=".xlsx" class="drop-input">
+                </div>
+                <div class="files-pill-list" data-file-list></div>
+            </section>
+            {% endfor %}
+        </div>
+
+        <div class="submit-section">
+            <button type="submit" class="btn btn-primary btn-large">
+                <span class="btn-icon">⚖️</span>
+                Сравнить подходы
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

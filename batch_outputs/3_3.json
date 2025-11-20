@@ -1,0 +1,158 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_3.jpg",
+  "entities": [
+    {
+      "name": "PPersonnages",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8211526870727539,
+      "bbox": [
+        3.0,
+        11.0,
+        116.0,
+        46.0
+      ]
+    },
+    {
+      "name": "Caract",
+      "type": "class",
+      "attributes": [
+        "irTtForce",
+        "-intIrtelligence",
+        "-intEnduranoe",
+        "-int CaractSecondaire[]//A mettre dans",
+        "une DB en Egne"
+      ],
+      "methods": [],
+      "confidence": 0.9368930459022522,
+      "bbox": [
+        308.0,
+        55.0,
+        489.0,
+        170.0
+      ]
+    },
+    {
+      "name": "Mage,",
+      "type": "class",
+      "attributes": [
+        "eew y-",
+        "-ink niveau"
+      ],
+      "methods": [],
+      "confidence": 0.9201701879501343,
+      "bbox": [
+        578.0,
+        158.0,
+        760.0,
+        236.0
+      ]
+    },
+    {
+      "name": "MorstresCommnuns",
+      "type": "class",
+      "attributes": [
+        "intcoordx",
+        "intcoordr",
+        "-Stringrepbque",
+        "[]aauuoodx+"
+      ],
+      "methods": [],
+      "confidence": 0.9218695163726807,
+      "bbox": [
+        44.0,
+        165.0,
+        225.0,
+        253.0
+      ]
+    },
+    {
+      "name": "Personnages",
+      "type": "class",
+      "attributes": [
+        "-Stringnom",
+        "Canctcnctrristiques",
+        "inttypeif",
+        "NomMembre"
+      ],
+      "methods": [],
+      "confidence": 0.9452524185180664,
+      "bbox": [
+        308.0,
+        243.0,
+        490.0,
+        345.0
+      ]
+    },
+    {
+      "name": "MonstresElites",
+      "type": "class",
+      "attributes": [
+        "ntcoorbx",
+        "-inccoorr",
+        "-stringreplique",
+        "jaauucod+"
+      ],
+      "methods": [],
+      "confidence": 0.9359503984451294,
+      "bbox": [
+        45.0,
+        312.0,
+        226.0,
+        401.0
+      ]
+    },
+    {
+      "name": "Guerrier",
+      "type": "class",
+      "attributes": [
+        "-int niveat"
+      ],
+      "methods": [],
+      "confidence": 0.93412846326828,
+      "bbox": [
+        578.0,
+        312.0,
+        760.0,
+        378.0
+      ]
+    },
+    {
+      "name": "XpPerso",
+      "type": "class",
+      "attributes": [
+        "intxpiact",
+        "-int xp //A mettre dans une DB en",
+        "Cgne"
+      ],
+      "methods": [
+        "+chedkxp(int xpart, int level)",
+        "+setLzvel[int xpAct, int xpMoins, int",
+        "level"
+      ],
+      "confidence": 0.9409235715866089,
+      "bbox": [
+        594.0,
+        433.0,
+        763.0,
+        572.0
+      ]
+    },
+    {
+      "name": "XpMonstres",
+      "type": "class",
+      "attributes": [
+        "-int xpDonnee"
+      ],
+      "methods": [],
+      "confidence": 0.9273750185966492,
+      "bbox": [
+        45.0,
+        501.0,
+        203.0,
+        590.0
+      ]
+    }
+  ]
+}

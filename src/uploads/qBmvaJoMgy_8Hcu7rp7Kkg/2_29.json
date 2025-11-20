@@ -1,0 +1,62 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_29.png",
+  "entities": [
+    {
+      "name": "Operador",
+      "type": "class",
+      "attributes": [
+        "+numerol: int",
+        "+numero2: int"
+      ],
+      "methods": [
+        "+0perador()",
+        "+getTipo(): string",
+        "+operar(): int",
+        "+operator==(operador:0perador*): bool"
+      ],
+      "confidence": 0.9754607081413269,
+      "bbox": [
+        247.0,
+        4.0,
+        715.0,
+        220.0
+      ]
+    },
+    {
+      "name": "Restar",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+Restar(numerol:int,numero2:int)",
+        "+operar(): int",
+        "string",
+        "+getTipo(): s"
+      ],
+      "confidence": 0.9719530344009399,
+      "bbox": [
+        541.0,
+        312.0,
+        940.0,
+        456.0
+      ]
+    },
+    {
+      "name": "sumar",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+Sumar(numerol:int,numero2:int)",
+        "+operar(): int",
+        "+getTipo():",
+        "string"
+      ],
+      "confidence": 0.955832839012146,
+      "bbox": [
+        34.0,
+        312.0,
+        420.0,
+        456.0
+      ]
+    }
+  ]
+}

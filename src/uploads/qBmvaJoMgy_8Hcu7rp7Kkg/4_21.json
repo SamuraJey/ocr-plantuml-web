@@ -1,0 +1,44 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_21.png",
+  "entities": [
+    {
+      "name": "Provider",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9619289636611938,
+      "bbox": [
+        15.0,
+        12.0,
+        106.0,
+        57.0
+      ]
+    },
+    {
+      "name": "DataProvlder",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9629473686218262,
+      "bbox": [
+        15.0,
+        93.0,
+        106.0,
+        138.0
+      ]
+    },
+    {
+      "name": "Entry",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9610723853111267,
+      "bbox": [
+        150.0,
+        93.0,
+        241.0,
+        138.0
+      ]
+    }
+  ]
+}

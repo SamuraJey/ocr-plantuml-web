@@ -1,0 +1,137 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_10.png",
+  "entities": [
+    {
+      "name": "fr.enseirb.glrt.buisness",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.5680937767028809,
+      "bbox": [
+        193.0,
+        51.0,
+        389.0,
+        78.0
+      ]
+    },
+    {
+      "name": "Labviews",
+      "type": "class",
+      "attributes": [
+        "ModelAndview",
+        "getview]",
+        "ModelAndView",
+        "createLabs（"
+      ],
+      "methods": [],
+      "confidence": 0.9443840980529785,
+      "bbox": [
+        457.0,
+        89.0,
+        639.0,
+        163.0
+      ]
+    },
+    {
+      "name": "Workshopviews",
+      "type": "class",
+      "attributes": [
+        "ModelAndView"
+      ],
+      "methods": [
+        "getview()",
+        "ModelAndView",
+        "createworkshops("
+      ],
+      "confidence": 0.9199954867362976,
+      "bbox": [
+        205.0,
+        89.0,
+        424.0,
+        164.0
+      ]
+    },
+    {
+      "name": "Workshops",
+      "type": "class",
+      "attributes": [
+        "String Atelier",
+        "String Theme",
+        "Animateur",
+        "String",
+        "String",
+        "Description",
+        "UUIDlabid",
+        "Date date",
+        "String Place",
+        "UUID wid",
+        "int hours",
+        "intcapacity",
+        "Booleanresa"
+      ],
+      "methods": [],
+      "confidence": 0.9614539742469788,
+      "bbox": [
+        61.0,
+        238.0,
+        196.0,
+        431.0
+      ]
+    },
+    {
+      "name": "Lab",
+      "type": "class",
+      "attributes": [
+        "name",
+        "email",
+        "String",
+        "String password",
+        "Date connexionTime",
+        "UUIDlabid"
+      ],
+      "methods": [],
+      "confidence": 0.9623247981071472,
+      "bbox": [
+        664.0,
+        278.0,
+        807.0,
+        392.0
+      ]
+    },
+    {
+      "name": "Crud",
+      "type": "class",
+      "attributes": [
+        "List<Workshops>getAtelier",
+        "void addAteller",
+        "List<Lab> getLab",
+        "void addLab"
+      ],
+      "methods": [],
+      "confidence": 0.9602489471435547,
+      "bbox": [
+        227.0,
+        283.0,
+        418.0,
+        386.0
+      ]
+    },
+    {
+      "name": "Connexion",
+      "type": "class",
+      "attributes": [
+        "Connection"
+      ],
+      "methods": [
+        "getconnexion()"
+      ],
+      "confidence": 0.9419920444488525,
+      "bbox": [
+        451.0,
+        302.0,
+        631.0,
+        366.0
+      ]
+    }
+  ]
+}

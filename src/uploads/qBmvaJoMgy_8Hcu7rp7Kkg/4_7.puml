@@ -1,0 +1,27 @@
+' https://github.com/vlaxim/trivia/blob/master/docs/uml.jpg
+' o 
+
+@startuml
+class User {
+  -id
+  -firstName
+  -lastName
+  -pseudo
+  -password
+  -mail
+}
+
+class Score {
+  -id
+  -score
+  -idUser
+}
+
+class Question {
+  -id
+  -question
+  -answer
+}
+
+User "1" -- "0..*" Score
+@enduml

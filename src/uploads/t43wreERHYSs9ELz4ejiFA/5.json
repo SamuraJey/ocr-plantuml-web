@@ -1,0 +1,295 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/5.png",
+  "entities": [
+    {
+      "name": "Engine",
+      "type": "class",
+      "attributes": [
+        "gui:GUI",
+        "logic : Logic",
+        "running:boolean",
+        "sounds:SoundEngine"
+      ],
+      "methods": [],
+      "confidence": 0.9585563540458679,
+      "bbox": [
+        550.0,
+        69.0,
+        739.0,
+        218.0
+      ]
+    },
+    {
+      "name": "SoundEngine",
+      "type": "class",
+      "attributes": [
+        "hito",
+        "died0"
+      ],
+      "methods": [],
+      "confidence": 0.9458938241004944,
+      "bbox": [
+        791.0,
+        70.0,
+        930.0,
+        178.0
+      ]
+    },
+    {
+      "name": "Panel",
+      "type": "class",
+      "attributes": [
+        "logic : Logic",
+        "tick;int"
+      ],
+      "methods": [],
+      "confidence": 0.9391179084777832,
+      "bbox": [
+        1071.0,
+        80.0,
+        1194.0,
+        186.0
+      ]
+    },
+    {
+      "name": "Main",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9319508671760559,
+      "bbox": [
+        192.0,
+        84.0,
+        360.0,
+        226.0
+      ]
+    },
+    {
+      "name": "JPanel",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8888098001480103,
+      "bbox": [
+        1262.0,
+        95.0,
+        1330.0,
+        165.0
+      ]
+    },
+    {
+      "name": "KeyPressEnum",
+      "type": "class",
+      "attributes": [
+        "LEFT:int",
+        "RIGHT:int",
+        "SPACE:int"
+      ],
+      "methods": [],
+      "confidence": 0.9410072565078735,
+      "bbox": [
+        1247.0,
+        262.0,
+        1358.0,
+        427.0
+      ]
+    },
+    {
+      "name": "GUI",
+      "type": "class",
+      "attributes": [
+        "window:JFrame",
+        "logic : Logic",
+        "input:Userlnput",
+        "panel:Panel"
+      ],
+      "methods": [],
+      "confidence": 0.9546146392822266,
+      "bbox": [
+        791.0,
+        269.0,
+        985.0,
+        419.0
+      ]
+    },
+    {
+      "name": "Vserlnput",
+      "type": "class",
+      "attributes": [
+        "keyPresses:boolean"
+      ],
+      "methods": [],
+      "confidence": 0.9261548519134521,
+      "bbox": [
+        1055.0,
+        309.0,
+        1185.0,
+        419.0
+      ]
+    },
+    {
+      "name": "Config",
+      "type": "class",
+      "attributes": [
+        "newOperationo"
+      ],
+      "methods": [],
+      "confidence": 0.9171770215034485,
+      "bbox": [
+        297.0,
+        326.0,
+        392.0,
+        401.0
+      ]
+    },
+    {
+      "name": "HighscorelO",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9017488956451416,
+      "bbox": [
+        166.0,
+        326.0,
+        264.0,
+        401.0
+      ]
+    },
+    {
+      "name": "Collision",
+      "type": "class",
+      "attributes": [
+        "getColliders0",
+        "collisiono",
+        "clearo",
+        "xOverlap0",
+        "yOverlap0"
+      ],
+      "methods": [],
+      "confidence": 0.9417790174484253,
+      "bbox": [
+        296.0,
+        559.0,
+        425.0,
+        722.0
+      ]
+    },
+    {
+      "name": "Logic",
+      "type": "class",
+      "attributes": [
+        "playerOne:Player",
+        "ball:Ball",
+        "bricks:HashSet<GameObject",
+        "score:inf",
+        "multiplier:double",
+        "highscore: int",
+        "hit:boolean",
+        "launchAllowed:boolean"
+      ],
+      "methods": [],
+      "confidence": 0.9448227286338806,
+      "bbox": [
+        553.0,
+        598.0,
+        746.0,
+        834.0
+      ]
+    },
+    {
+      "name": "GameObject",
+      "type": "class",
+      "attributes": [
+        "x:double",
+        "y:double",
+        "ajqnop：x",
+        "：double",
+        "widith:double",
+        "height:double",
+        "maxSpeed:double",
+        "color:Color"
+      ],
+      "methods": [],
+      "confidence": 0.9338068962097168,
+      "bbox": [
+        967.0,
+        598.0,
+        1113.0,
+        797.0
+      ]
+    },
+    {
+      "name": "Player",
+      "type": "class",
+      "attributes": [
+        "alive:boolear",
+        "lives : int",
+        "killo",
+        "respawno"
+      ],
+      "methods": [],
+      "confidence": 0.9359074831008911,
+      "bbox": [
+        1176.0,
+        645.0,
+        1290.0,
+        773.0
+      ]
+    },
+    {
+      "name": "GameStatusEnum",
+      "type": "class",
+      "attributes": [
+        "START:int",
+        "RUNNING:int",
+        "WON:int",
+        "DIED:int",
+        "GAMEOVER:int",
+        "HIT : int",
+        "HICHSCORE:int",
+        "newAtr:Integer"
+      ],
+      "methods": [],
+      "confidence": 0.930565595626831,
+      "bbox": [
+        296.0,
+        749.0,
+        426.0,
+        964.0
+      ]
+    },
+    {
+      "name": "Ball",
+      "type": "class",
+      "attributes": [
+        "bounceHorizontalo",
+        "bounceVerticalQ"
+      ],
+      "methods": [],
+      "confidence": 0.9250870943069458,
+      "bbox": [
+        1175.0,
+        854.0,
+        1289.0,
+        979.0
+      ]
+    },
+    {
+      "name": "Brick",
+      "type": "class",
+      "attributes": [
+        "alive:boolean",
+        "hitpoints:int",
+        "damage0"
+      ],
+      "methods": [],
+      "confidence": 0.9335769414901733,
+      "bbox": [
+        974.0,
+        855.0,
+        1089.0,
+        979.0
+      ]
+    }
+  ]
+}

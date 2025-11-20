@@ -1,0 +1,292 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4.png",
+  "entities": [
+    {
+      "name": "Highscorelo",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.894332766532898,
+      "bbox": [
+        87.0,
+        142.0,
+        186.0,
+        217.0
+      ]
+    },
+    {
+      "name": "Main",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9355005025863647,
+      "bbox": [
+        271.0,
+        149.0,
+        444.0,
+        289.0
+      ]
+    },
+    {
+      "name": "Panel",
+      "type": "class",
+      "attributes": [
+        "loglc:Logic",
+        "tick:int"
+      ],
+      "methods": [],
+      "confidence": 0.9294581413269043,
+      "bbox": [
+        560.0,
+        165.0,
+        680.0,
+        275.0
+      ]
+    },
+    {
+      "name": "JPanel",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8864168524742126,
+      "bbox": [
+        774.0,
+        181.0,
+        844.0,
+        254.0
+      ]
+    },
+    {
+      "name": "Config",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9075190424919128,
+      "bbox": [
+        87.0,
+        238.0,
+        186.0,
+        314.0
+      ]
+    },
+    {
+      "name": "KeyPressEnum",
+      "type": "class",
+      "attributes": [
+        "LEFT:int",
+        "RIGHT:int",
+        "SPACE:int"
+      ],
+      "methods": [],
+      "confidence": 0.9391922950744629,
+      "bbox": [
+        976.0,
+        383.0,
+        1084.0,
+        546.0
+      ]
+    },
+    {
+      "name": "Engine",
+      "type": "class",
+      "attributes": [
+        "gui:GUI",
+        "logic : Logic",
+        "running:boolean",
+        "sounds:SoundEngine"
+      ],
+      "methods": [],
+      "confidence": 0.9609307646751404,
+      "bbox": [
+        270.0,
+        405.0,
+        460.0,
+        556.0
+      ]
+    },
+    {
+      "name": "GUI",
+      "type": "class",
+      "attributes": [
+        "indow:JFrame",
+        "logic : Logic",
+        "input : Userlnput",
+        "panel:Panel"
+      ],
+      "methods": [],
+      "confidence": 0.9539893865585327,
+      "bbox": [
+        536.0,
+        405.0,
+        730.0,
+        556.0
+      ]
+    },
+    {
+      "name": "Userlnput",
+      "type": "class",
+      "attributes": [
+        "keyPresses:boolean"
+      ],
+      "methods": [],
+      "confidence": 0.9342097640037537,
+      "bbox": [
+        799.0,
+        422.0,
+        931.0,
+        532.0
+      ]
+    },
+    {
+      "name": "SoundEngine",
+      "type": "class",
+      "attributes": [
+        "hito",
+        "diedo"
+      ],
+      "methods": [],
+      "confidence": 0.931013822555542,
+      "bbox": [
+        64.0,
+        430.0,
+        202.0,
+        541.0
+      ]
+    },
+    {
+      "name": "GameStatusEnum",
+      "type": "class",
+      "attributes": [
+        "START:int",
+        "RUNNING:nt",
+        "WON:int",
+        "DIED:int",
+        "GAMEOVER:int",
+        "HIT : int",
+        "HIGHSCORE:imt"
+      ],
+      "methods": [],
+      "confidence": 0.9388852119445801,
+      "bbox": [
+        286.0,
+        577.0,
+        416.0,
+        772.0
+      ]
+    },
+    {
+      "name": "Logic",
+      "type": "class",
+      "attributes": [
+        "playerOne : Player",
+        "ball : Ball",
+        "bricks:HashSet<GameObject>",
+        "score:int",
+        "multiplier:double",
+        "highscore : int",
+        "hit:boolean",
+        "launchAllowed:boolean"
+      ],
+      "methods": [],
+      "confidence": 0.9525732398033142,
+      "bbox": [
+        536.0,
+        628.0,
+        729.0,
+        869.0
+      ]
+    },
+    {
+      "name": "GameObject",
+      "type": "class",
+      "attributes": [
+        "x:double",
+        "y:double",
+        "：double",
+        "：double",
+        "widith:double",
+        "height:double",
+        "maxSpeed:double",
+        "color: Color"
+      ],
+      "methods": [],
+      "confidence": 0.9522567391395569,
+      "bbox": [
+        855.0,
+        638.0,
+        1003.0,
+        836.0
+      ]
+    },
+    {
+      "name": "Plsyer",
+      "type": "class",
+      "attributes": [
+        "alive:boolean",
+        "lives :int",
+        "kill",
+        "respawnQ"
+      ],
+      "methods": [],
+      "confidence": 0.9423871040344238,
+      "bbox": [
+        1064.0,
+        695.0,
+        1178.0,
+        821.0
+      ]
+    },
+    {
+      "name": "Collision",
+      "type": "class",
+      "attributes": [
+        "getColliders0",
+        "collisiono",
+        "clearo",
+        "xOverlap0",
+        "yOverlap0"
+      ],
+      "methods": [],
+      "confidence": 0.9341658353805542,
+      "bbox": [
+        285.0,
+        791.0,
+        416.0,
+        956.0
+      ]
+    },
+    {
+      "name": "Ball",
+      "type": "class",
+      "attributes": [
+        "bounceHorizontalQ",
+        "bounceverticald"
+      ],
+      "methods": [],
+      "confidence": 0.9394413828849792,
+      "bbox": [
+        1064.0,
+        894.0,
+        1178.0,
+        1018.0
+      ]
+    },
+    {
+      "name": "Brick",
+      "type": "class",
+      "attributes": [
+        "allve:boolean",
+        "hitpoints:int",
+        "damageQ"
+      ],
+      "methods": [],
+      "confidence": 0.9345649480819702,
+      "bbox": [
+        864.0,
+        894.0,
+        976.0,
+        1019.0
+      ]
+    }
+  ]
+}

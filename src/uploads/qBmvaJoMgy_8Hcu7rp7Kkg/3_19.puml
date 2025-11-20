@@ -1,0 +1,37 @@
+'https://github.com/aleksanb/TDT4140-Undass/blob/master/resources/design-classdiagram.jpg
+'s
+@startuml
+package "no.ntnu.fp.model" {
+  class Person {
+    - name: String
+    - email: String
+    - dateOfBirth: Date
+    + equals(Object): boolean
+    + toString(): String
+  }
+
+  class Project {
+    + addPerson(Person): void
+    + removePerson(Person): void
+  }
+
+  class XmlSerializer {
+    + toXml(Project): String
+    + toProject(Document): Project
+  }
+}
+
+package "no.ntnu.fp.storage" {
+  interface Storage {
+    + load(Uri, Project): void
+    + save(Uri, Project): void
+  }
+
+  class FileStorage {
+    + getUriFile(File): Uri
+    + parseDate(Date): Date
+  }
+}
+
+FileStorage --|> Storage
+@enduml

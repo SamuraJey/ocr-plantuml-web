@@ -1,0 +1,27 @@
+'https://github.com/alihitawala/DesignPatterns/blob/master/src/main/java/com/learning/patterns/structural/decorator/UML-Decorator.png
+'o
+@startuml
+class Widget {
+}
+
+class Decorator {
+}
+
+class TextField {
+}
+
+class ScrollBarDecorator {
+}
+
+class BorderDecorator {
+}
+
+Widget <|-- Decorator
+Widget <|-- TextField
+Decorator <|-- ScrollBarDecorator
+Decorator <|-- BorderDecorator
+
+Decorator "1" --> "1" Widget
+
+
+@enduml

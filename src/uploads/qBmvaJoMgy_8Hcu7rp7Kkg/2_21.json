@@ -1,0 +1,71 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_21.png",
+  "entities": [
+    {
+      "name": "CCategoryHandler",
+      "type": "class",
+      "attributes": [
+        "handlers!",
+        "CategoryHander)",
+        "getfint):ArrayListCategory>"
+      ],
+      "methods": [
+        "exists(nt):boolean"
+      ],
+      "confidence": 0.9746401906013489,
+      "bbox": [
+        148.0,
+        1.0,
+        313.0,
+        123.0
+      ]
+    },
+    {
+      "name": "CMemCategoryHandler",
+      "type": "class",
+      "attributes": [
+        "handkersMemory",
+        "memStructMemoryStruct"
+      ],
+      "methods": [
+        "MemCategoryHander(MemoryStruct)",
+        "Add(Entty):int",
+        "getAk):ArrayList<Entity>",
+        "get(rt):ArrayListCategory>",
+        "update():int",
+        "rermove(Shirg):boolear"
+      ],
+      "confidence": 0.9847704768180847,
+      "bbox": [
+        0.0,
+        190.0,
+        207.0,
+        386.0
+      ]
+    },
+    {
+      "name": "DbCategoryHandler",
+      "type": "class",
+      "attributes": [
+        "handlersD8",
+        "dbutls: DButis",
+        "α insert String"
+      ],
+      "methods": [
+        "DbCategoryHandler(DButis)",
+        "add(Enity):int",
+        "getA)ArrayList<Entily>",
+        "get(nt)ArayList<Category>",
+        ":(ajepdn",
+        "remove(String):boclean"
+      ],
+      "confidence": 0.9789610505104065,
+      "bbox": [
+        264.0,
+        191.0,
+        432.0,
+        404.0
+      ]
+    }
+  ]
+}

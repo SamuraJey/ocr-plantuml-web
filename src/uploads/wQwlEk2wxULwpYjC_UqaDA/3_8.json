@@ -1,0 +1,55 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_8.jpg",
+  "entities": [
+    {
+      "name": "PageObjectl",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+b1buttonl(/.xid1t)"
+      ],
+      "confidence": 0.960599958896637,
+      "bbox": [
+        1.0,
+        0.0,
+        122.0,
+        109.0
+      ]
+    },
+    {
+      "name": "PageObject2",
+      "type": "class",
+      "attributes": [
+        "p2inputi.id1",
+        "p2input2:id2",
+        "+b2butonl（0id10）"
+      ],
+      "methods": [],
+      "confidence": 0.9550865292549133,
+      "bbox": [
+        276.0,
+        1.0,
+        397.0,
+        109.0
+      ]
+    },
+    {
+      "name": "Pageobject3",
+      "type": "class",
+      "attributes": [
+        "p3input1.:id1",
+        "p3input2:idz",
+        "+b3butoni0：id10",
+        "Pawered"
+      ],
+      "methods": [],
+      "confidence": 0.9613896608352661,
+      "bbox": [
+        62.0,
+        208.0,
+        182.0,
+        318.0
+      ]
+    }
+  ]
+}

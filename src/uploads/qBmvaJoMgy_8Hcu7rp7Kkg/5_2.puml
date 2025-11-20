@@ -1,0 +1,187 @@
+@startuml
+class Vigneron {
++nom: string
++prenom: string
++email: string
++tel: integer
++adresse: string
++getNom()
++getPrenom()
++getEmail()
++getTel()
++getAdresse()
++modifierCaracteristique(caracteristique, valeur)
++ajouterCaracteristique(caracteristique, valeur)
++supprCaracteristique(caracteristique, valeur)
+}
+
+class Debourbage {
++getValeurIndicateur(indicateur)
++setValeurIndicateur(indicateur, valeur)
+}
+
+class Pressurage {
++volume: integer
++degreOxydation: integer
++getValeurIndicateur(indicateur)
++setValeurIndicateur(indicateur, valeur)
+}
+
+class Fermentation {
++sucres: integer
++alcool: integer
++aciditeVolatilie: integer
++aciditeMalique: integer
++aciditeTotal: integer
++pH: integer
++proteine: integer
++sc2: integer
++soutirage()
++getValeurIndicateur(indicateur)
++setValeurIndicateur(indicateur, valeur)
+}
+
+class MiseEnBouteille {
++numBouteille: integer
++getValeurIndicateur(indicateur, valeur)
+}
+
+class Vinification {
++dateFermentation: date
++datePressurage: date
++dateDebourbage: date
++dateMiseEnBouteille: date
++fermentation()
++debourbage()
++setAciditeTotal()
++setDateDebutEtape(etape, date)
++setDateFinEtape(etape, date)
++getDateDebutEtape(etape)
++getDateFinEtape(etape)
++getValeurIndicateur(indicateur, valeur)
++getValeurIndicateur(etape)
++miseEnBouteille()
++pressurage()
+}
+
+class Parcelle {
++nomParcelle: string
++num: integer
+}
+
+class Vignoble {
++x: double
++y: double
+}
+
+class PiedVigne {
++xPied: double
++yPied: double
++annee: date
++etatPied: list
++getX()
++getY()
++setX()
++setY()
++taillage()
++pliage()
++setDateDebutEtape(etape, date)
++setDateFinEtape(etape, date)
++ajouterPied(x, y)
++supprPied(x, y)
++modifierPied()
++etatPied()
+}
+
+class calculDonnees {
++afficher()
++getEtapeCourante()
++setEtapeCourante()
++validerEtape()
++comparerDateFermentation()
++calculVolumeTotal(date, date)
++calculRendementPied()
++comparerRendement(date, date)
++comparerDateDebourbage()
++comparerVentes(date, date)
++calculNbCommande()
+}
+
+class ArchiveCuvee {
++getHistorique(typeHistorique, date)
++setHistorique(typeHistorique, date)
+}
+
+class Stock {
++nomStock: string
++qtt: integer
++qttVendu: string
+}
+
+class Bouteille {
++numBout: integer
+}
+
+class Commande {
++numCommande: integer
++qttProduit: integer
++dateCommande: date
++retrait: bool
+}
+
+class Administrateur {
++nom: string
++prenom: string
++email: string
++tel: integer
++adresse: string
++validerCommande()
++ajouterUtilisateur()
++afficherCaracteristique(caracteristique, valeur)
++supprCaracteristique(caracteristique, valeur)
++modifierCaracteristique(caracteristique, valeur)
+}
+
+class Utilisateur {
++nom: string
++prenom: string
++email: string
++tel: integer
++adresse: string
++confiance: bool
+}
+
+class APICentrale {
+}
+
+class RepresentationDonnees {
++afficher()
++choisirRepresentation()
+}
+
+Vigneron "1" -- "1..*" Vinification : modifier
+Vinification <|-- Debourbage
+Vinification <|-- Pressurage
+Vinification <|-- Fermentation
+Vinification <|-- MiseEnBouteille
+
+Parcelle "1" <|-- "1.." Vignoble
+Parcelle "1" <|-- "1.." PiedVigne
+Vignoble "1" --> "1.." APICentrale : afficher
+PiedVigne "1..*" --|> "1" calculDonnees
+Vinification "1..*"-- "1" calculDonnees
+
+calculDonnees "1..*" *-- "1..*" ArchiveCuvee
+calculDonnees  <.. Stock
+Stock "1" o-- "1..*" Bouteille
+
+Bouteille "1..*" --o "1" Commande
+Utilisateur "1" -- "0..*" Commande : passer
+Administrateur "1" -- "1.." Commande : valider
+APICentrale "1" -- "1" Administrateur : gérer
+APICentrale "1" -- "1" RepresentationDonnees : afficher
+APICentrale "1" --> "1" calculDonnees : manipuler
+Utilisateur "1" --> "1" APICentrale : emettre un avis
+Utilisateur "1" --> "1" APICentrale : consulter
+calculDonnees "1" --> "1" RepresentationDonnees : afficher
+@enduml

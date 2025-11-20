@@ -1,0 +1,57 @@
+' https://github.com/kukuruza/cmu-bus/blob/master/client/classDiagrams/model.png
+' s
+@startuml
+class Bus <<bustracker.app.entities>> {
+  CREATOR: Creator<Bus>
+  Bus()
+  Bus()
+  getName()
+  getDirection()
+  describeContents()
+  writeToParcel()
+}
+
+class Schedule <<bustracker.app.entities>> {
+  Schedule()
+  Schedule()
+  Schedule()
+  setStop()
+  setScheduleItemList()
+  getStop()
+  getScheduleItemList()
+  setInfoSrc()
+  getInfoSrc()
+  log()
+}
+
+class ScheduleItem <<bustracker.app.entities>> {
+  ScheduleItem()
+  setBus()
+  setTime()
+  getBus()
+  getTime()
+}
+
+class Stop <<bustracker.app.entities>> {
+  CREATOR: Creator<Stop>
+  getName()
+  getStreet1()
+  getStreet2()
+  getAddress()
+  getLocation()
+  getDistance()
+  Stop()
+  Stop()
+  setDistance()
+  getDistanceString()
+  getWalkingTimeString()
+  describeContents()
+  writeToParcel()
+  Stop()
+}
+
+ScheduleItem --> Bus
+Schedule --> Stop
+Schedule --> ScheduleItem
+Schedule ..> Bus
+@enduml

@@ -1,0 +1,28 @@
+'https://github.com/adrianortiz/03-Operaciones-Basicas/blob/master/03-Operaciones-Basicas-Diagram.png
+@startuml
+class Ventana {
+
+serialVersionUID: long
+txtN1: JTextField
+txtN2: JTextField
+lbN1: JLabel
+lbN2: JLabel
+lbResultado: JLabel
+btnCalcular: JButton
+c: Container
+Ventana()
+cargarControles(): void
+actionPerformed(ActionEvent): void
+}
+class AppOperaciones {
+
+AppOperaciones()
+main(String[]): void
+}
+class Operaciones {
+
+Operaciones()
+sumar(int, int): int
+}
+Ventana "0..1" --> "-op" Operaciones
+@enduml

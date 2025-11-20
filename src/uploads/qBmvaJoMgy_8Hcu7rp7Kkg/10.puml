@@ -1,0 +1,62 @@
+@startuml
+'https://github.com/frtrotta/Ese105-GestioneAlbergo/blob/soluzione-basilare/Ese105-GestioneAlbergo-basilare-diagramma-classi.png
+'o
+class "Cliente" {
+  - nome: String
+  - cognome: String
+  - cellulare: String
+  - email: String
+  + Cliente(nome:String, cognome:String, cellulare: String)
+  + getNome(): String
+  + getCognome(): String
+  + getCellulare()
+  + setEmail(v: String)
+  + getEmail(): String
+}
+
+class "Prenotazione" {
+  + dal: LocalDateTime
+  + al: LocalDateTime
+  + Prenotazione(dal: LocalDateTime, al: LocalDateTime, cliente: Cliente)
+  + getDal(): LocalDateTime
+  + getAl(): LocalDateTime
+  + getNumeroNotti(): int+ setCamera(v: Camera)
+  + getCamera(): Camera
+  + getCliente(): Cliente
+}
+
+class "Albergo" {
+  - nome: String
+  + Albergo(nome: String)
+}
+
+class "Camera" {
+  - numero: String
+  - postiLetto: int
+  + Camera(numero: String, postiLetto: int)
+  + getNumero(): String
+  + getPostiLetto(): int
+  + isDisponibile(dal: LocalDatetime, al: LocalDateTime): boolean
+  + addPrenotazione(p: prenotazione)
+}
+
+class "Singola" {
+  + Singola(numero: String)
+}
+
+class "Doppia" {
+  + Doppia(numero: String)
+}
+
+class "Tripla" {
+  + Tripla(numero: String)
+}
+
+"Cliente" "1" --o "0..*" "Prenotazione" : - cliente
+"Prenotazione" "0..*" o-- "1" "Camera" : - camera
+"Albergo" "1" *-- "1..*" "Camera" : - camere
+
+"Camera" <|-- "Singola"
+"Camera" <|-- "Doppia"
+"Camera" <|-- "Tripla"
+@enduml

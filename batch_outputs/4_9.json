@@ -1,0 +1,171 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_9.png",
+  "entities": [
+    {
+      "name": "ServiceReqister",
+      "type": "class",
+      "attributes": [
+        ".Methods",
+        "registeredservicesO:QList<ServiceWrapper*>*",
+        "registerExampleServicesO:void",
+        "UnregisterExampleServices):void"
+      ],
+      "methods": [],
+      "confidence": 0.9585286378860474,
+      "bbox": [
+        50.0,
+        95.0,
+        358.0,
+        235.0
+      ]
+    },
+    {
+      "name": "ServiceWrapper",
+      "type": "interface",
+      "attributes": [
+        "Ftelds:",
+        "m_descriptor :QServiceInterfaceDescriptor"
+      ],
+      "methods": [
+        "interfaceName():QString",
+        "isvalid() : bool",
+        "serviceName):QString",
+        "version() : QString"
+      ],
+      "confidence": 0.9533606767654419,
+      "bbox": [
+        643.0,
+        100.0,
+        958.0,
+        295.0
+      ]
+    },
+    {
+      "name": "QServicePluginInterace",
+      "type": "interface",
+      "attributes": [
+        ".Methods",
+        "wQServicePlugininterface",
+        "ceafehnsfance",
+        "install5ervice",
+        "QServicePlugininterface",
+        "UninstalService"
+      ],
+      "methods": [],
+      "confidence": 0.9482503533363342,
+      "bbox": [
+        384.0,
+        293.0,
+        606.0,
+        456.0
+      ]
+    },
+    {
+      "name": "QServiceManager",
+      "type": "class",
+      "attributes": [
+        "Qobject"
+      ],
+      "methods": [],
+      "confidence": 0.9308687448501587,
+      "bbox": [
+        52.0,
+        299.0,
+        197.0,
+        363.0
+      ]
+    },
+    {
+      "name": "LandlineDialer",
+      "type": "class",
+      "attributes": [
+        "Methods:",
+        "dialNumber",
+        "hangup,",
+        "state",
+        "stateChanged",
+        "Nested Types,",
+        "Connection....",
+        "Enun-"
+      ],
+      "methods": [],
+      "confidence": 0.8546754121780396,
+      "bbox": [
+        50.0,
+        413.0,
+        196.0,
+        632.0
+      ]
+    },
+    {
+      "name": "VoipDialer",
+      "type": "class",
+      "attributes": [
+        "+oobjeat",
+        "Methods",
+        "dialNumber",
+        "hangup",
+        "state",
+        "stateChanged",
+        "B:Nested.Types.",
+        "Connectionstate:",
+        "Enum"
+      ],
+      "methods": [],
+      "confidence": 0.8137233257293701,
+      "bbox": [
+        768.0,
+        413.0,
+        938.0,
+        634.0
+      ]
+    },
+    {
+      "name": "LandlineDialerPlugin",
+      "type": "class",
+      "attributes": [
+        "Methods",
+        "createInstance"
+      ],
+      "methods": [],
+      "confidence": 0.9451534152030945,
+      "bbox": [
+        246.0,
+        497.0,
+        414.0,
+        619.0
+      ]
+    },
+    {
+      "name": "YoipDialerPlugin",
+      "type": "class",
+      "attributes": [
+        "Metheds",
+        "createInstarce"
+      ],
+      "methods": [],
+      "confidence": 0.9310427904129028,
+      "bbox": [
+        573.0,
+        502.0,
+        720.0,
+        624.0
+      ]
+    },
+    {
+      "name": "ConnectionState:",
+      "type": "class",
+      "attributes": [
+        "Enum"
+      ],
+      "methods": [],
+      "confidence": 0.9176037311553955,
+      "bbox": [
+        789.0,
+        585.0,
+        928.0,
+        637.0
+      ]
+    }
+  ]
+}

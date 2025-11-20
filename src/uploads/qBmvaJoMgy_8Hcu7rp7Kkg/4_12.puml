@@ -1,0 +1,121 @@
+' https://github.com/kukuruza/cmu-bus/blob/master/client/classDiagrams/activitiesAdapters.png
+' s
+@startuml
+class SelectStationAndBusActivity <<bustracker.app.activities>> {
+  BUSES_SELECTED: String
+  findNextBusButtonClicked: OnClickListener
+  findStationButtonClicked: OnClickListener
+  selectBusListener: OnItemClickListener
+  SelectStationAndBusActivity()
+  onCreate()
+  onResume()
+  onPause()
+  onCreateOptionsMenu()
+  onOptionsItemSelected()
+}
+
+class SearchStationActivity <<bustracker.app.activities>> {
+  STOP_SELECTED: String
+  selectStopListener: OnItemClickListener
+  SearchStationActivity()
+  onCreate()
+  onCreateOptionsMenu()
+  onOptionsItemSelected()
+}
+
+class LocateStationActivity <<bustracker.app.activities>> {
+  STOP_SELECTED: String
+  SEARCH_QUERY_ID: String
+  findStationButtonClicked: OnClickListener
+  selectStopListener: OnItemClickListener
+  LocateStationActivity()
+  onCreate()
+  onResume()
+  onPause()
+  onCreateOptionsMenu()
+  onOptionsItemSelected()
+}
+
+class ViewScheduleActivity <<bustracker.app.activities>> {
+  ViewScheduleActivity()
+  onCreate()
+  onResume()
+  onPause()
+  onCreateOptionsMenu()
+  onOptionsItemSelected()
+}
+
+class SettingsActivity <<bustracker.app.activities>> {
+  KEY_REMOTE: String
+  KEY_FAVORITES: String
+  SettingsActivity()
+  onCreate()
+}
+
+class BusAdapter <<bustracker.app.adapter>> {
+  BusAdapter()
+  getView()
+  setCheckBoxState()
+}
+
+class ViewHolder <<bustracker.app.adapter>> {
+  name: TextView
+  direction: TextView
+  checkBox: CheckBox
+}
+
+class StopAdapter <<bustracker.app.adapter>> {
+  StopAdapter()
+  getView()
+}
+
+class ViewHolder2 <<bustracker.app.adapter>> {
+  name: TextView
+  address: TextView
+  walkingDistance: TextView
+  distance: TextView
+}
+
+class ShakeDetector <<bustracker.app.helpers>> {
+  startTime: long
+  moveCount: int
+  currentContext: Context
+  ShakeDetector()
+  onSensorChanged()
+  onAccuracyChanged()
+}
+
+class OnShakeListener <<bustracker.app.helpers>> {
+  onShake()
+}
+
+class ScheduleAdapter <<bustracker.app.adapter>> {
+  context: Context
+  scheduleItemList: ArrayList<ScheduleItem>
+  ScheduleAdapter()
+  getView()
+}
+
+class ViewHolder3 <<bustracker.app.adapter>> {
+  name: TextView
+  direction: TextView
+  arrivalTime: TextView
+}
+
+SelectStationAndBusActivity --> BusAdapter
+BusAdapter *-- ViewHolder
+SearchStationActivity --> StopAdapter
+StopAdapter *-- ViewHolder2
+LocateStationActivity --> StopAdapter
+LocateStationActivity --> ShakeDetector
+ViewScheduleActivity --> ScheduleAdapter
+ViewScheduleActivity --> ShakeDetector
+ShakeDetector *-- OnShakeListener
+BusAdapter --> ViewHolder
+ScheduleAdapter *-- ViewHolder3
+ScheduleAdapter --> ViewHolder3
+ShakeDetector --> OnShakeListener
+ViewScheduleActivity --> OnShakeListener
+LocateStationActivity --> OnShakeListener
+StopAdapter --> ViewHolder2
+@enduml

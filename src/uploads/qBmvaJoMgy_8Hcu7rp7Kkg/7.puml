@@ -1,0 +1,327 @@
+@startuml
+'https://github.com/speechlanguage/SpeechLanguageAppComplete/blob/master/src/uml.png
+'s
+class "Welcome" <<Java Class>> {
+  +Welcome()
+  +onCreate(Bundle):void
+}
+
+class "Login" <<Java Class>> {
+  -NOT_CONNECTED_TO_SERVICE: int
+  -FILL_BOTH_USERNAME_AND_PASSWORD: int
+  -AUTHENTICATION_FAILED: String
+  -FRIEND_LIST: String
+  -MAKE_SURE_USERNAME_AND_PASSWORD_CORRECT: int
+  -NOT_CONNECTED_TO_NETWORK: int
+  -usernameText: EditText
+  -passwordText: EditText
+  -cancelButton: Button
+  -SIGN_UP_ID: int
+  -EXIT_APP_ID: int
+  -mConnection: ServiceConnection
+  +Login()
+  +onCreate(Bundle):void
+  +onCreateDialog(int):Dialog
+  +onPause():void
+  +onResume():void
+  +onCreateOptionsMenu(Menu):boolean
+  +onMenuItemSelected(int,MenuItem):boolean
+}
+
+class "AddFriend" <<Java Class>> {
+  -mAddFriendButton: Button
+  -mCancelButton: Button
+  -mFriendUserNameText: EditText
+  -TYPE_FRIEND_USERNAME: int
+  -LOG_TAG: String
+  -mConnection: ServiceConnection
+  +AddFriend()
+  +onCreate(Bundle):void
+  +onResume():void
+  +onPause():void
+  +onClick(View):void
+  +onCreateDialog(int):Dialog
+  +addNewFriend():void
+}
+
+class "SignUp" <<Java Class>> {
+  -FILL_ALL_FIELDS: int
+  -TYPE_SAME_PASSWORD_IN_PASSWORD_FIELDS: int
+  -SIGN_UP_FAILED: int
+  -SIGN_UP_USERNAME_CRASHED: int
+  -SIGN_UP_SUCCESSFULL: int
+  -USERNAME_AND_PASSWORD_LENGTH_SHORT: int
+  -SERVER_RES_RES_SIGN_UP_SUCCESSFULL: String
+  -SERVER_RES_SIGN_UP_USERNAME_CRASHED: String
+  -usernameText: EditText
+  -passwordText: EditText
+  -eMailText: EditText
+  -passwordAgainText: EditText
+  -handler: Handler
+  -mConnection: ServiceConnection
+  +SignUp()
+  +onCreate(Bundle):void
+  +onCreateDialog(int):Dialog
+  +getLanguageReceive():String
+  +onResume():void
+  +onPause():void
+}
+
+class "IMBinder" <<Java Class>> {
+  +IMBinder()
+  +getService():IAppManager
+}
+
+class "IMService" <<Java Class>> {
+  -USERNAME: String
+  -TAKE_MESSAGE: String
+  -FRIEND_LIST_UPDATED: String
+  -MESSAGE_LIST_UPDATED: String
+  -connManager: ConnectivityManager
+  -UPDATE_TIME_PERIOD: int
+  -rawFriendList: String
+  -mBinder: IBinder
+  -username: String
+  -password: String
+  -authenticatedUser: boolean
+  -timer: Timer
+  -mNM: NotificationManager
+  +IMService()
+  +onCreate():void
+  +onBind(Intent):IBinder
+  +showNotification(String,String):void
+  +getUsername():String
+  +sendMessage(String,String,String):String
+  +getFriendList():String
+  +getMessageList():String
+  +authenticateUser(String,String):String
+  +getAuthenticateUserParams(String,String):String
+  +setUserKey(String):void
+  +isNetworkConnected():boolean
+  +isUserAuthenticated():boolean
+  +getLastRawFriendList():String
+  +onDestroy():void
+  +exit():void
+  +signUpUser(String,String,String,String):String
+  +addNewFriendRequest(String):String
+  +sendFriendsReqsResponse(String,String):String
+  +parseFriendInfo(String):void
+  +parseMessageInfo(String):void
+  +updateData(MessageInfo[],FriendInfo[],FriendInfo[],String):void
+}
+
+class "IAppManager" <<Java Interface>> {
+  +getUsername():String
+  +sendMessage(String,String,String):String
+  +authenticateUser(String,String):String
+  +messageReceived(String,String):void
+  +isNetworkConnected():boolean
+  +isUserAuthenticated():boolean
+  +getLastRawFriendList():String
+  +exit():void
+  +signUpUser(String,String,String,String):String
+  +addNewFriendRequest(String):String
+  +sendFriendsReqsResponse(String,String):String
+}
+
+class "LocalStorageHandler" <<Java Class>> {
+  -TAG: String
+  -DATABASE_NAME: String
+  -DATABASE_VERSION: int
+  -_ID: String
+  -TABLE_NAME_MESSAGES: String
+  -MESSAGE_RECEIVER: String
+  -MESSAGE_SENDER: String
+  -MESSAGE_MESSAGE: String
+  -TABLE_MESSAGE_CREATE: String
+  -TABLE_MESSAGE_DROP: String
+  +LocalStorageHandler(Context)
+  +onCreate(SQLiteDatabase):void
+  +onUpgrade(SQLiteDatabase,int,int):void
+  +insert(String,String,String):void
+  +get(String,String):Cursor
+}
+
+class "ListLanguage" <<Java Class>> {
+  -listView: ListView
+  -language: String
+  +ListLanguage()
+  +onCreate(Bundle):void
+  +getLanguage():String
+  +onClick(View):void
+}
+
+class "FriendList" <<Java Class>> {
+  -ADD_NEW_FRIEND_ID: int
+  -EXIT_APP_ID: int
+  -ownusername: String
+  -mConnection: ServiceConnection
+  +FriendList()
+  +onCreate(Bundle):void
+  +updateData(FriendInfo[],FriendInfo[]):void
+  +onListItemClick(ListView,View,int,long):void
+  +onPause():void
+  +onResume():void
+  +onCreateOptionsMenu(Menu):boolean
+  +onMenuItemSelected(int,MenuItem):boolean
+  +onActivityResult(int,int,Intent):void
+}
+
+class "FriendListAdapter" <<Java Class>> {
+  -minflater: LayoutInflater
+  -mOnlineIcon: Bitmap
+  -mOfflineIcon: Bitmap
+  +FriendListAdapter(Context)
+  +setFriendList(FriendInfo[]):void
+  +getCount():int
+  +getItem(int):FriendInfo
+  +getItemId(int):long
+  +getView(int,View,ViewGroup):View
+}
+
+class "ViewHolder" <<Java Class>> {
+  -text: TextView
+  -icon: ImageView
+  +ViewHolder()
+}
+
+class "Messaging" <<Java Class>> {
+  -MESSAGE_CANNOT_BE_SENT: int
+  -username: String
+  -messageText: EditText
+  -messageHistoryText: EditText
+  -sendMessageButton: Button
+  -dbCursor: Cursor
+  -mConnection: ServiceConnection
+  +Messaging()
+  +onCreate(Bundle):void
+  +onCreateDialog(int):Dialog
+  +onPause():void
+  +onResume():void
+  +appendToMessageHistory(String,String):void
+  +onDestroy():void
+}
+
+class "MessageReceiver" <<Java Class>> {
+  +MessageReceiver()
+  +onReceive(Context,Intent):void
+}
+
+class "XMLHandler" <<Java Class>> {
+  -userKey: String
+  +XMLHandler(UpdateData)
+  +endDocument():void
+  +startElement(String,String,String,Attributes):void
+  +startDocument():void
+}
+
+class "STATUS" <<Java Enumeration>> {
+  +ONLINE: STATUS
+  +OFFLINE: STATUS
+  +BUSY: STATUS
+  +INVISIBLE: STATUS
+  +AWAY: STATUS
+  +UNAPPROVED: STATUS
+  +STATUS()
+}
+
+class "FriendInfo" <<Java Class>> {
+  +FRIEND_LIST: String
+  +USERNAME: String
+  +IP: String
+  +PORT: String
+  +USER_KEY: String
+  +MESSAGE: String
+  +STATUS: String
+  +userName: String
+  +ip: String
+  +port: String
+  +userKey: String
+  +expire: String
+  +FriendInfo()
+}
+
+class "FriendController" <<Java Class>> {
+  -activeFriend: String
+  +FriendController()
+  +setFriendsInfo(FriendInfo[]):void
+  +checkFriend(String,String):FriendInfo
+  +setActiveFriend(String):void
+  +getActiveFriend():String
+  +getFriendInfo(String):FriendInfo
+  +setUnapprovedFriendsInfo(FriendInfo[]):void
+  +getFriendInfo():FriendInfo[]
+  +getUnapprovedFriendsInfo():FriendInfo[]
+}
+
+class "ISocketOperator" <<Java Interface>> {
+  +sendHttpRequest(String):String
+  +startListening(int):int
+  +stopListening():void
+  +exit():void
+  +getListeningPort():int
+}
+
+class "MessageInfo" <<Java Class>> {
+  +MESSAGE_LIST: String
+  +USERID: String
+  +SENT: String
+  +MESSAGETEXT: String
+  +userid: String
+  +sendt: String
+  +messagetext: String
+  +MessageInfo()
+}
+
+class "MessageController" <<Java Class>> {
+  +MessageController()
+  +setMessagesInfo(MessageInfo[]):void
+  +checkMessage(String):MessageInfo
+  +getMessagesInfo(String):MessageInfo[]
+  +getMessagesInfo():MessageInfo[]
+}
+
+class "IUpdateData" <<Java Interface>> {
+  +updateData(MessageInfo[],FriendInfo[],FriendInfo[],String):void
+}
+
+"Login" --> "IAppManager" : -imService 0..1
+
+"AddFriend" --> "IAppManager" : -mlmService 0..1
+
+"SignUp" --> "IAppManager" : -imService 0..1
+
+"FriendList" --> "MessageReceiver" : +messageReceiver 0..1
+"FriendList" o-- "MessageReceiver"
+"FriendList" --> "FriendListAdapter" : -friendAdapter 0..1
+"FriendList" o-- "FriendListAdapter"
+
+"FriendListAdapter" o-- "ViewHolder"
+"FriendListAdapter" --> "FriendInfo" : -friends 0..*
+
+"IMService" o-- "IMBinder"
+"IMService" -...-|> "IAppManager"
+"IMService" --> "LocalStorageHandler" : -localstoragehandler 0..1
+"IMService" --> "ISocketOperator" : ~socketOperator 0..1
+"IMService" -...-|> "IUpdateData"
+
+"Messaging" --> "MessageReceiver" : -messageReceiver 0..1
+"Messaging" o-- "MessageReceiver"
+"Messaging" --> "LocalStorageHandler" : -localstoragehandler 0..1
+"Messaging" --> "IAppManager" : -imService 0..1
+"Messaging" --> "FriendInfo" : -friend 0..1
+
+"FriendInfo" --> "STATUS" : +status 0..1
+
+"FriendController" --> "FriendInfo" : -friendsinfo 0..*
+"FriendController" --> "FriendInfo" : -unapprovedFriendsInfo 0..*
+
+
+"XMLHandler" --> "IUpdateData" : -updater 0..1
+"XMLHandler" --> "FriendInfo" : -mUnapprovedFriends 0..*
+"XMLHandler" --> "FriendInfo" : -mOnlineFriends 0..*
+"XMLHandler" --> "FriendInfo" : -mFriends 0..*
+"XMLHandler" --> "MessageInfo" : -mUnreadMessages 0..*
+
+"MessageController" --> "MessageInfo": -messagesInfo 0..*
+@enduml

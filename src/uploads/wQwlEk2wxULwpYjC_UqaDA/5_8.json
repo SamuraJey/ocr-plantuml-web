@@ -1,0 +1,159 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/5_8.png",
+  "entities": [
+    {
+      "name": "Node",
+      "type": "class",
+      "attributes": [
+        "elernent",
+        "E",
+        "keft",
+        "Node<E>",
+        "Node<E>",
+        "right",
+        "Node(E,Node<E>,Node<E"
+      ],
+      "methods": [],
+      "confidence": 0.9477701783180237,
+      "bbox": [
+        326.0,
+        21.0,
+        487.0,
+        130.0
+      ]
+    },
+    {
+      "name": "FinlshedProject",
+      "type": "class",
+      "attributes": [
+        "projectReference",
+        "String",
+        "sting",
+        "projectType",
+        "completionTime",
+        "int",
+        "delay",
+        "int"
+      ],
+      "methods": [
+        "FinishedProject(String, String, int, Int)",
+        "FinishedProfect(ArrayList<String>)"
+      ],
+      "confidence": 0.9701890349388123,
+      "bbox": [
+        18.0,
+        178.0,
+        286.0,
+        330.0
+      ]
+    },
+    {
+      "name": "FinishedActivity",
+      "type": "class",
+      "attributes": [
+        "projectReference",
+        "String",
+        "acivityCode",
+        "String",
+        "activityType",
+        "String",
+        "duration",
+        "int",
+        "delay",
+        "int"
+      ],
+      "methods": [
+        "FnishedActivity(String, String, String, int, int)"
+      ],
+      "confidence": 0.9681911468505859,
+      "bbox": [
+        486.0,
+        178.0,
+        755.0,
+        330.0
+      ]
+    },
+    {
+      "name": "BST",
+      "type": "class",
+      "attributes": [
+        "root",
+        "Node<EC",
+        "BSTO"
+      ],
+      "methods": [],
+      "confidence": 0.9304277300834656,
+      "bbox": [
+        308.0,
+        220.0,
+        451.0,
+        290.0
+      ]
+    },
+    {
+      "name": "TreeFinishedProject",
+      "type": "class",
+      "attributes": [
+        "TreeFinishedProjectO"
+      ],
+      "methods": [
+        "TreeFinishedProject(String)"
+      ],
+      "confidence": 0.9369194507598877,
+      "bbox": [
+        132.0,
+        378.0,
+        312.0,
+        447.0
+      ]
+    },
+    {
+      "name": "TreeFinishedActivity",
+      "type": "class",
+      "attributes": [
+        "TreeFinishedActivityO"
+      ],
+      "methods": [
+        "TreeFinishedActivity(String)"
+      ],
+      "confidence": 0.9205285906791687,
+      "bbox": [
+        485.0,
+        378.0,
+        667.0,
+        447.0
+      ]
+    },
+    {
+      "name": "TREE",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8878370523452759,
+      "bbox": [
+        390.0,
+        398.0,
+        449.0,
+        427.0
+      ]
+    },
+    {
+      "name": "ProjectBuild",
+      "type": "class",
+      "attributes": [
+        "TreeFinishedProject",
+        "projectTree",
+        "TreeFinishedActivity",
+        "activityTree"
+      ],
+      "methods": [],
+      "confidence": 0.938673734664917,
+      "bbox": [
+        276.0,
+        496.0,
+        505.0,
+        566.0
+      ]
+    }
+  ]
+}

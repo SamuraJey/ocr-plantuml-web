@@ -1,0 +1,39 @@
+@startuml
+'https://github.com/lopossumi/brkut/blob/master/images/ClassDiagramW2.png
+'o
+class Engine {
+}
+
+class Arena {
+}
+
+class GUI {
+}
+
+class GameObject {
+}
+
+class Panel {
+}
+
+class KeyListener {
+}
+
+class Player {
+}
+
+class Ball {
+}
+
+class Brick {
+}
+
+Engine *--> "1" Arena
+Engine *--> "1" GUI
+Arena "1" o--> "0..n" GameObject : Relation
+GameObject <|-- Player : extends
+GameObject <|-- Ball : extends
+GameObject <|-- Brick : extends
+GUI <--* "1" Panel
+GUI <--* "1" KeyListener
+@enduml

@@ -1,0 +1,44 @@
+'https://github.com/tmrcs/images/blob/master/UML/Handlers/PurchaseHandler.png
+'s
+@startuml
+class PurchaseHandler {
+  -promoH : PromotionHandler
+  +PurchaseHandler(PromotionHandler)
+  +getbyID(String) : ArrayList<Entity>
+  +getbyOwner(String) : ArrayList<Entity>
+  +getbyPromotion(String) : ArrayList<Entity>
+  +getPromoHandler() : PromotionHandler
+  +getUs erHandler() : UserHandler
+}
+
+class MemPurchaseHandler {
+  -memStruct : MemoryStruct
+  +MemPurchas eHandler(MemoryStruct, PromotionHandler)
+  +add(Entity) : int
+  +getAll() : ArrayList<Entity>
+  +getbyID(String) : ArrayList<Entity>
+  +update() : int
+  +remove(String) : boolean
+  +getbyOwner(String) : ArrayList<Entity>
+  +getbyPromotion(String) : ArrayList<Entity>
+}
+
+class DbPurchaseHandler {
+  -dbutils : DButils
+  -insert : String
+  +DbPurchas eHandler(DButils, PromotionHandler)
+  +add(Entity) : int
+  +getAll() : ArrayList<Entity>
+  +getbyID(String) : ArrayList<Entity>
+  +getbyOwner(String) : ArrayList<Entity>
+  +getbyPromotion(String) : ArrayList<Entity>
+  +getColumn(String, String) : ArrayList<Entity>
+  +update() : int
+  +remove(String) : boolean
+  +toInsertString(Purchase) : String
+}
+
+PurchaseHandler <|-- MemPurchaseHandler
+PurchaseHandler <|-- DbPurchaseHandler
+
+@enduml

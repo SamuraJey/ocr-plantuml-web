@@ -1,0 +1,255 @@
+' https://github.com/jguze/ACiv/blob/master/group3/MILESTONE_1_DELIEVERABLE/ClassDiagram.png
+' s
+@startuml
+
+interface Observer
+interface MouseListener
+class JPanel
+
+class MapLocation {
+  x : Integer
+  y : Integer
+}
+
+class MapTile {
+  type : TerrainType
+  location : MapLocation
+  bonusType : TerrainBonusType
+  roadBuilt : Boolean
+  mineBuilt : Boolean
+  irrigationBuilt : Boolean
+}
+
+class Unit {
+  location : MapLocation
+  movementRange : Integer
+  health : Integer
+  baseAttack : Integer
+  baseArmor : Integer
+  moveQueue : Queue<MapLocation>
+  fatigue : Boolean
+  visible : Boolean
+  fortified : Boolean
+  movementType : UnitTravelType
+  type : UnitType
+  remainingMovement : Integer
+}
+
+class City {
+  mapLocation : MapLocation
+  level : Integer
+  availableResources : Array<MapLocation>
+  owner : Player
+  citizens : Integer
+  cityRendering : Array<Image>
+  style : CityStyle
+}
+
+class TerrainInfo {
+  foodResource : Integer
+  productionResource : Integer
+  tradeResource : Integer
+  defenseBonus : Integer
+  movementCost : Integer
+}
+
+class SpriteUtils {
+  unitSprites : HashMap<UnitType, BufferedImage>
+  terrainSprites : HashMap<TerrainType, BufferedImage>
+  citySprites : HashMap<String, BufferedImage>
+  getTerrainSprite(mapLocation : MapLocation) : BufferedImage
+  getUnitSprite(mapLocation : MapLocation) : BufferedImage
+  getCitySprite(mapLocation : MapLocation) : BufferedImage
+}
+
+class TerrainManager {
+  world : World
+  terrainMap : HashMap<TerrainType, TerrainInfo>
+  setTerrainInfo(mapTile) : TerrainInfo
+}
+
+class World {
+  mapWidth : MapTile
+  mapHeight : Integer
+  current : Integer
+  units : HashMap<MapLocation, Array<Unit>>
+  cities : HashMap<MapLocation, City>
+  getTile(mapLocation : MapLocation)
+  getUnits(mapLocation : MapLocation)
+  getUnit(mapLocation : MapLocation)
+}
+
+class CombatManager {
+  world : World
+  collision(attackingUnit : Unit, defendingUnits : Array<Unit>) : void
+}
+
+class NavigationUtilities {
+  world : World
+  findRoute(currentPos : MapLocation, desiredPos : MapLocation) : Queue<MapLocation>
+}
+
+class Player {
+  id : Integer
+  name : String
+  gold : Integer
+  capital : City
+  units : Array<Unit>
+  buildingStyle : CityStyle
+  flag : BufferedImage
+  cities : Array<City>
+  researchTree : ResearchTree
+}
+
+class ResearchTree
+
+class GameEngine {
+  Players : Array<Player>
+  world : World
+  spriteUtils : SpriteUtils
+  mapView : MapView
+  currentPlayer : Player
+  currentlySelectedUnit : Unit
+  selectedUnit : int
+  terrainManager : TerrainManager
+  navigationUtils : NavigationUtilities
+  commandManager : CommandManager
+  turnManager : TurnManager
+  moveUnit()
+  getCommands()
+  sendCommand()
+  worldInteraction(MapLocation)
+  endTurn()
+}
+
+class MapView {
+  cameraLocation : MapLocation
+  gameEngine : GameEngine
+  highlightSprite : BufferedImage
+  highlightLocation : MapLocation
+  moveCamera(centerLocation : MapLocation) : void
+  drawSprite : BufferedImage
+  drawLocation : MapLocation
+}
+
+class Observable
+
+MapView -|> JPanel
+MapView ..|> Observer: realize
+MapView ..|> MouseListener: realize
+
+
+GameEngine *--> World
+CombatManager <--* GameEngine
+
+World ..|> Observable
+
+GameEngine --> World
+GameEngine *--> SpriteUtils
+GameEngine *--> MapView
+GameEngine --> Unit
+GameEngine *--> TerrainManager
+GameEngine *--> NavigationUtilities
+MapView *--> GameEngine
+
+enum TerrainBonusType {
+  BUFFALO
+  COAL
+  FISH
+  FUR
+  GAMES
+  GEMS
+  GOLD
+  IVORY
+  OASIS
+  OIL
+  PEAT
+  PHEASANT
+  SILK
+  SPICE
+  WHALE
+  WHEAT
+  WINE
+}
+
+enum UnitType {
+  AEGIS_CRUISER
+  ALPINE_TROOPS
+  ARCHERS
+  ARMOR
+  ARTILLERY
+  AXE
+  BATTLESHIP
+  BOMBER
+  CANNON
+  CARAVAN
+  CARRIER
+  CATAPULT
+  CAVALRY
+  CHARIOT
+  CRUISE_MISSILE
+  CRUISER
+  CROSSBOWERS
+  DESTROYER
+  DIPLOMAT
+  DRAGOON
+  ELEPHANT
+  ENGINEER
+  EXPLORER
+  FANATIC
+  FIGHTER
+  FRIGATE
+  GALLEON
+  HOWITZER
+  LEGION
+  MARINE
+  MECH_INFANTRY
+  MUSKETEER
+  NUCLEAR_MISSILE
+  PARATROOPER
+  PARTISAN
+  PHALANX
+  PIKEMAN
+  RIFLEMAN
+  SETTLERS
+  SPY
+  STEALTH_BOMBER
+  STEALTH_FIGHTER
+  SUBMARINE
+  TRANSPORT
+  TRIREME
+  WARRIORS
+  WORKER
+}
+
+enum CityStyle {
+  EUROPEAN
+  CLASSICAL
+  INDUSTRIAL
+  MODERN
+  POSTMODERN
+  ASIAN
+  TROPICAL
+}
+
+enum UnitTravelType {
+  GROUND
+  SEA
+  AIR
+}
+
+enum TerrainType {
+  DESERT
+  FOREST
+  GLACIER
+  GRASSLAND
+  HILLS
+  JUNGLE
+  MOUNTAINS
+  OCEAN
+  PLAIN
+  SWAMP
+  TUNDRA
+}
+
+@enduml

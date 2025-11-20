@@ -1,0 +1,25 @@
+@startuml
+'https://github.com/DGrewal350/Lab1Part4/blob/master/lab1part4uml.jpg
+'o
+class CostAnalyzer.RoomCarpet {
+  size: RoomDimension
+  carpetCost: double
+  RoomCarpet(dim: RoomDimension, cost: double)
+  getTotalCost(): double
+  toString(): String
+}
+
+class CostAnalyzer.RoomDimension {
+  length: double
+  width: double
+  RoomDimension(length: double, width: double)
+  getArea(): double
+  toString(): String
+}
+
+class CostAnalyzer.CarpetDriver {
+  main(args: String[])
+}
+
+CostAnalyzer.RoomCarpet --> CostAnalyzer.RoomDimension
+@enduml

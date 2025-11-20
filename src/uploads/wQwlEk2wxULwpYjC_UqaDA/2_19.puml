@@ -1,0 +1,42 @@
+'https://github.com/tmrcs/images/blob/master/UML/Handlers/UserHandler.png
+'s
+@startuml
+class UserHandler {
+  +UserHandler()
+  +get(String, String) : ArrayList<Entity>
+  +getByEmail(String) : ArrayList<Entity>
+  +getByUsername(String) : ArrayList<Entity>
+  +update() : int
+  +validate(HashMap<String, String>) : boolean
+}
+
+class MemUserHandler {
+  -memStruct : MemoryStruct
+  +MemUs erHandler(MemoryStruct)
+  +add(Entity) : int
+  +getAll() : ArrayList<Entity>
+  +get(String, String) : ArrayList<Entity>
+  +getByEmail(String) : ArrayList<Entity>
+  +getByUsername(String) : ArrayList<Entity>
+  +update() : int
+  +remove(String) : boolean
+}
+
+class DbUserHandler {
+  -dbutils : DButils
+  -insert : String
+  +DbUs erHandler(DButils)
+  +add(Entity) : int
+  +getAll() : ArrayList<Entity>
+  +get(String, String) : ArrayList<Entity>
+  +getByEmail(String) : ArrayList<Entity>
+  +getByUsername(String) : ArrayList<Entity>
+  +update() : int
+  +remove(String) : boolean
+  +toInsertString(User) : String
+}
+
+UserHandler <|-- MemUserHandler
+UserHandler <|-- DbUserHandler
+
+@enduml

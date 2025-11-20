@@ -1,0 +1,79 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_19.png",
+  "entities": [
+    {
+      "name": "CuserHandler",
+      "type": "class",
+      "attributes": [
+        "handersl"
+      ],
+      "methods": [
+        "UserHander()",
+        "get(String,String):ArrayListEntity",
+        "getByEmail(String):ArrayListcEntity>",
+        "getByUsername(String):ArrayList<Entity>",
+        "update():int",
+        "valdate(HashMap<Sting,Slng>):bookear"
+      ],
+      "confidence": 0.9780314564704895,
+      "bbox": [
+        120.0,
+        0.0,
+        348.0,
+        176.0
+      ]
+    },
+    {
+      "name": "C MemUserHandler",
+      "type": "class",
+      "attributes": [
+        "handlarsMarmory",
+        "memStructMemoryStruct"
+      ],
+      "methods": [
+        "MemUsertander(MemoryStnuct)",
+        "add(Entty):int",
+        "getAK):ArrayListEntity>",
+        "get(String,String):ArrayList-Entity>",
+        "getByEma(String):ArrayListEntty>",
+        "getByUsermame(String):ArrayListeEnttly>",
+        "update():int",
+        "remove(String):boolear"
+      ],
+      "confidence": 0.9838805198669434,
+      "bbox": [
+        0.0,
+        229.0,
+        228.0,
+        464.0
+      ]
+    },
+    {
+      "name": "C DbUserHandler",
+      "type": "class",
+      "attributes": [
+        "handlersDe",
+        "dbutiks: Deutils",
+        "α insert String"
+      ],
+      "methods": [
+        "ObUserHandier(DButis)",
+        "add(Ently):int",
+        "getA):ArrayListeEntity>",
+        "Qet(String,Strng):ATayList<Entty>",
+        "getByEmai(String):ArrayList<Entity>",
+        "getByUsername(String):ArrayList<Enity>",
+        "update():int",
+        "remove(Sting):boolean",
+        "tolsertString(User):String"
+      ],
+      "confidence": 0.9758123159408569,
+      "bbox": [
+        248.0,
+        231.0,
+        479.0,
+        498.0
+      ]
+    }
+  ]
+}

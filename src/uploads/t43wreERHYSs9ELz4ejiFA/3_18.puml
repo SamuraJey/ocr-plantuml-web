@@ -1,0 +1,95 @@
+'https://github.com/TelerikAcademy-Zomby-Teamwork/TeamZombie-Game/blob/master/Frogger/ClassDiagram.png
+'o
+@startuml
+interface IDrawable {
+}
+
+interface IRenderer {
+}
+
+abstract class DrawableObject {
+}
+
+abstract class Figure {
++ DrawableObject
+}
+
+abstract class Terrain {
++ DrawableObject
+}
+
+class Car {
++ Figure
+}
+
+class WinArea {
++ Figure
+}
+
+class Frog {
++ Figure
+}
+
+class Tree {
++ Figure
+}
+
+class WaterTerrain {
++Terrain
+}
+
+class StreetTerrain {
++Terrain
+}
+
+class PassableLandTerrain {
++Terrain
+}
+
+class UnpassableLandTerrain {
++PassableLandTerrain
+}
+
+class Frogger {
+}
+
+class Engine {
+}
+
+class Menu {
+}
+
+class PressedKeysProcessor {
+}
+
+class CollisionDisparter {
+}
+
+class Highscore {
+}
+
+class Player {
+}
+
+class ConsoleRenderer {
+}
+
+enum Direction {
+}
+
+IDrawable <|.. DrawableObject
+DrawableObject <|-- Figure
+DrawableObject <|-- Terrain
+Figure <|-- Car
+Figure <|-- WinArea
+Figure <|-- Frog
+Figure <|-- Tree
+Terrain <|-- WaterTerrain
+Terrain <|-- StreetTerrain
+Terrain <|-- PassableLandTerrain
+PassableLandTerrain <|-- UnpassableLandTerrain
+IRenderer <|.. ConsoleRenderer
+
+
+
+@enduml

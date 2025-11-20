@@ -1,0 +1,348 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/8.jpg",
+  "entities": [
+    {
+      "name": "TimeZone",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8016165494918823,
+      "bbox": [
+        2.0,
+        0.0,
+        89.0,
+        28.0
+      ]
+    },
+    {
+      "name": "Model",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.659204363822937,
+      "bbox": [
+        60.0,
+        61.0,
+        118.0,
+        85.0
+      ]
+    },
+    {
+      "name": "dbComp",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.5216720104217529,
+      "bbox": [
+        1117.0,
+        106.0,
+        1190.0,
+        145.0
+      ]
+    },
+    {
+      "name": "timeComp",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.6693083047866821,
+      "bbox": [
+        74.0,
+        111.0,
+        159.0,
+        139.0
+      ]
+    },
+    {
+      "name": "medoo",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8378043174743652,
+      "bbox": [
+        1570.0,
+        141.0,
+        1630.0,
+        223.0
+      ]
+    },
+    {
+      "name": "myDB",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "selectSQL(String.String,String):String[]",
+        "insertSQL(String, String. String, String, String): void"
+      ],
+      "confidence": 0.8980938792228699,
+      "bbox": [
+        1137.0,
+        147.0,
+        1477.0,
+        234.0
+      ]
+    },
+    {
+      "name": "timeComm",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "isDomainAvailable(String):Boolean",
+        "isValidJSON(String):Boolean"
+      ],
+      "confidence": 0.9407570362091064,
+      "bbox": [
+        243.0,
+        157.0,
+        490.0,
+        240.0
+      ]
+    },
+    {
+      "name": "pBrueyByuog",
+      "type": "class",
+      "attributes": [
+        "$config:String[]"
+      ],
+      "methods": [
+        "readComfig(String. String):void",
+        "getConfigO:Stringl]"
+      ],
+      "confidence": 0.9415421485900879,
+      "bbox": [
+        757.0,
+        171.0,
+        986.0,
+        266.0
+      ]
+    },
+    {
+      "name": "StampFetch",
+      "type": "class",
+      "attributes": [
+        "Stimestamp:String"
+      ],
+      "methods": [
+        "fetchTimeStamp(String, String): Stringl]",
+        "hasDateTime(String], String): Boolean",
+        "isValidFormat(String):Boolean",
+        "corvertStamp(String):Date",
+        "getTimeStampO:String"
+      ],
+      "confidence": 0.9551823735237122,
+      "bbox": [
+        85.0,
+        252.0,
+        351.0,
+        407.0
+      ]
+    },
+    {
+      "name": "MySQLDB",
+      "type": "class",
+      "attributes": [
+        "$dbName:String",
+        "回stblName:String",
+        "$zoneCot String",
+        "SstampCol: String",
+        "回$dbCount:Integer",
+        "selectSQLO:vold"
+      ],
+      "methods": [
+        "insertSQL(String, Sting): void",
+        "truncateSQLO:void",
+        "等getCounto:Integer",
+        "getZoneColumno:String",
+        "getStampColumnO:String"
+      ],
+      "confidence": 0.9434650540351868,
+      "bbox": [
+        1128.0,
+        265.0,
+        1344.0,
+        515.0
+      ]
+    },
+    {
+      "name": "ZoneFetch",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "fetchTimeZones(String):String)"
+      ],
+      "confidence": 0.9407901167869568,
+      "bbox": [
+        384.0,
+        281.0,
+        596.0,
+        364.0
+      ]
+    },
+    {
+      "name": "Databaseframe.",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8452737927436829,
+      "bbox": [
+        1549.0,
+        291.0,
+        1650.0,
+        334.0
+      ]
+    },
+    {
+      "name": "SesslonManager",
+      "type": "class",
+      "attributes": [
+        "$session: String",
+        "startSession0:void",
+        "stopSession:void"
+      ],
+      "methods": [],
+      "confidence": 0.9298892617225647,
+      "bbox": [
+        666.0,
+        292.0,
+        810.0,
+        384.0
+      ]
+    },
+    {
+      "name": "SoLIteDB",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8818697929382324,
+      "bbox": [
+        1390.0,
+        301.0,
+        1466.0,
+        383.0
+      ]
+    },
+    {
+      "name": "0",
+      "type": "class",
+      "attributes": [
+        "净gQ: void"
+      ],
+      "methods": [],
+      "confidence": 0.8778966665267944,
+      "bbox": [
+        961.0,
+        302.0,
+        1051.0,
+        383.0
+      ]
+    },
+    {
+      "name": "Controller",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8182191848754883,
+      "bbox": [
+        192.0,
+        560.0,
+        269.0,
+        587.0
+      ]
+    },
+    {
+      "name": "UelController",
+      "type": "class",
+      "attributes": [
+        "Stimeview.TimeView",
+        "$timeContrcler: TmeController",
+        "$dbController:DBContrcller",
+        "$configManager:ConfigManager",
+        "* start: void"
+      ],
+      "methods": [
+        "badConfig(String String): Strlingl*]",
+        "writeToDB(String,String): void",
+        "setViewNotice(StingString):vold",
+        "setViewSuccessesQ:void",
+        "setViewErrors: void",
+        "ogSomething(String,Integer,String,String void"
+      ],
+      "confidence": 0.9589212536811829,
+      "bbox": [
+        684.0,
+        600.0,
+        1011.0,
+        857.0
+      ]
+    },
+    {
+      "name": "DBController",
+      "type": "class",
+      "attributes": [
+        "$myDB: undefined",
+        "SresultString: String",
+        "$count:Integer"
+      ],
+      "methods": [
+        "setDatabase(StrlngString):vald",
+        "insertToTableQ: void",
+        "selectFromTableString):String",
+        "flushTableQ:void",
+        "getSuccessCourtg:Irteger",
+        "getSuccesStringO:String",
+        "reportSuccesses:String"
+      ],
+      "confidence": 0.9436948895454407,
+      "bbox": [
+        1208.0,
+        608.0,
+        1444.0,
+        844.0
+      ]
+    },
+    {
+      "name": "TimeController",
+      "type": "class",
+      "attributes": [
+        "$zoneFetch:ZoneFetch",
+        "$stampFetch:StampFetch",
+        "$errors:String",
+        "$errorsCount:Integer",
+        "$errorStingString"
+      ],
+      "methods": [
+        "communicateWS(Stringrl): Boolean",
+        "fetch(Stringl*l): Stinal]",
+        "getErorCountC:Integer",
+        "getErorStringO:String",
+        "reportErrorsQ: String"
+      ],
+      "confidence": 0.9422305822372437,
+      "bbox": [
+        259.0,
+        609.0,
+        491.0,
+        843.0
+      ]
+    },
+    {
+      "name": "TimeVlew",
+      "type": "class",
+      "attributes": [
+        "utilCortroller: UtilController"
+      ],
+      "methods": [
+        "showSuccesses(Strino):void",
+        "showErrors(String):void",
+        "showNotice(String):void"
+      ],
+      "confidence": 0.9433806538581848,
+      "bbox": [
+        737.0,
+        940.0,
+        943.0,
+        1056.0
+      ]
+    }
+  ]
+}

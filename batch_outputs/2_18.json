@@ -1,0 +1,118 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_18.png",
+  "entities": [
+    {
+      "name": "DataHandler",
+      "type": "class",
+      "attributes": [
+        "handlersl"
+      ],
+      "methods": [
+        "add(Entty):irt",
+        "getAlO:ArrayList<Enity>",
+        "update():int",
+        "remove(Sting):boolean"
+      ],
+      "confidence": 0.9636185169219971,
+      "bbox": [
+        345.0,
+        2.0,
+        492.0,
+        139.0
+      ]
+    },
+    {
+      "name": "GPromotionHandier",
+      "type": "class",
+      "attributes": [
+        "handlersl"
+      ],
+      "methods": [
+        "RromotionHander(UserHander,CategoryHander)",
+        "get(String,String):ArreyListeEnlity>",
+        "-userHand",
+        "getbyiDString):ArrayList<Entity>",
+        "D",
+        "getbyCalegory(String):ArrayList<Entity>",
+        "getbyLocatiorString):ArrayLisi<Entity>",
+        "getbyDate(String):ArreyList<Entity",
+        "getbyDate(intint):ArrayList<Entity>",
+        "getAllLocationsO:ArreyListeString",
+        "getByAvailabilityString):ArrayList<Entity",
+        "updateSele(String):boolean",
+        "getUserHandler():UserHandler",
+        "getCategoryHander():CategoryHarder"
+      ],
+      "confidence": 0.9602619409561157,
+      "bbox": [
+        280.0,
+        256.0,
+        547.0,
+        571.0
+      ]
+    },
+    {
+      "name": "CUserHandler",
+      "type": "class",
+      "attributes": [
+        "handlerst"
+      ],
+      "methods": [
+        "Userhander()",
+        "gel(String,Slring):ArreyList<Entity>",
+        "getByEmailString):ArrayListEntity>",
+        "getByUsername(String):ArrayList<Entity>",
+        "fupdatel:int",
+        "vafdate(HashMap-Sting,Sting>):boolean"
+      ],
+      "confidence": 0.9489946365356445,
+      "bbox": [
+        581.0,
+        256.0,
+        812.0,
+        431.0
+      ]
+    },
+    {
+      "name": "CPurchaseHandler",
+      "type": "class",
+      "attributes": [
+        "handlersi"
+      ],
+      "methods": [
+        "PurchaseHander(RromoionHander)",
+        "getbyD(String):ArrayListEntity>",
+        "getbyOwner(String):ArrayList<Entity>",
+        "getbyPromotion(String):ArrayList<Entity>",
+        "getPromol-ander():Fromolionl-ander",
+        "gelUserHander():UserHander"
+      ],
+      "confidence": 0.9493204355239868,
+      "bbox": [
+        5.0,
+        259.0,
+        229.0,
+        434.0
+      ]
+    },
+    {
+      "name": "GCategoryHardler",
+      "type": "class",
+      "attributes": [
+        "handlersl"
+      ],
+      "methods": [
+        "CategoryHander()",
+        "get(int):ArrayList<Category>",
+        "exiss(rt):boclean"
+      ],
+      "confidence": 0.9601022601127625,
+      "bbox": [
+        862.0,
+        456.0,
+        1026.0,
+        576.0
+      ]
+    }
+  ]
+}

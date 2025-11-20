@@ -1,0 +1,66 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/3_1.png",
+  "entities": [
+    {
+      "name": "Gventana",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "(defaul padkage)",
+        "seriaIVersionUID:long",
+        "txtN1: JTextField",
+        "txtN2: JTextField",
+        ". IbN1: JLabel",
+        "IbN2:JLabel",
+        "IbResultado: JLabel",
+        "btnCalcular: JButon",
+        "c: Container",
+        "ventana()",
+        "cargarControles():void",
+        "actionPerformed(ActlonEventj:void"
+      ],
+      "confidence": 0.9872438907623291,
+      "bbox": [
+        0.0,
+        0.0,
+        221.0,
+        268.0
+      ]
+    },
+    {
+      "name": "GAppOperaclones",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "(defautpackage)",
+        "AppOperaciones()",
+        "main(Sting)void"
+      ],
+      "confidence": 0.9657145738601685,
+      "bbox": [
+        258.0,
+        1.0,
+        398.0,
+        107.0
+      ]
+    },
+    {
+      "name": "Coperaclones",
+      "type": "class",
+      "attributes": [
+        "[defaukpackage)"
+      ],
+      "methods": [
+        "Operaciones()",
+        "sumar(int,int):int"
+      ],
+      "confidence": 0.9668691754341125,
+      "bbox": [
+        3.0,
+        304.0,
+        116.0,
+        408.0
+      ]
+    }
+  ]
+}

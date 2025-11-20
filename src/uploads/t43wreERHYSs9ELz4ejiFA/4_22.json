@@ -1,0 +1,226 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/4_22.png",
+  "entities": [
+    {
+      "name": "DemoContext",
+      "type": "class",
+      "attributes": [
+        "boolean",
+        "toggle",
+        "getContextinfo{roolean"
+      ],
+      "methods": [],
+      "confidence": 0.8658173084259033,
+      "bbox": [
+        21.0,
+        20.0,
+        164.0,
+        89.0
+      ]
+    },
+    {
+      "name": ")DemologicContextB",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8439005017280579,
+      "bbox": [
+        1320.0,
+        40.0,
+        1450.0,
+        68.0
+      ]
+    },
+    {
+      "name": "DemoContextResolver",
+      "type": "class",
+      "attributes": [
+        "DemoContext",
+        "demoContext",
+        "resolveContext[Class<?>] ationliteral"
+      ],
+      "methods": [],
+      "confidence": 0.9137099981307983,
+      "bbox": [
+        1136.0,
+        136.0,
+        1339.0,
+        207.0
+      ]
+    },
+    {
+      "name": "CDICallable",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.8257879614830017,
+      "bbox": [
+        198.0,
+        157.0,
+        286.0,
+        187.0
+      ]
+    },
+    {
+      "name": "LeftTextFieldBindingCallable",
+      "type": "class",
+      "attributes": [
+        "demoLogic",
+        "Instance<Demologics",
+        "calin",
+        "Strine"
+      ],
+      "methods": [],
+      "confidence": 0.8394770622253418,
+      "bbox": [
+        71.0,
+        275.0,
+        300.0,
+        335.0
+      ]
+    },
+    {
+      "name": "RightTextfieldBindingCallable",
+      "type": "class",
+      "attributes": [
+        "demoLogic",
+        "Instance<DemoLogic>"
+      ],
+      "methods": [],
+      "confidence": 0.6975905299186707,
+      "bbox": [
+        317.0,
+        275.0,
+        550.0,
+        320.0
+      ]
+    },
+    {
+      "name": "DemoLogicProducer",
+      "type": "class",
+      "attributes": [
+        "ManagedlnstanceCreator",
+        "create[DemoContextResolver)]",
+        "DemoLogic"
+      ],
+      "methods": [],
+      "confidence": 0.9094173312187195,
+      "bbox": [
+        1061.0,
+        276.0,
+        1296.0,
+        343.0
+      ]
+    },
+    {
+      "name": "KotlinDemologic",
+      "type": "class",
+      "attributes": [
+        "dolt!",
+        "String"
+      ],
+      "methods": [],
+      "confidence": 0.8527135252952576,
+      "bbox": [
+        568.0,
+        286.0,
+        681.0,
+        333.0
+      ]
+    },
+    {
+      "name": "C",
+      "type": "class",
+      "attributes": [
+        ")DemoLogicB"
+      ],
+      "methods": [],
+      "confidence": 0.6906193494796753,
+      "bbox": [
+        938.0,
+        286.0,
+        1044.0,
+        314.0
+      ]
+    },
+    {
+      "name": "Ddot",
+      "type": "class",
+      "attributes": [
+        "m"
+      ],
+      "methods": [],
+      "confidence": 0.610766589641571,
+      "bbox": [
+        937.0,
+        314.0,
+        982.0,
+        331.0
+      ]
+    },
+    {
+      "name": "ParedTextField",
+      "type": "class",
+      "attributes": [
+        "leftTextFleld",
+        "TextFleld",
+        "TextFed",
+        "rightTextFleld",
+        "HBex",
+        "int",
+        "spacing",
+        "demoContest",
+        "DemoContext",
+        "void",
+        "inito"
+      ],
+      "methods": [
+        "satAnchors(Node, Double)",
+        "void"
+      ],
+      "confidence": 0.6906063556671143,
+      "bbox": [
+        34.0,
+        386.0,
+        348.0,
+        602.0
+      ]
+    },
+    {
+      "name": "KotlinDemologicProducer",
+      "type": "class",
+      "attributes": [
+        "create",
+        "Demol",
+        "[KotlinDemologic]",
+        "Logic"
+      ],
+      "methods": [],
+      "confidence": 0.8891594409942627,
+      "bbox": [
+        545.0,
+        473.0,
+        770.0,
+        521.0
+      ]
+    },
+    {
+      "name": "DemologicProducerl",
+      "type": "class",
+      "attributes": [
+        "create[BeanManager,",
+        "DemologicB)",
+        "DemoLogic",
+        "InjectionPoint,"
+      ],
+      "methods": [],
+      "confidence": 0.8325669765472412,
+      "bbox": [
+        785.0,
+        474.0,
+        1136.0,
+        522.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+'https://github.com/khasang/JQuiz/blob/develop/data/architecture/uml/
+'o
+class_diagram.jpg
+@startuml
+' Classes
+class Question {
+  -question String
+  -answer1 String
+  -answer2 String
+  -answer3 String
+  -answer4 String
+  -theme String
+  -discription String
+  -difficult String
+  -completed boolean
+  -chosen boolean
+  +getQuestion() String
+  +setQuestion(String) void
+  +getAnswer1() String
+  +setAnswer1(String) void
+  +getAnswer2() String
+  +setAnswer2(String) void
+  +getAnswer3() String
+  +setAnswer3(String) void
+  +getAnswer4() String
+  +setAnswer4(String) void
+  +getTheme() String
+  +setTheme(String) void
+  +getDiscription() String
+  +setDiscription(String) void
+  +getDifficult() String
+  +setDifficult(String) void
+  +isCompleted() boolean
+  +setCompleted(boolean) void
+  +isChosen() boolean
+  +setChosen(boolean) void
+}
+
+class Model {
+  +getListQuestion(int) List<Question>
+}
+
+class ModelImpl {
+  -question Question
+  +getListQuestion(int) List<Question>
+}
+
+class Presenter {
+  +onClickFAB() void
+  +getTest(TypeTest) BaseTest
+}
+
+class PresenterImpl {
+  -test BaseTest
+  -model Model
+  +PresenterImpl()
+  +onClickFAB() void
+  +getTest(TypeTest) BaseTest
+}
+
+class MainActivity {
+  -presenter Presenter
+  +onCreate(Bundle) void
+  +onCreateOptionsMenu(Menu) boolean
+  +onOptionsItemSelected(MenuItem) void
+  +onClickFAB() void
+}
+
+class BaseTest {
+}
+
+class QuickTest {
+}
+
+class TypeTest {
+}
+
+' Relationships
+Model <|-- ModelImpl
+Presenter <|-- PresenterImpl
+BaseTest <|-- QuickTest
+
+ModelImpl "1" --> "1" Question
+PresenterImpl "1" --> "1" Model
+PresenterImpl "1" --> "1" BaseTest
+MainActivity "1" --> "1" Presenter
+
+PresenterImpl ..> ModelImpl : <<create>>
+PresenterImpl ..> Presenter : <<create>>
+MainActivity ..> PresenterImpl : <<create>>
+
+@enduml

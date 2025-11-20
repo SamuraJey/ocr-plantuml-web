@@ -1,0 +1,141 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/10.png",
+  "entities": [
+    {
+      "name": "Cliente",
+      "type": "class",
+      "attributes": [
+        "- nome: String",
+        "- cognome: String",
+        "- cellulare: String",
+        "- email: String"
+      ],
+      "methods": [
+        "+ Cliente(nome:String, cognome:String, cellulare: String)",
+        "+getNomeO:String",
+        "+ getCognomeO: String",
+        "+ getCellulare0",
+        "+ setEmail(v: String)",
+        "+getEmailO:String",
+        "1"
+      ],
+      "confidence": 0.9727402329444885,
+      "bbox": [
+        38.0,
+        32.0,
+        525.0,
+        409.0
+      ]
+    },
+    {
+      "name": "Prenotazione",
+      "type": "class",
+      "attributes": [
+        "+ dal: LocalDateTime",
+        "+ al: LocalDateTime",
+        "+ Prenotazione(dal: LocalDateTime, al: LocalDateTime,",
+        "cliente: Cliente)",
+        "+ getDalO: LocalDateTime",
+        "+ getAlO: LocalDateTime"
+      ],
+      "methods": [
+        "+ getNumeroNottio: int+ setCamera(v: Camera)",
+        "+ getCameraO: Camera",
+        "+ getClienteO: Cliente",
+        "0.."
+      ],
+      "confidence": 0.9630410671234131,
+      "bbox": [
+        35.0,
+        509.0,
+        526.0,
+        848.0
+      ]
+    },
+    {
+      "name": "Albergo",
+      "type": "class",
+      "attributes": [
+        "- nome: String"
+      ],
+      "methods": [
+        "+ Albergo(nome: String)"
+      ],
+      "confidence": 0.9339655041694641,
+      "bbox": [
+        681.0,
+        717.0,
+        902.0,
+        883.0
+      ]
+    },
+    {
+      "name": "Camera",
+      "type": "class",
+      "attributes": [
+        "- numero: String",
+        "postiLetto: int"
+      ],
+      "methods": [
+        "+ Camera(numero: String, postiLetto: int)",
+        "+ getNumeroO: String",
+        "+ getPostiLettoQ: int",
+        "+ isDisponibile(dal: LocalDatetime, al:",
+        "LocalDateTime): boolean",
+        "+ addPrenotazione(p: prenotazione)"
+      ],
+      "confidence": 0.9495758414268494,
+      "bbox": [
+        500.0,
+        1032.0,
+        861.0,
+        1304.0
+      ]
+    },
+    {
+      "name": "Tripla",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ Tripla(numero: String)"
+      ],
+      "confidence": 0.9443637728691101,
+      "bbox": [
+        839.0,
+        1375.0,
+        1083.0,
+        1525.0
+      ]
+    },
+    {
+      "name": "Singola",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ Singola(numero: String)"
+      ],
+      "confidence": 0.9435568451881409,
+      "bbox": [
+        280.0,
+        1376.0,
+        522.0,
+        1522.0
+      ]
+    },
+    {
+      "name": "Doppia",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+ Doppia(numero: String)"
+      ],
+      "confidence": 0.948971152305603,
+      "bbox": [
+        560.0,
+        1377.0,
+        802.0,
+        1524.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<header class="results-header">
+    <h1>Сравнение подходов</h1>
+    <a href="/compare" class="btn btn-outline">Новое сравнение</a>
+</header>
+
+<section class="stats-grid">
+    {% for i in range(approach_names|length) %}
+    <article class="stat-card">
+        <div class="stat-content">
+            <div class="stat-label">{{ approach_names[i] }}</div>
+            <div class="stat-value">{{ "%.1f"|format(avg_scores[i]) }}%</div>
+            <div class="stat-label">Средняя оценка</div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+
+<section class="charts-section">
+    <article class="chart-card">
+        <h3>Средняя оценка (Score)</h3>
+        <canvas id="scoreChart"></canvas>
+    </article>
+    <article class="chart-card">
+        <h3>F1 Классы</h3>
+        <canvas id="f1ClassesChart"></canvas>
+    </article>
+    <article class="chart-card">
+        <h3>F1 Атрибуты</h3>
+        <canvas id="f1AttributesChart"></canvas>
+    </article>
+</section>
+
+<section class="results-table-section">
+    <h2>Детальное сравнение по диаграммам</h2>
+    <div class="table-responsive">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Диаграмма</th>
+                    {% for name in approach_names %}
+                    <th>{{ name }} (Score)</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in comparison_rows %}
+                <tr>
+                    <td class="filename">{{ row.diagram }}</td>
+                    {% for score in row.scores %}
+                    <td>
+                        {% if score is not none %}
+                        <span
+                            class="score-badge score-{{ 'excellent' if score >= 90 else 'good' if score >= 70 else 'poor' }}">
+                            {{ "%.1f"|format(score) }}%
+                        </span>
+                        {% else %}
+                        —
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const labels = {{ approach_names | tojson
+    }};
+    const avgScores = {{ avg_scores | tojson }};
+    const avgF1Classes = {{ avg_f1_classes | tojson }};
+    const avgF1Attributes = {{ avg_f1_attributes | tojson }};
+
+    const colors = [
+        'rgba(59, 130, 246, 0.8)',
+        'rgba(34, 197, 94, 0.8)',
+        'rgba(245, 158, 11, 0.8)'
+    ];
+
+    const borderColors = [
+        'rgb(59, 130, 246)',
+        'rgb(34, 197, 94)',
+        'rgb(245, 158, 11)'
+    ];
+
+    function createChart(id, label, data) {
+        const ctx = document.getElementById(id).getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: label,
+                    data: data,
+                    backgroundColor: colors,
+                    borderColor: borderColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: label.includes('Score') ? 100 : 1
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    }
+
+    createChart('scoreChart', 'Средняя оценка (%)', avgScores);
+    createChart('f1ClassesChart', 'F1 Классы', avgF1Classes);
+    createChart('f1AttributesChart', 'F1 Атрибуты', avgF1Attributes);
+    });
+</script>
+{% endblock %}

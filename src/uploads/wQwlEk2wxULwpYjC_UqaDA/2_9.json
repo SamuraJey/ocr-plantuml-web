@@ -1,0 +1,83 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_9.jpg",
+  "entities": [
+    {
+      "name": "①Stackimpl",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9292621612548828,
+      "bbox": [
+        100.0,
+        19.0,
+        196.0,
+        51.0
+      ]
+    },
+    {
+      "name": "StackArray",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9037025570869446,
+      "bbox": [
+        158.0,
+        99.0,
+        257.0,
+        131.0
+      ]
+    },
+    {
+      "name": "StackList",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9196529388427734,
+      "bbox": [
+        48.0,
+        100.0,
+        138.0,
+        131.0
+      ]
+    },
+    {
+      "name": "Stack",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9310196042060852,
+      "bbox": [
+        182.0,
+        180.0,
+        250.0,
+        211.0
+      ]
+    },
+    {
+      "name": "StackFIFO",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.929593026638031,
+      "bbox": [
+        22.0,
+        259.0,
+        116.0,
+        291.0
+      ]
+    },
+    {
+      "name": "StackHanoi",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9153924584388733,
+      "bbox": [
+        181.0,
+        259.0,
+        285.0,
+        291.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+'https://github.com/tmrcs/images/blob/master/UML/Formatters/UserFormatter.png
+'s
+@startuml
+interface UserFormatter {
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+}
+
+class TextUserFormatter {
+  +TextUserFormatter()
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+}
+
+class JsonUserFormatter {
+  +JsonUserFormatter()
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+}
+
+class HTMLUserFormatter {
+  -promoH : PromotionHandler
+  -purchas eH : PurchaseHandler
+  -width : int
+  +HTMLUserFormatter(PromotionHandler, PurchaseHandler)
+  +formatOne(ArrayList<Entity>) : ArrayList<String>
+  +createListOfPurchases(String) : HtmlElement
+  +createListOfPromotions(String) : HtmlElement
+  +createTableOne(ArrayList<Entity>) : HtmlElement
+  +createTableHeadings() : HtmlTable
+  +formatAll(ArrayList<Entity>) : ArrayList<String>
+  +createPostUs erForm() : HtmlElement
+  +createTableAll(ArrayList<Entity>) : HtmlElement
+}
+
+class TextFormatter {
+  -template : String
+  +TextFormatter(String)
+  +formatAll(ArrayList<String>, ArrayList<Entity>) : void
+}
+
+class JsonFormatter {
+  -template : String
+  +JsonFormatter(String)
+}
+
+class HTMLFormatter {
+  -template : String
+  +HTMLFormatter(String)
+  +createHeader(String) : HtmlHeader
+}
+
+UserFormatter <|-- TextUserFormatter
+UserFormatter <|-- JsonUserFormatter
+UserFormatter <|-- HTMLUserFormatter
+
+TextUserFormatter --> TextFormatter
+JsonUserFormatter --> JsonFormatter
+HTMLUserFormatter --> HTMLFormatter
+
+@enduml

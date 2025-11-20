@@ -1,0 +1,225 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/11.png",
+  "entities": [
+    {
+      "name": "Registered",
+      "type": "class",
+      "attributes": [
+        "User",
+        "-ID",
+        "-Name"
+      ],
+      "methods": [],
+      "confidence": 0.8993276357650757,
+      "bbox": [
+        850.0,
+        1.0,
+        931.0,
+        68.0
+      ]
+    },
+    {
+      "name": "Assetowner",
+      "type": "class",
+      "attributes": [
+        "-assetTypes"
+      ],
+      "methods": [],
+      "confidence": 0.9100834727287292,
+      "bbox": [
+        521.0,
+        80.0,
+        614.0,
+        134.0
+      ]
+    },
+    {
+      "name": "Asset",
+      "type": "class",
+      "attributes": [
+        "ID",
+        "URI",
+        "owner",
+        "isCompleted",
+        "isReviewed"
+      ],
+      "methods": [
+        "+complete()",
+        "+updateURI()",
+        "+review()"
+      ],
+      "confidence": 0.9153406023979187,
+      "bbox": [
+        230.0,
+        190.0,
+        316.0,
+        329.0
+      ]
+    },
+    {
+      "name": "AssetSystem",
+      "type": "class",
+      "attributes": [
+        "+createAsset("
+      ],
+      "methods": [
+        "+uploadAsset()",
+        "+deleteAsset)",
+        "+updateAssett)"
+      ],
+      "confidence": 0.9239075183868408,
+      "bbox": [
+        860.0,
+        240.0,
+        974.0,
+        337.0
+      ]
+    },
+    {
+      "name": "AssetSystemFrontend",
+      "type": "class",
+      "attributes": [],
+      "methods": [
+        "+mainDialog()",
+        "+uploadDialog()"
+      ],
+      "confidence": 0.9126414060592651,
+      "bbox": [
+        1162.0,
+        250.0,
+        1313.0,
+        303.0
+      ]
+    },
+    {
+      "name": "BDAsSet",
+      "type": "class",
+      "attributes": [
+        "vertices",
+        "vertexFormat",
+        "textures",
+        "fileFommat"
+      ],
+      "methods": [],
+      "confidence": 0.9236679673194885,
+      "bbox": [
+        2.0,
+        390.0,
+        88.0,
+        486.0
+      ]
+    },
+    {
+      "name": "SoundAsset",
+      "type": "class",
+      "attributes": [
+        "-length",
+        "frequency",
+        "bitDepth",
+        "filleFormat"
+      ],
+      "methods": [],
+      "confidence": 0.9325662851333618,
+      "bbox": [
+        282.0,
+        420.0,
+        374.0,
+        501.0
+      ]
+    },
+    {
+      "name": "ImageAsset",
+      "type": "class",
+      "attributes": [
+        "width",
+        "-height",
+        "pixelFormat",
+        "fileFormat"
+      ],
+      "methods": [],
+      "confidence": 0.9175199866294861,
+      "bbox": [
+        161.0,
+        420.0,
+        254.0,
+        502.0
+      ]
+    },
+    {
+      "name": "TextAsset",
+      "type": "class",
+      "attributes": [
+        "-translations",
+        "encoding"
+      ],
+      "methods": [],
+      "confidence": 0.912736713886261,
+      "bbox": [
+        422.0,
+        420.0,
+        503.0,
+        474.0
+      ]
+    },
+    {
+      "name": "AssetStorage",
+      "type": "class",
+      "attributes": [
+        "assets",
+        "storageBackends",
+        "+addAsset)",
+        "+removeAssett)",
+        "+updateAsset("
+      ],
+      "methods": [],
+      "confidence": 0.9326698184013367,
+      "bbox": [
+        880.0,
+        480.0,
+        986.0,
+        580.0
+      ]
+    },
+    {
+      "name": "AssetStorageBackend",
+      "type": "class",
+      "attributes": [
+        "-files",
+        "pendlngChanges",
+        "+updateFile)",
+        "+removeFile)"
+      ],
+      "methods": [
+        "+unlock()",
+        "+lock()"
+      ],
+      "confidence": 0.9563818573951721,
+      "bbox": [
+        592.0,
+        540.0,
+        745.0,
+        654.0
+      ]
+    },
+    {
+      "name": "GitAssetStorageBackend",
+      "type": "class",
+      "attributes": [
+        "repoURL",
+        "branch"
+      ],
+      "methods": [
+        "+commit()",
+        "+push()",
+        "+stage)"
+      ],
+      "confidence": 0.9286817908287048,
+      "bbox": [
+        578.0,
+        700.0,
+        754.0,
+        800.0
+      ]
+    }
+  ]
+}

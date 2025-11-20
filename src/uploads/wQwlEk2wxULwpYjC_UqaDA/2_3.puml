@@ -1,0 +1,23 @@
+'https://github.com/alihitawala/DesignPatterns/blob/master/src/main/java/com/learning/patterns/structural/facade/UML-Facade.png
+'o
+@startuml
+class Line {
+}
+
+class Point {
+}
+
+class PointCarte {
+}
+
+class PointPolar {
+}
+
+Line "1" --> "1" Point
+Point "1" --> "1" PointCarte
+
+
+Point ..> PointCarte : <<create>>
+Point ..> PointPolar : <<create>>
+
+@enduml

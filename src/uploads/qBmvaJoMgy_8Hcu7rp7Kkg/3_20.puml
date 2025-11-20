@@ -1,0 +1,108 @@
+'https://github.com/Shuyang/uic-automatic-reviewer/blob/master/final_report/materials/paper_uml.png
+'o
+@startuml
+class Paper {
+  <<Java Class>>
+  edu.uci.cs.automatic_reviewer.input
+  {static} serialVersionUID: long
+  title: String
+  abstractParagraph: String
+  numOfPages: int
+  contentParagraphsByPage: Map<Integer, List<String>>
+  contentParagraphs: List<String>
+  references: List<String>
+  --
+  Paper()
+  setNumOfPages(int): void
+  getNumOfPages(): int
+  getTitle(): String
+  setTitle(String): void
+  getAbstract(): String
+  setAbstract(String): void
+  addReference(String): void
+  getReferences(): List<String>
+  addContentParagraph(Paragraph): void
+  getContentParagraphs(): List<String>
+  getContentParagraphsOnPage(Integer): List<String>
+  getAuthors(): List<Author>
+  setAuthors(List<Author>): void
+  getMetadata(): Metadata
+  setMetadata(Metadata): void
+}
+
+class Metadata {
+  <<Java Class>>
+  edu.uci.cs.automatic_reviewer.input
+  {static} serialVersionUID: long
+  creatorTool: CreatorTool
+  numOfFigures: Map<Integer, Integer>
+  numOfFigures: int
+  maxNumOfFiguresOnOnePage: int
+  numOfPagesHaveFigure: int
+  numOfTablesByPage: Map<Integer, Integer>
+  numOfTables: int
+  maxNumOfTablesOnOnePage: int
+  numOfPagesHaveTable: int
+  numOfFormulas: Map<Integer, Integer>
+  numOfFormulas: int
+  maxNumOfFormulasOnOnePage: int
+  numOfPagesHaveFormula: int
+  paperFileName: String
+  --
+  Metadata()
+  setNumOfFiguresByPage(Map<Integer, Integer>): void
+  getNumOfFiguresByPage(): Map<Integer, Integer>
+  setNumOfFormulasByPage(Map<Integer, Integer>): void
+  getNumOfFormulasByPage(): Map<Integer, Integer>
+  getNumOfFigures(): int
+  getMaxNumOfFiguresOnOnePage(): int
+  getNumOfPagesHaveFigure(): int
+  getNumOfTablesByPage(): Map<Integer, Integer>
+  getNumOfTables(): int
+  getMaxNumOfTablesOnOnePage(): int
+  getNumOfPagesHaveTable(): int
+  getNumOfFormulasByPage(): Map<Integer, Integer>
+  getNumOfFormulas(): int
+  getMaxNumOfFormulasOnOnePage(): int
+  getNumOfPagesHaveFormula(): int
+  getCreatorTool(): CreatorTool
+  setCreatorTool(CreatorTool): void
+  getPaperFileName(): String
+  setPaperFileName(String): void
+}
+
+class Paragraph {
+  <<Java Class>>
+  edu.uci.cs.automatic_reviewer.input
+  {static} serialVersionUID: long
+  content: String
+  pageNum: Integer
+  --
+  Paragraph(String, Integer)
+  getContent(): String
+  getPageNum(): Integer
+}
+
+class Author {
+  <<Java Class>>
+  edu.uci.cs.automatic_reviewer.input
+  {static} serialVersionUID: long
+  name: String
+  organization: String
+  email: String
+  --
+  Author()
+  getName(): String
+  setName(String): void
+  getOrganization(): String
+  setOrganization(String): void
+  getEmail(): String
+  setEmail(String): void
+  toString(): String
+}
+
+Paper "1" --> "0..1" Metadata : -metadata
+Paper "1" --> "0..*" Author : -authors
+Paragraph x-- Paper
+Author x-- Paper
+@enduml

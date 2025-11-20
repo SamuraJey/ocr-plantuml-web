@@ -1,0 +1,53 @@
+'https://github.com/GaddahSaifeddine/IT340/blob/master/doc/diagramme_classe.png
+'s
+@startuml
+class WorkShopViews {
+  +ModelAndView getView()
+  +ModelAndView createWorkshops()
+}
+class Labviews {
+  +ModelAndView getView()
+  +ModelAndView createLabs()
+}
+
+
+
+class Workshops {
+  -String Atelier
+  -String Theme
+  -String Animateur
+  -String Description
+  -UUID labid
+  -Date date
+  -String Place
+  -UUID wid
+  -int hours
+  -int capacity
+  -Boolean resa
+}
+class Crud {
+  +List<Workshops> getAtelier
+  +void addAtelier
+  +List<Lab> getLab
+  +void addLab
+}
+class Connexion {
+  +Connection getConnexion()
+}
+class Lab {
+  -String name
+  -String email
+  -String password
+  -Date connexionTime
+  -UUID labid
+}
+
+
+WorkShopViews <|-- Workshops
+WorkShopViews <|-- Crud
+WorkShopViews <|-- Connexion
+Labviews <|-- Lab
+Labviews <|-- Crud
+Labviews <|-- Connexion
+
+@enduml

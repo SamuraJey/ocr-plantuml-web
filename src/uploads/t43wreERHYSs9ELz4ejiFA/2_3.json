@@ -1,0 +1,57 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_3.png",
+  "entities": [
+    {
+      "name": "PointCarte",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9424023032188416,
+      "bbox": [
+        338.0,
+        85.0,
+        436.0,
+        116.0
+      ]
+    },
+    {
+      "name": "Point",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.939383864402771,
+      "bbox": [
+        195.0,
+        85.0,
+        260.0,
+        116.0
+      ]
+    },
+    {
+      "name": "Line",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9263395667076111,
+      "bbox": [
+        20.0,
+        86.0,
+        80.0,
+        116.0
+      ]
+    },
+    {
+      "name": "PointPolar",
+      "type": "class",
+      "attributes": [],
+      "methods": [],
+      "confidence": 0.9341944456100464,
+      "bbox": [
+        179.0,
+        206.0,
+        275.0,
+        236.0
+      ]
+    }
+  ]
+}

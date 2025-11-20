@@ -1,0 +1,170 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2_13.png",
+  "entities": [
+    {
+      "name": "CDBUserData",
+      "type": "class",
+      "attributes": [
+        "dbUils",
+        "user: String",
+        "passw ord Slring",
+        "server. Sting",
+        "dbname: String",
+        "propFlePath: Sting",
+        "baseOirectory:String",
+        "0 propFleName: String"
+      ],
+      "methods": [
+        "DBuserData(Sting)",
+        "getProperties():Properties",
+        "checkPropCortents(Froperties):void",
+        "CreateNew PropertiesFie():void",
+        "gelDB_User():String",
+        "getDB_Password):String",
+        "gelDe_Server():String",
+        "getDB_DBNeme():String"
+      ],
+      "confidence": 0.9597134590148926,
+      "bbox": [
+        838.0,
+        0.0,
+        1044.0,
+        338.0
+      ]
+    },
+    {
+      "name": "GDButils",
+      "type": "class",
+      "attributes": [
+        "dbUtis",
+        "Dcon:Connection"
+      ],
+      "methods": [
+        "DButis(String)",
+        "connect():void",
+        "executeQuery(String):ResutSet",
+        "executeQtery(RreparedStatemert):ResutSet",
+        "executeUpdate(Sting):int",
+        "executeUpdate(PreparedStatemert):it",
+        "getConneclion():Connection",
+        "close():void"
+      ],
+      "confidence": 0.9559770226478577,
+      "bbox": [
+        457.0,
+        53.0,
+        703.0,
+        283.0
+      ]
+    },
+    {
+      "name": "C ObPromotionHandler",
+      "type": "class",
+      "attributes": [
+        "handlersOB",
+        "D insert String"
+      ],
+      "methods": [
+        "DbPromotionHander(DButils,UserHander,CategoryHander)",
+        "● add(Ently):ine",
+        "getAK)ArayListEnBy>",
+        "get(Sting,Sting):ArrayListErtly>",
+        "◆updateSale(String):bookean",
+        "remove(String):boolean",
+        "+ getbyOw ner(String):ArrayList-Enlitys",
+        "+ gettyCategory(String):ArrayList<Entity>",
+        "● getbyLocalior(Sting):ArrayList<Ently>",
+        "● getbyD(Sting):AirayList<Ently>",
+        "● getbyDate(String):ArTayListEntily>",
+        "● getbyDate(int,int):ArrayList-Ertity>",
+        "+getByAvaiabmy(Sting):ArrayListEnlly>",
+        "getListOfResulls(ResullSet);ArrayListEnity>",
+        "tolrsertSting(Fromotion):String",
+        "●getALocalons():AITayListeString",
+        "H()opdn"
+      ],
+      "confidence": 0.9708899259567261,
+      "bbox": [
+        420.0,
+        458.0,
+        741.0,
+        850.0
+      ]
+    },
+    {
+      "name": "CDbUserHandler",
+      "type": "class",
+      "attributes": [
+        "irsert: Sting"
+      ],
+      "methods": [
+        "DbUsertHander(Deutis)",
+        "add(Eniy):int",
+        "getAK):ArrayListEntly>",
+        "get(String, String):ArTayList-Entity>",
+        "getByEma(String):ArrayList<Enttyx",
+        "getByUsername(String):ArrayListEntiy>",
+        "update():int",
+        "Temove(String):boolean",
+        "tolnsertString(User):String"
+      ],
+      "confidence": 0.9593890905380249,
+      "bbox": [
+        3.0,
+        458.0,
+        230.0,
+        706.0
+      ]
+    },
+    {
+      "name": "CDbPurchaseHandler",
+      "type": "class",
+      "attributes": [
+        "handlersDB",
+        "insert. Sting"
+      ],
+      "methods": [
+        "DbPurchas efander(Deutis,Aromoionh ander)",
+        "add(Entty):int",
+        "getA):ArrayList<Ertty>",
+        "getbyDSring):ArrayListeEnity>",
+        "getbyOwner(String):ArrayListEntity>",
+        "getbyPromolion(String):ArrayList<Ertty>",
+        "getColumn(Sting,Sting):ArayListEntty>",
+        "update():int",
+        "remove(String):boolean",
+        "toinsertString(Purchase):String"
+      ],
+      "confidence": 0.9656346440315247,
+      "bbox": [
+        755.0,
+        459.0,
+        1004.0,
+        725.0
+      ]
+    },
+    {
+      "name": "CDbCategoryHandler",
+      "type": "class",
+      "attributes": [
+        "handlersDB",
+        "a insert String"
+      ],
+      "methods": [
+        "DbCategoryHandler(Deutis)",
+        "add(Entty):int",
+        "getA):ArrayListErtty>",
+        "getrtjATayListeCategory>",
+        "update():int",
+        "remove(Sting):boo'ean"
+      ],
+      "confidence": 0.9565744400024414,
+      "bbox": [
+        246.0,
+        461.0,
+        407.0,
+        652.0
+      ]
+    }
+  ]
+}

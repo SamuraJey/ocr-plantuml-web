@@ -1,0 +1,42 @@
+'https://github.com/SijmenHuizenga/ESD_weerstation/blob/master/Class%20Diagram%20Java.png
+'o
+@startuml
+package pkg {
+  interface SerialEvent {
+    + serialMessageReceived(data: int[]) : void
+  }
+
+  interface Runnable {
+    + run() : void
+  }
+
+  class ArduinoReceiver {
+    - potMeterVal : int
+    - lightMeterVal : int
+    - tempMeterVal : int
+    - buttonStates : boolean[4]
+    + setup() : void
+    + draw() : void
+  }
+
+  class SerialReceiver {
+    - myPort : Serial
+    - buffer : ArrayList<Integer>
+    - listeners : ArrayList<SerialEvent>
+    - nextMsgId : int
+    - running : boolean
+    + SerialReceiver() : void
+    + addSerialEventListeners(e: SerialEvent) : boolean
+    + removeSerialEventListeners(e: SerialEvent) : boolean
+    + stop() : void
+    - doValidation(s: int[]) : boolean
+    + convertIntegers(integers: int< Integer>) : int[]
+    + toUnsigned(b: int) : int
+  }
+
+  ArduinoReceiver ..|> SerialEvent
+  SerialReceiver ..|> Runnable
+  ArduinoReceiver "1" -- "1" SerialReceiver
+  SerialReceiver "0" -- "0..*" SerialEvent
+}
+@enduml

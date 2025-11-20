@@ -1,0 +1,195 @@
+{
+  "image": "/home/samuraj/Documents/uml_diagramms/united-dataset/2.png",
+  "entities": [
+    {
+      "name": "Main",
+      "type": "class",
+      "attributes": [
+        "Class"
+      ],
+      "methods": [],
+      "confidence": 0.9492095112800598,
+      "bbox": [
+        433.0,
+        10.0,
+        580.0,
+        95.0
+      ]
+    },
+    {
+      "name": "Game",
+      "type": "class",
+      "attributes": [
+        "Class"
+      ],
+      "methods": [],
+      "confidence": 0.9391171336174011,
+      "bbox": [
+        433.0,
+        153.0,
+        579.0,
+        239.0
+      ]
+    },
+    {
+      "name": "JFrame",
+      "type": "class",
+      "attributes": [
+        "Class"
+      ],
+      "methods": [],
+      "confidence": 0.9446108937263489,
+      "bbox": [
+        889.0,
+        321.0,
+        1035.0,
+        408.0
+      ]
+    },
+    {
+      "name": "FikeReader",
+      "type": "class",
+      "attributes": [
+        "Class",
+        "Fields",
+        "configFile"
+      ],
+      "methods": [],
+      "confidence": 0.9421676993370056,
+      "bbox": [
+        26.0,
+        321.0,
+        171.0,
+        431.0
+      ]
+    },
+    {
+      "name": "GUI",
+      "type": "class",
+      "attributes": [
+        "Class"
+      ],
+      "methods": [],
+      "confidence": 0.9421038627624512,
+      "bbox": [
+        625.0,
+        321.0,
+        771.0,
+        408.0
+      ]
+    },
+    {
+      "name": "KeyListener",
+      "type": "class",
+      "attributes": [
+        "Class"
+      ],
+      "methods": [],
+      "confidence": 0.9327484965324402,
+      "bbox": [
+        244.0,
+        321.0,
+        387.0,
+        407.0
+      ]
+    },
+    {
+      "name": "Logic",
+      "type": "class",
+      "attributes": [
+        "Fields",
+        "Level",
+        "Lives",
+        "Score"
+      ],
+      "methods": [],
+      "confidence": 0.9275438189506531,
+      "bbox": [
+        434.0,
+        322.0,
+        579.0,
+        466.0
+      ]
+    },
+    {
+      "name": "GameObject",
+      "type": "class",
+      "attributes": [
+        "Fields",
+        "boundingBox"
+      ],
+      "methods": [],
+      "confidence": 0.9392330050468445,
+      "bbox": [
+        434.0,
+        514.0,
+        579.0,
+        622.0
+      ]
+    },
+    {
+      "name": "Brick",
+      "type": "class",
+      "attributes": [
+        "Class",
+        "GameObjedt"
+      ],
+      "methods": [],
+      "confidence": 0.9410207271575928,
+      "bbox": [
+        531.0,
+        705.0,
+        673.0,
+        803.0
+      ]
+    },
+    {
+      "name": "Wall",
+      "type": "class",
+      "attributes": [
+        "Class",
+        "→GameObjed"
+      ],
+      "methods": [],
+      "confidence": 0.9412065744400024,
+      "bbox": [
+        722.0,
+        706.0,
+        866.0,
+        803.0
+      ]
+    },
+    {
+      "name": "Paddle",
+      "type": "class",
+      "attributes": [
+        "Class",
+        "GameObjet"
+      ],
+      "methods": [],
+      "confidence": 0.9400272369384766,
+      "bbox": [
+        337.0,
+        706.0,
+        484.0,
+        804.0
+      ]
+    },
+    {
+      "name": "Ball",
+      "type": "class",
+      "attributes": [
+        "Class",
+        "→GameObjet"
+      ],
+      "methods": [],
+      "confidence": 0.9106664061546326,
+      "bbox": [
+        145.0,
+        706.0,
+        291.0,
+        803.0
+      ]
+    }
+  ]
+}
